@@ -1,0 +1,178 @@
+/*
+  tekijä: Samu Koponen
+  pvm: 7.6.2022
+  kurssi: Web-tekniikat, kesä 2022
+  Harjoitus 6
+*/
+
+/* Import Prompt and Alegreya (headings) */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Prompt:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+}
+body {
+  background-color:white;
+  text-align: center;
+  font-family: Prompt, Verdana, sans-serif;
+  font-size: 100%;
+}
+article.page {
+  background-color: aliceblue;
+  border: none; /*1px solid green;*/ /* Change color? */
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+}
+header {
+  background-color:black;
+  color:cornflowerblue;
+  font-size: 200%;
+  font-family: Alegreya, serif;
+  letter-spacing: 0.2em;
+  padding: 1em 0em;
+}
+nav, footer {
+  background-color:teal;
+  color:aliceblue;
+  height: 1.875em;
+}
+nav ul, footer ul {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+}
+nav li, footer li {
+  float: left;
+  padding: 0;
+}
+nav li span, footer li span {
+  float: left;
+  /*padding-right: 0.25em;*/
+  padding: 0 0.25em 0 0;
+}
+nav a, footer li {
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.5em;
+  /*
+    padding-top+bottom = (navbar height - line-height) / 2
+    = (1.875em - 1.5em) / 2
+  */
+  padding: 0.1875em 0.5em;
+}
+nav a:link, nav a:visited {
+  color:aliceblue;
+}
+nav a:hover {
+  background-color:cornflowerblue;
+}
+nav a:active {
+  color:deepskyblue;
+}
+nav a.active {
+  background-color:black;
+}
+/* Previously known as 'section' */
+section.clear {
+  clear: left;
+  width: 100%;
+  height: auto;
+}
+/* Styles for both sides */
+section section {
+  background-color: hsl(330, 30%, 96%);/* #f7f5ee;*/
+  border: 1px solid #ac9675;
+  border-radius: 6px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+  width: 40%;
+  overflow: hidden;
+}
+section.content-left {
+  float: left;
+  margin-right: 1.7%;
+  margin-left: 4%;
+}
+section.content-right {
+  float: right;
+  margin-right: 4%;
+  margin-left: 1.7%;
+}
+#naama {
+  width: 60%;
+  height: auto;
+  margin-bottom: 6%;
+}
+section p {
+  /*
+    Alternative for container padding
+    width: 90%;
+    margin: 1em 0.875em 0.5em;
+  */
+  text-align: left;
+}
+section p span {
+  padding: 0;
+  vertical-align: baseline;
+}
+section code {
+  color: dimgray;
+  font-size: 1rem;
+}
+section ul {
+  text-align: left;
+  margin: 0.375em;
+}
+section li span {
+  padding-left: 0.125em;
+}
+section h2 {
+  color:teal;
+  font-family: Alegreya, serif;
+  text-align: center;
+  padding: 0.75em 0;
+}
+section h2 span {
+  padding-right: 0.25em;
+  vertical-align: middle;
+}
+section a {
+  text-decoration: none;
+}
+section a:link, section a:visited {
+  color:cornflowerblue;
+}
+section a:hover {
+  color:blue;
+}
+section a:active {
+  color:deepskyblue;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*
+  Following additional rules are from:
+  https://developers.google.com/fonts/docs/material_icons#styling_icons_in_material_design
+*/
+
+/* Rules for sizing the icon. */
+.material-icons.md-16 { font-size: 16px; } /* Not included in source */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

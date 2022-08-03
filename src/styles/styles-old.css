@@ -1,0 +1,51 @@
+/*
+  Old styles used only in harj5/harrastukset.html and harj5/portfolio.html. 
+  A kind of merge to put old styled content as is to new #content div.
+*/
+
+section h2 {
+  background-color:teal;
+  color:aliceblue;
+  font-family: Alegreya, serif;
+  text-align: center;
+  margin: 0px;
+  padding: 3px 0px;
+}
+h3 {
+  color:teal;
+  font-family: Alegreya, serif;
+}
+section p, section ul {
+  text-align: left;
+  margin: 15px 30px;
+}
+table, th, td {
+  text-align: left;
+  font-size: 10pt;
+  border: none;
+  border-collapse: collapse;
+  margin: auto;
+}
+th, td {
+  margin-top: 0px;
+  padding: 3px;
+}
+.toBeContinued {
+  color:slategrey;
+  text-align: center;
+  font-style: italic;
+}
+.hide {
+  display: none;
+}
+/*
+  Setting margin or padding:
+  margin: a b c d;
+  -> top=a right=b bottom=c left=d
+  margin: a b c;
+  -> top=a right=b bottom=c left=b
+  margin: a b;
+  -> top=a right=b bottom=a left=b
+  margin: a;
+  -> top=a right=a bottom=a left=a
+*/
