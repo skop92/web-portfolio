@@ -1,8 +1,7 @@
 /*
   tekijä: Samu Koponen
-  pvm: 7.6.2022
   kurssi: Web-tekniikat, kesä 2022
-  Harjoitus 6
+  Harjoitustyö
 */
 
 /* Import Prompt and Alegreya (headings) */
@@ -19,7 +18,7 @@ body {
 }
 article.page {
   background-color: aliceblue;
-  border: none; /*1px solid green;*/ /* Change color? */
+  border: none;
   margin: 0 auto;
   width: 90%;
   height: auto;
@@ -88,7 +87,7 @@ section section {
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 2%;
-  width: 40%;
+  /*width: 40%;*/
   overflow: hidden;
 }
 section.content-left {
@@ -101,10 +100,14 @@ section.content-right {
   margin-right: 4%;
   margin-left: 1.7%;
 }
+section.content-mid {
+  margin: 2% 4%;
+}
 #naama {
-  width: 60%;
+  float: right;
+  width: 30%;
   height: auto;
-  margin-bottom: 6%;
+  margin-left: 4%;
 }
 section p {
   /*
