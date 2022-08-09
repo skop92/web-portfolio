@@ -6,6 +6,7 @@
   <meta name="description" content="Web portfolio">
   <meta name="author" content="Samu Koponen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../lightbox2/dist/css/lightbox.min.css">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
   <!--<link rel="stylesheet" type="text/css" href="styles/styles-old.css">-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,7 +48,7 @@
           lokijärjestelmineen sekä vähän myös sovelluskehitystä.
           Näistä muutama kuva alla.
         </p>
-        <p>
+        <p class="hide">
           Minulle tämän projektin tekeminen osoitti, että ohjelmistoprojektit ovat mielenkiintoisia, haastavia ja palkitsevia. 
           Pidin erityisesti projektin toimeksiannosta, jonka mukaan projektiryhmämme toimisi kuten yritys, 
           joka aloittaa keskustelufoorumin jatkokehityksen asiakkaan toiveiden mukaan. 
@@ -80,7 +81,21 @@
             Henkilökohtainen loppuraporttini (tulossa html-muotoiseksi liitteeksi)
           </li>
         </ul>
-        <table>
+
+        <a href="images/sssk-01-aloitusvalikko.png" data-lightbox="sssk" data-title="Aloitusvalikko käynnistyksen jälkeen">
+          <img src="images/sssk-01-aloitusvalikko.png" alt="Ohjelma käynnistettynä" style="max-width:450px;max-height:300px;">
+        </a>
+        <a href="images/sssk-02-sanakoe.png" data-lightbox="sssk" data-title="Kolmen sanan sanakoe tehty" class="hide">
+          <img src="images/sssk-02-sanakoe.png" alt="Sanakoe tehty" style="max-width:150px;max-height:100px;">
+        </a>
+        <a href="images/sssk-03-g-tulostus.png" data-lightbox="sssk" data-title="Tulostetaan g-kirjaimella alkavat sanat" class="hide">
+          <img src="images/sssk-03-g-tulostus.png" alt="g-alkuiset sanat tulostettu" style="max-width:150px;max-height:100px;">
+        </a>
+        <a href="images/sssk-04-uusi-sana.png" data-lightbox="sssk" data-title="Uuden sanan lisääminen sanakirjaan" class="hide">
+          <img src="images/sssk-04-uusi-sana.png" alt="Sana lisätty" style="max-width:150px;max-height:100px;">
+        </a>
+
+        <table class="hide">
           <tr>
             <th>Palvelimen kuvaus</th>
             <th>Näyte varmuuskopioinnista</th>
@@ -180,5 +195,7 @@
     </footer>
 
   </article> <!-- page end -->
+
+  <script src="../lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
