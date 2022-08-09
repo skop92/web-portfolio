@@ -20,7 +20,7 @@ article.page {
   background-color: aliceblue;
   border: none;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   height: auto;
 }
 header {
@@ -73,42 +73,36 @@ nav a:active {
 nav a.active {
   background-color:black;
 }
-/* Previously known as 'section' */
+/*
+    ** SECTION STYLES **
+*/
 section.clear {
   clear: left;
   width: 100%;
   height: auto;
 }
-/* Styles for both sides */
-section section {
-  background-color: hsl(330, 30%, 96%);/* #f7f5ee;*/
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Layout */
+.front-page {
+  background-color: hsl(240, 29%, 92%);
   border: 1px solid #ac9675;
   border-radius: 6px;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin: 2% 4%;
   padding: 2%;
   /*width: 40%;*/
   overflow: hidden;
-}
-section.content-left {
-  float: left;
-  margin-right: 1.7%;
-  margin-left: 4%;
-}
-section.content-right {
-  float: right;
-  margin-right: 4%;
-  margin-left: 1.7%;
-}
-section.content-mid {
-  margin: 2% 4%;
 }
 #naama {
   float: right;
   width: 30%;
   height: auto;
-  margin-left: 4%;
+  margin: 0 0 3% 3%;
 }
+/* Content styles */
 section p {
   /*
     Alternative for container padding
@@ -153,11 +147,6 @@ section a:hover {
 }
 section a:active {
   color:deepskyblue;
-}
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 /*
