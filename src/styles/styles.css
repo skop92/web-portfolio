@@ -96,6 +96,17 @@ section.clear {
   /*width: 40%;*/
   overflow: hidden;
 }
+.pf-large {
+  display: inline-block;
+  background-color: #8a8ac7;
+  border: 1px solid #8a8ac7;
+  border-radius: 9px;
+  margin: 2%;
+  padding: 2%;
+  width: 40%;
+  height: 660px;
+  overflow: hidden;
+}
 #naama {
   float: right;
   width: 30%;
@@ -147,6 +158,9 @@ section a:hover {
 }
 section a:active {
   color:deepskyblue;
+}
+.hide {
+  display: none;
 }
 
 /*
