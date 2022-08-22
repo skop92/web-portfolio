@@ -110,6 +110,14 @@ section.clear {
 .pf-content-large {
   width: 100%;
   height: 480px;
+  background-color: rgba(229, 229, 241, 0.6);
+}
+.pf-container-large.p-01 {
+  /*background-color: rgba(229, 229, 241, 0.9);*/
+  background-image: url("../images/ff-03-etusivu.png");
+  background-size: 80% auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .gallery-container {
   width: 100%;
