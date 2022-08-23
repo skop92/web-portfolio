@@ -7,6 +7,13 @@
 /* Import Prompt and Alegreya (headings) */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Prompt:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --pos-c: 50%;
+  --pos-1p2: 35%;
+  --pos-2p2: 65%;
+  --pos-1p3: 20%;
+  --pos-3p3: 80%;
+}
 * {
   margin: 0;
 }
@@ -110,14 +117,20 @@ section.clear {
 .pf-content-large {
   width: 100%;
   height: 480px;
-  background-color: rgba(229, 229, 241, 0.6);
+  background-color: rgba(229, 229, 241, 0.5);
 }
 .pf-container-large.p-01 {
   /*background-color: rgba(229, 229, 241, 0.9);*/
-  background-image: url("../images/ff-03-etusivu.png");
-  background-size: 80% auto;
+  background-image: url(../images/react-logo.png), url(../images/nodejs.png), url(../images/mongo.png),
+                    url(../images/react-logo.png), url(../images/nodejs.png),
+                    url(../images/docker-logo.png), url(../images/elastic-logo.svg), url(../images/elastic-logo.svg);
+  background-position: var(--pos-1p3) var(--pos-1p3), var(--pos-c) var(--pos-1p3), var(--pos-3p3) var(--pos-1p3),
+                       var(--pos-1p2) var(--pos-c), var(--pos-2p2) var(--pos-c),
+                       var(--pos-1p3) var(--pos-3p3), var(--pos-c) var(--pos-3p3), var(--pos-3p3) var(--pos-3p3);
+  /*background-position: 20% 35%, 50% 35%, 80% 35%,
+                       35% 65%, 65% 65%;*/
+  background-size: 20%;/*160px;*/
   background-repeat: no-repeat;
-  background-position: center;
 }
 .gallery-container {
   width: 100%;
