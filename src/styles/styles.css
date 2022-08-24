@@ -7,12 +7,18 @@
 /* Import Prompt and Alegreya (headings) */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Prompt:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* Background image position in pf-container */
 :root {
   --pos-c: 50%;
   --pos-1p2: 35%;
   --pos-2p2: 65%;
   --pos-1p3: 20%;
   --pos-3p3: 80%;
+  --pos-b: 96%;
+  --pos-1p5: 4%;
+  --pos-2p5: 27%;
+  --pos-4p5: 73%;
+  --pos-5p5: 96%;
 }
 * {
   margin: 0;
@@ -99,74 +105,71 @@ section.clear {
   border: 1px solid #ac9675;
   border-radius: 6px;
   margin: 2% 4%;
-  padding: 2%;
   /*width: 40%;*/
   overflow: hidden;
 }
 .pf-container-large {
   display: inline-block;
-  background-color: hsl(240, 29%, 92%);
+  background-color: rgb(229, 229, 241);
   /*border: 1px solid #8a8ac7;*/
   border-radius: 9px;
   margin: 2%;
-  /*padding: 2%;*/
   width: 45%;
   height: 660px;
   overflow: hidden;
 }
-.pf-content-large {
+.pf-content-top-large {
   width: 100%;
-  height: 480px;
-  background-color: rgba(229, 229, 241, 0.5);
+  height: 550px;
 }
-.pf-container-large.p-01 {
-  /*background-color: rgba(229, 229, 241, 0.9);*/
+.pf-content-bottom-large {
+  width: 100%;
+  height: 110px;
+}
+.pf-container-large.p-010 {
   background-image: url(../images/react-logo.png), url(../images/nodejs.png), url(../images/mongo.png),
-                    url(../images/react-logo.png), url(../images/nodejs.png),
-                    url(../images/docker-logo.png), url(../images/elastic-logo.svg), url(../images/elastic-logo.svg);
-  background-position: var(--pos-1p3) var(--pos-1p3), var(--pos-c) var(--pos-1p3), var(--pos-3p3) var(--pos-1p3),
-                       var(--pos-1p2) var(--pos-c), var(--pos-2p2) var(--pos-c),
-                       var(--pos-1p3) var(--pos-3p3), var(--pos-c) var(--pos-3p3), var(--pos-3p3) var(--pos-3p3);
-  /*background-position: 20% 35%, 50% 35%, 80% 35%,
-                       35% 65%, 65% 65%;*/
-  background-size: 20%;/*160px;*/
+                    url(../images/docker-logo.png), url(../images/elastic-logo.svg);
+  background-position: var(--pos-1p3) var(--pos-1p2), var(--pos-c) var(--pos-1p2), var(--pos-3p3) var(--pos-1p2),
+                       var(--pos-1p2) var(--pos-2p2), var(--pos-2p2) var(--pos-2p2);
+  background-size: 20%;
   background-repeat: no-repeat;
 }
-.gallery-container {
+.pf-content-bottom-large.p-01 {
+  background-image: url(../images/react-logo.png), url(../images/nodejs.png), url(../images/mongo.png),
+                    url(../images/docker-logo.png), url(../images/elastic-logo.svg);
+  background-position: var(--pos-1p5) var(--pos-c), var(--pos-2p5) var(--pos-c), var(--pos-c) var(--pos-c),
+                       var(--pos-4p5) var(--pos-c), var(--pos-5p5) var(--pos-c);
+  background-size: 15%;
+  background-repeat: no-repeat;
+}
+.pf-text-content-large {
   width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*height: 480px;*/
+  /*background-color: rgba(229, 229, 241, 0.4);*/
 }
-/*
-.gallery-container a {
-  margin: 0;
-  padding: 0;
-  border-image-width: 0;
-}
-*/
-.gallery-heading {
-  /*background-color: aquamarine;*/
-  font-style: italic;
-}
-.pfl-img {
-  width: 24%;
-  height: auto;
-  margin: 0 0.5%;
+.pf-header-large {
+  display: inline-block;
 }
 #naama {
   float: right;
   width: 30%;
   height: auto;
-  margin: 0 0 3% 3%;
+  margin: 2%;
 }
 /* Content styles */
-section p, .gallery-heading {
+section p, .gallery-heading, .kwc {
   /*
     Alternative for container padding
     width: 90%;
     margin: 1em 0.875em 0.5em;
   */
-  padding: 0 4%;
+  margin: 2% 3%;
   text-align: left;
 }
+.kwt { font-weight: 700; }
+.kw { font-style: italic; }
 section p span {
   padding: 0;
   vertical-align: baseline;
@@ -177,7 +180,8 @@ section code {
 }
 section ul {
   text-align: left;
-  margin: 0.375em;
+  margin: 2%;
+  padding-left: 2.5em;
 }
 section li span {
   padding-left: 0.125em;
@@ -186,7 +190,7 @@ section h2 {
   color:teal;
   font-family: Alegreya, serif;
   text-align: center;
-  padding: 0.75em 0;
+  margin-top: 0.75em;
 }
 section h2 span {
   padding-right: 0.25em;
@@ -203,6 +207,13 @@ section a:hover {
 }
 section a:active {
   color:deepskyblue;
+}
+.pf-header-large a:hover {
+  text-decoration: underline solid teal 0.125em;
+  /*text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: teal;
+  text-decoration-thickness: 0.125em;*/
 }
 .hide {
   display: none;
@@ -227,3 +238,26 @@ section a:active {
 /* Rules for using icons as white on a dark background. */
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+/* Possibly useless */
+.gallery-container {
+  width: 100%;
+}
+/*
+.gallery-container a {
+  margin: 0;
+  padding: 0;
+  border-image-width: 0;
+}
+*/
+.gallery-heading {
+  /*background-color: aquamarine;*/
+  font-style: italic;
+}
+/* portfolio lightbox images */
+.pfl-img {
+  width: 24%;
+  height: auto;
+  margin: 0 0.5%;
+}
