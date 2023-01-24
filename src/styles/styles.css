@@ -15,10 +15,10 @@
   --pos-1p3: 20%;
   --pos-3p3: 80%;
   --pos-b: 96%;
-  --pos-1p5: 4%;
-  --pos-2p5: 27%;
-  --pos-4p5: 73%;
-  --pos-5p5: 96%;
+  --pos-1p5: 2%;
+  --pos-2p5: 26%;
+  --pos-4p5: 74%;
+  --pos-5p5: 98%;
 }
 * {
   margin: 0;
@@ -146,7 +146,7 @@ section.clear {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  /*height: 480px;*/
+  height: 440px;
   /*background-color: rgba(229, 229, 241, 0.4);*/
 }
 .pf-header-large {
@@ -159,15 +159,19 @@ section.clear {
   margin: 2%;
 }
 /* Content styles */
-section p, .gallery-heading, .kwc {
+section p, .gallery-heading {
   /*
     Alternative for container padding
     width: 90%;
     margin: 1em 0.875em 0.5em;
   */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin: 2% 3%;
   text-align: left;
 }
+.kwc { margin: 2% 3%; text-align: left; }
 .kwt { font-weight: 700; }
 .kw { font-style: italic; }
 section p span {
