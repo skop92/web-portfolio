@@ -27,7 +27,7 @@ time, mark, audio, video {
     border: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
+    vertical-align: bottom; /* changed "baseline" --> "bottom" */
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -86,30 +86,25 @@ header {
     font-size: 200%;
     font-family: Alegreya, serif;
     letter-spacing: 0.2em;
-    padding: 1em 0em;
+    padding: 1em;
 }
 
 nav, footer {
     background-color: teal;
     color: aliceblue;
-    height: 1.875em;
 }
 
 nav ul, footer ul {
-    list-style-type: none;
     display: inline-block;
     padding: 0;
-    overflow: hidden;
 }
 
 nav li, footer li {
-    float: left;
+    display: inline-block;
     padding: 0;
 }
 
 nav li span, footer li span {
-    float: left;
-    /*padding-right: 0.25em;*/
     padding: 0 0.25em 0 0;
 }
 
@@ -143,19 +138,6 @@ nav a.active {
 /*
     ** SECTION STYLES **
 */
-
-section.clear {
-    clear: left;
-    width: 100%;
-    height: auto;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 /* Layout */
 .front-page {
     background-color: hsl(240, 29%, 92%);
