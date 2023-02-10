@@ -215,12 +215,6 @@ nav a.active {
     height: 90vh;*/
 }
 
-@media (min-width: 992px){
-    .side-nav {
-        display: block;
-    }
-}
-
 .side-nav li, .side-nav span {
     display: block;
     padding: 0.375em 0 0 0;
@@ -269,12 +263,6 @@ nav a.active {
     flex-shrink: 1;
 }
 
-@media (min-width: 992px){
-    .pf-container-large {
-        margin: 1em 1.25em;
-    }
-}
-
 /*
 .pf-container-large {
     margin: 1em 1.5em;
@@ -295,16 +283,12 @@ nav a.active {
     /*max-height: 4.5em;*/
 }
 
-@media (min-width: 1200px){
-    .img-container img {
-        max-width: 6em;
-    }
-}
-
 .pf-header {
     display: inline-block;
     margin: 0 0 1em;
     font-weight: 700;
+    padding: 0.25em 1.75em;
+    background-color: var(--color-gb);
 }
 
 #naama {
@@ -343,7 +327,8 @@ nav a.active {
 
 .portfolio-article {
     text-align: left;
-    padding: 1em 1.5em;
+    /*padding: 1em 1.5em;*/
+    padding-bottom: 1em;
 }
 
 .portfolio-article p {
@@ -356,16 +341,9 @@ nav a.active {
     padding-top: 1em;
 }
 
-@media (min-width: 992px){
-    .portfolio-article {
-        /*padding: 0 3.5em 1em 5em;*/
-        padding: 0 0 1em 0;
-    }
-}
-
 .list-header, .list {
     display: block;
-    padding: 0.5em 4em 0 6em;
+    padding: 0.5em 1em 0 1em;
 }
 
 ul.list {
@@ -401,11 +379,6 @@ section h2 {
     letter-spacing: 0.0625em;
     text-align: center;
     padding: 0.875em 0;
-}
-
-h3 {
-    padding: 0.25em 1.75em;
-    background-color: var(--color-gb);
 }
 
 section h2 span {
@@ -457,24 +430,76 @@ section a:active {
 
 /* portfolio lightbox images */
 .pfl-img {
-    /*width: 270px;
-    height: 270px;*/
-    /*border: 0.065em solid rgb(78, 100, 93);*/
     border: 0.065em solid var(--color-g5);
     padding: 0.125em;
     background-color: var(--color-gf);
     /*border-radius: 0.125em;*/
-    max-width: 272px;
-    max-height: 272px;
-    /*height: auto;
-    margin: auto 1em;
-    width: 24%;
-    height: auto;
-    margin: 0 0.5%;*/
+    max-width: 128px;
+    max-height: 128px;
+    transition: background-color 100ms ease-in-out;
+}
+
+.pfl-img:hover {
+    background-color: var(--color-c9);
 }
 
 .hide {
     display: none;
+}
+
+/*
+- - - - RESPONSIVE RULES - - - -
+*/
+
+@media (min-width: 576px){
+    .pfl-img {
+        max-width: 176px;
+        max-height: 176px;    
+    }
+}
+
+@media (min-width: 768px){
+    .pfl-img {
+        max-width: 208px;
+        max-height: 208px;    
+    }
+}
+
+@media (min-width: 992px){
+    .side-nav {
+        display: block;
+    }
+    .pf-container-large {
+        margin: 1em 1.25em;
+    }
+    .portfolio-article {
+        /*padding: 0 3.5em 1em 5em;*/
+        padding: 0 0 1em 0;
+    }
+    /*.pfl-img {
+        max-width: 208px;
+        max-height: 208px;    
+    }*/
+    .list-header, .list {
+        padding: 0.5em 4em 0 6em;
+    }
+}
+
+@media (min-width: 1200px){
+    .img-container img {
+        max-width: 6em;
+    }
+    .pfl-img {
+        max-width: 240px;
+        max-height: 240px;    
+    }
+}
+
+@media (min-width: 1400px){
+    .pfl-img {
+        max-width: 272px;
+        max-height: 272px;    
+    }
 }
 
 /*
@@ -521,52 +546,3 @@ section a:active {
 .material-icons.md-light.md-inactive {
     color: rgba(255, 255, 255, 0.3);
 }
-
-
-/* Other possibly useless styles */
-/*
-.gallery-container {
-    width: 100%;
-}
-*/
-/*
-.gallery-container a {
-    margin: 0;
-    padding: 0;
-    border-image-width: 0;
-}
-*/
-
-/* Background image position in pf-container */
-/*
-:root {
-    --pos-c: 50%;
-    --pos-1p2: 35%;
-    --pos-2p2: 65%;
-    --pos-1p3: 20%;
-    --pos-3p3: 80%;
-    --pos-b: 96%;
-    --pos-1p5: 2%;
-    --pos-2p5: 26%;
-    --pos-4p5: 74%;
-    --pos-5p5: 98%;
-}
-
-.pf-container-large.p-010 {
-    background-image: url(../images/react-logo.png), url(../images/nodejs.png), url(../images/mongo.png),
-        url(../images/docker-logo.png), url(../images/elastic-logo.svg);
-    background-position: var(--pos-1p3) var(--pos-1p2), var(--pos-c) var(--pos-1p2), var(--pos-3p3) var(--pos-1p2),
-        var(--pos-1p2) var(--pos-2p2), var(--pos-2p2) var(--pos-2p2);
-    background-size: 20%;
-    background-repeat: no-repeat;
-}
-
-.pf-content-bottom-large.p-01 {
-    background-image: url(../images/react-logo.png), url(../images/nodejs.png), url(../images/mongo.png),
-        url(../images/docker-logo.png), url(../images/elastic-logo.svg);
-    background-position: var(--pos-1p5) var(--pos-c), var(--pos-2p5) var(--pos-c), var(--pos-c) var(--pos-c),
-        var(--pos-4p5) var(--pos-c), var(--pos-5p5) var(--pos-c);
-    background-size: 15%;
-    background-repeat: no-repeat;
-}
-*/

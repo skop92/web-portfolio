@@ -1,0 +1,81 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Keskustelufoorumin kehitys</h2>
+
+        <p>
+            Tämän projektin keskeinen tehtävänanto oli kehittää internettiin julkaistavaa keskustelufoorumia,
+            josta oli jo valmiiksi joten kuten toimiva pohjaratkaisu.
+            Ryhmään kuului kuusi jäsentä ja aikaa projektille oli noin kolme kuukautta.
+            Osa ryhmästä keskittyi testaamiseen, osa sovelluskehitykseen ja projektijohtaja projektin hallintaan.
+            Omaan osaani kuului tuotanto- ja testausympäristön hallinta pilvessä olevan palvelimen virtuaalikoneilla
+            lokijärjestelmineen sekä vähän myös sovelluskehitystä.
+            Näistä muutama kuva alla.
+        </p>
+        <p>
+            Minulle tämän projektin tekeminen osoitti, että ohjelmistoprojektit ovat mielenkiintoisia, haastavia ja
+            palkitsevia.
+            Pidin erityisesti projektin toimeksiannosta, jonka mukaan projektiryhmämme toimisi kuten yritys,
+            joka aloittaa keskustelufoorumin jatkokehityksen asiakkaan toiveiden mukaan.
+            Siten projektiin oli suhteellisen helppoa suhtautua kuin kyseessä olisi oikea yritys tekemässä oikeaa
+            laskutettavaa projektia.
+            Kokemukseen kuului tuntea yrityksen vapaus tehdä asiat parhaaksi katsomallamme tavalla
+            unohtamatta vastuuta asiakkaalle luvatusta tarjouksesta.
+            Vapaus ilmeni tässä tapauksessa mahdollisuutena valita aihe, johon seventyä enemmän,
+            kun asiakkaan toiveisiin oli vastattu.
+            Nämäkin asiat huomioiden ehdin saada todentuntuisen kokemuksen siitä,
+            millaista voisi olla työskentely sovelluskehittäjänä pienessä tiimissä tai yrityksessä.
+        </p>
+        <p class="hide">
+            Projekti kesti noin kolme kuukautta ja toteutettiin samaan tapaan kuin moni ohjelmointiprojekti, eli
+            projektina GitLab:ssa.
+            Käytössä oli projektinhalintaan tarkoitettuja työkaluja, lähdekoodin versiohallinta ja
+            testausympäristöön ulottuva CI/CD-ketju.
+        </p>
+
+        <span class="list-header">Lisää projektista:</span>
+        <ul class="list">
+            <li>
+                <a href="https://ff2020s-team2.pages.labranet.jamk.fi/core/" target="_blank">Projektin avoin
+                    dokumentaatio<span class="material-icons md-16">open_in_new</span></a>
+            </li>
+            <li class="hide">
+                <a href="http://testconduit.abuser.eu/" target="_blank">Lähtötilanne<span
+                    class="material-icons md-16">open_in_new</span></a>
+            </li>
+            <li>
+                <a href="https://vm3947.kaj.pouta.csc.fi/" target="_blank">Testaa tuotosta (keskustelufoorumi)<span
+                    class="material-icons md-16">open_in_new</span></a>
+            </li>
+            <li>
+                Henkilökohtainen loppuraporttini (tulossa html-muotoisena tähän artikkeliin / liitteeksi?)
+            </li>
+        </ul>
+
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+                <a href="/images/ff-01-palvelimen-kuvaus.png" data-lightbox="ff" data-title="Virtuaalikoneet palvelimella">
+                    <img class="pfl-img" src="/images/ff-01-palvelimen-kuvaus.png" alt="Virtuaalikoneet palvelimella"
+                        title="Virtuaalikoneet palvelimella">
+                </a>
+                <a href="/images/ff-02-back-up-script.png" data-lightbox="ff" data-title="Näyte varmuuskopiointiskriptistä">
+                    <img class="pfl-img" src="/images/ff-02-back-up-script.png"
+                        alt="Näyte varmuuskopiointiskriptistä" title="Näyte varmuuskopiointiskriptistä">
+                </a>
+            </div>
+        </div>
+    </article> 
+</section>
+
+<%- include('partials/footer')%>

@@ -1,0 +1,56 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Saksa-suomi-sanakirja - Oma projekti</h2>
+
+        <p>
+            Tämä sanakirjaohjelma toimii tekstipohjaisella käyttöliittymällä komentoriviltä.
+            Sen käyttäjä aloittaa sanakirjan kirjoittamisen tyhjästä ja on kokonaan itse vastuussa sen
+            sisällön oikeellisuudesta.
+            Sanakirja onkin tarkoitettu oman sanaston kehittämistä varten.
+            Tätä tukee mahdollisuus tehdä sanakokeita!
+        </p>
+        <p>
+            Oheisia kuvia klikkaamalla kuvat näkyvät suurempina.
+            Valikoissa "E" tarkoittaa toimintoa, jota ei ole vielä ohjelmoitu.
+        </p>
+
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+
+                <a href="/images/sssk-01-aloitusvalikko.png" data-lightbox="sssk"
+                    data-title="Aloitusvalikko käynnistyksen jälkeen">
+                    <img class="pfl-img" src="/images/sssk-01-aloitusvalikko.png"
+                        alt="Ohjelma käynnistettynä">
+                </a>
+                <a href="/images/sssk-02-sanakoe.png" data-lightbox="sssk"
+                    data-title="Kolmen sanan sanakoe tehty">
+                    <img class="pfl-img" src="/images/sssk-02-sanakoe.png" alt="Sanakoe tehty">
+                </a>
+                <a href="/images/sssk-03-g-tulostus.png" data-lightbox="sssk"
+                    data-title="Tulostetaan g-kirjaimella alkavat sanat">
+                    <img class="pfl-img" src="/images/sssk-03-g-tulostus.png"
+                        alt="g-alkuiset sanat tulostettu">
+                </a>
+                <a href="/images/sssk-04-uusi-sana.png" data-lightbox="sssk"
+                    data-title="Uuden sanan lisääminen sanakirjaan">
+                    <img class="pfl-img" src="/images/sssk-04-uusi-sana.png" alt="Sana lisätty">
+                </a>
+            </div>
+        </div>
+
+    </article>
+</section>
+
+<%- include('partials/footer')%>

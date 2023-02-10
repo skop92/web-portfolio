@@ -1,0 +1,15 @@
+<nav>
+    <ul> <!-- NO WHITESPACE ALLOWED! -->
+        <li><a 
+            <% if (active === "home") { %>
+                class="active"
+            <% } %>
+            href="/"><span class="material-icons">home</span>Etusivu</a>
+        </li><li><a 
+            <% if (active === "portfolio") { %>
+                class="active"
+            <% } %>            
+            href="/portfolio"><span class="material-icons">school</span>Portfolio</a>
+        </li><!--<li><a href="/harrastukset"><span class="material-icons">kayaking</span>Harrastukset</a></li>-->
+    </ul>
+</nav>
