@@ -108,12 +108,6 @@ table {
 /* CSS reset end */
 
 
-/* Import Prompt and Alegreya (headings) */
-/* @import pitää olla käytännössä tiedoston ensimmäinen ajettava koodirivi ! */
-/*@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Prompt:ital,wght@0,100;0,400;0,500;0,600;0,700;1,400;1,700&display=swap');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,400;0,500;0,600;0,700;1,400;1,700&display=swap');*/
-
 html {
     background-color: var(--color-c6);
 }
@@ -144,16 +138,7 @@ header {
     letter-spacing: 0.2em;
     padding: 0.875em;
 }
-/*
-h2 {
-    font-size: 150%;
-}
 
-h3 {
-    font-size: 125%;
-    border-bottom: 3px solid Var(--color-ga);
-}
-*/
 em {
     font-weight: 600;
     font-style: normal;
@@ -177,7 +162,6 @@ nav {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    /*z-index: 2;*/
 }
 
 nav li, footer li {
@@ -252,9 +236,6 @@ nav a.active {
     width: 160px;
     height: auto;
     margin: 1rem 0 0;
-    /*position: absolute;
-    right: 0;
-    z-index: 1;*/
 }
 
 .text-center {
@@ -275,7 +256,6 @@ nav a.active {
 
 .portfolio-overview h2 {
     display: inline-block;
-    /*width: 50%;*/
     border-bottom: 0.25rem solid var(--color-c3);
     color: var(--color-g3);
     letter-spacing: 0.0625em;
@@ -339,11 +319,6 @@ nav a.active {
     justify-content: center;
 }
 
-/* Ei käytössä? */
-.key-word-title {
-    font-weight: 700;
-}
-
 .key-word {
     color: var(--color-g2);
     border-radius: 0.625em;
@@ -375,8 +350,6 @@ nav a.active {
 .front-page,
 .portfolio-article {
     text-align: left;
-    /*padding: 1em 1.5em;*/
-    /*padding-bottom: 1em;*/
     padding: 0 0 1em 0;
 }
 
@@ -393,16 +366,10 @@ nav a.active {
 
 .front-page h2,
 .portfolio-article h2 {
-    /*background-color: var(--color-c5);*/
     font-size: 175%;
     margin: 0.75rem 1.25rem 1.25rem;
 }
-/*
-.front-page h2:first-of-type,
-.portfolio-article h2:first-of-type {
-    margin-top: 0;
-}
-*/
+
 .portfolio-article h3 {
     font-size: 140%;
     margin: 0.5rem 1.25rem;
@@ -415,31 +382,22 @@ nav a.active {
 
 .front-page p,
 .portfolio-article p {
-    /*padding: 0 0 0.75em 0;*/
     line-height: 1.15;
     margin: 0 1.75rem 1rem;
-    /*max-width: 960px;*/
 }
-/*
-.portfolio-article p:first-of-type {
-    padding-top: 1em;
-}
-*/
+
 .list-header, .list {
     display: block;
-    /*padding: 0.5em 1em 0 1em;*/
     padding: 0 0 0 1em;
     margin: 0 1.75rem 1rem;
 }
 
 ul.list {
     list-style-type: square;
-    /*list-style-position: inside;*/
     list-style-position: outside;
 }
 
 .list li {
-    /*padding-left: 0.875em;*/
     line-height: 1.15;
 }
 
@@ -452,17 +410,7 @@ section li span {
     padding-left: 0.125em;
     vertical-align: baseline;
 }
-/*
-.front-page h2 {
-    background-color: var(--color-c5);
-    color: var(--color-gf);
-    font-family: Alegreya, serif;
-    font-weight: 700;
-    letter-spacing: 0.0625em;
-    text-align: center;
-    padding: 0.875em 0;
-}
-*/
+
 .front-page h2 span {
     padding-right: 0.5em;
     vertical-align: middle;
@@ -496,7 +444,6 @@ a:hover.pf-header {
     color: var(--color-g5);
     font-style: italic;
     padding: 0 0 0.5rem;
-    /*text-align: center;*/
 }
 
 .pfl-img-container {
@@ -511,7 +458,6 @@ a:hover.pf-header {
     border: 0.065em solid var(--color-g5);
     padding: 0.125em;
     background-color: var(--color-gf);
-    /*border-radius: 0.125em;*/
     max-width: 128px;
     max-height: 128px;
     transition: background-color 100ms ease-in-out;
@@ -654,24 +600,3 @@ a:hover.pf-header {
     color: rgba(255, 255, 255, 0.3);
 }
 
-
-/* Poistunee käytöstä */
-/*.front-page {
-    background-color: hsl(240, 29%, 92%);
-    border: 1px solid #ac9675;
-    border-radius: 6px;
-    margin: 2% 4%;
-    width: 40%;
-    overflow: hidden;
-}
-
-#naama {
-    float: right;
-    width: 30%;
-    height: auto;
-    margin: 2rem;
-    margin: 2%;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-}
-*/
