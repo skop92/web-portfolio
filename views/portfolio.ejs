@@ -1,0 +1,112 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <section class="portfolio-overview">
+
+
+        <h2>Tiimiprojektit</h2>
+
+        <div class="project-container">
+            <article class="pf-container pf-container-large">
+                <a href="/portfolio-articles/aida" target="_self" class="pf-header">
+                        <span>Tekoäly- ja data-analytiikkaprojekti</span>
+                </a>
+                <div class="img-container">
+                    <img src="/images/jupyter-logo-mod.png" alt="Jupyter logo" /><img
+                         src="/images/scikit-learn-logo-small.png" alt="scikit learn logo" />
+                </div>
+                <div class="key-word-container">
+                    <span class="key-word tech">Jupyter Notebook</span>
+                    <span class="key-word term">Data story</span>
+                    <span class="key-word tech">pandas</span>
+                    <span class="key-word tech">NumPy</span>
+                    <span class="key-word tech">scikit-learn</span>
+                    <span class="key-word tech">Python</span>
+                </div>
+            </article>
+
+            <article class="pf-container pf-container-large">
+                <a href="/portfolio-articles/conduit" target="_self" class="pf-header">
+                    <span>Keskustelufoorumin kehitys</span>
+                </a>
+                <div class="img-container">
+                    <img src="/images/docker-logo.png" alt="Docker logo" /><img
+                         src="/images/elastic-logo.svg" alt="ELK-stack logo" role="img" /><img
+                         src="/images/react-logo.png" alt="React logo" /><img
+                         src="/images/nodejs.png" alt="Nodejs logo" /><img
+                         src="/images/mongo.png" alt="MongoDB logo" />
+                </div>
+                <div class="key-word-container">
+                    <span class="key-word tech">MERN Stack</span>
+                    <span class="key-word tech">Docker</span>
+                    <span class="key-word tech">Elastic Stack</span>
+                    <span class="key-word tech">CI/CD</span>
+                    <span class="key-word term">Ohjelmistotuotanto</span>
+                </div>
+            </article>
+        </div>
+
+
+        <h2>Omat projektit</h2>
+
+        <div class="personal-projects-container">
+            <article class="pf-container pf-container-small">
+                <a href="/portfolio-articles/web-portfolio" target="_self" class="pf-header">
+                    <span>Web-portfolio</span>
+                </a>
+                <div class="key-word-container">
+                    <span class="key-word tech">HTML</span>
+                    <span class="key-word tech">CSS</span>
+                    <span class="key-word tech">Node.js</span>
+                    <span class="key-word term">Responsive web design</span>
+                    <span class="key-word other">Jatkuvaa työstöä</span>
+                </div>
+            </article>
+
+            <article class="pf-container pf-container-small">
+                <a href="/portfolio-articles/sanakirja" target="_self" class="pf-header">
+                    <span>Saksa-suomi-sanakirja</span>
+                </a>
+                <div class="key-word-container">
+                    <span class="key-word tech">Python</span>
+                    <span class="key-word other">Pientä hauskaa</span>
+                </div>
+            </article>
+        </div>
+
+        <!--This section may be added later to make a visual skill chart-->
+        <div class="hide">
+            <h2>Aiheittain</h2>
+
+            <div class="topics-container">
+                <article class="pf-container pf-container-small">
+                    <a href="/portfolio-articles/kielet" target="_self" class="pf-header">
+                        <span>Ohjelmointikielet</span>
+                    </a>
+                    <div class="key-word-container">
+                        <span class="key-word tech">Python</span>
+                        <span class="key-word tech">JavaScript</span>
+                        <span class="key-word tech">C</span>
+                        <span class="key-word tech">Shell scripting</span>
+                    </div>
+                </article>
+
+                <article class="pf-container pf-container-small hide">
+                    <a href="/portfolio-articles/asdf" target="_self" class="pf-header">
+                        <span>Jotainnn</span>
+                    </a>
+                    <div class="key-word-container">
+                        <span class="key-word tech">Docker??</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section> <!-- portfolio-overview end -->
+</section>
+
+<%- include('partials/footer')%>

@@ -1,0 +1,75 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Saksa-suomi-sanakirja</h2>
+
+        <p>
+            Ohjelman kirjoitus on ajoittunut pääasiassa vuosille 2016-2017.
+        </p>
+        <p>
+            Tämä sanakirjaohjelma toimii tekstipohjaisella käyttöliittymällä komentoriviltä.
+            Sen käyttäjä aloittaa sanakirjan kirjoittamisen tyhjästä ja on kokonaan itse vastuussa sen
+            sisällön oikeellisuudesta.
+            Sanakirja onkin tarkoitettu oman sanaston kehittämistä varten.
+            Tätä tukee mahdollisuus tehdä sanakokeita!
+        </p>
+        <p>
+            Projektin motivaationa oli osin tarve koostaa saksan kielen alkeiden opiskelua tukeva 
+            sanalista, josta voisi kerrata siihen kirjattuja sanoja. Ehkä suurempana motivaationa oli 
+            ohjelmoinnin perusteista saatu innostus koodaamista kohtaan eli ohjelma on kirjoitettu 
+            myös "huvin vuoksi".
+        </p>
+        <p>
+            Aloitin ohjelman kirjoittamisen tyhjästä melko pian sen jälkeen, kun 
+            olin käynyt ohjelmoinnin perusteet Python-kielellä. Taustalla ei siis ollut 
+            juurikaan muuta ohjelmointiosaamista, mikä näkyy varmasti niin ohjelman koodista 
+            kuin myös käyttöliittymästä. Projektin aloittelijamaisesta toteutuksesta johtuen 
+            nykyään tekisin siinä monta asiaa todennäköisesti toisin. Jatkokehitys on kuitenkin ollut 
+            vähäistä, sillä sanakirja on varsinaisen käytön osalta käytännössä jo unohtunut.
+        </p>
+
+        <h3>Galleria</h3>
+        <p>
+            Galleriassa on ruutukaappauksia ohjelman ajosta komentorivillä. Valikoissa "E" tarkoittaa toimintoa, jota ei ole vielä ohjelmoitu.
+        </p>
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+
+                <a href="/images/sssk-01-aloitusvalikko.png" data-lightbox="sssk"
+                    data-title="Aloitusvalikko käynnistyksen jälkeen">
+                    <img class="pfl-img" src="/images/sssk-01-aloitusvalikko.png"
+                        alt="Ohjelma käynnistettynä" title="Aloitusvalikko käynnistyksen jälkeen">
+                </a>
+                <a href="/images/sssk-02-sanakoe.png" data-lightbox="sssk"
+                    data-title="Kolmen sanan sanakoe tehty">
+                    <img class="pfl-img" src="/images/sssk-02-sanakoe.png" alt="Sanakoe tehty"
+                        title="Kolmen sanan sanakoe tehty">
+                </a>
+                <a href="/images/sssk-03-g-tulostus.png" data-lightbox="sssk"
+                    data-title="Tulostetaan g-kirjaimella alkavat sanat">
+                    <img class="pfl-img" src="/images/sssk-03-g-tulostus.png"
+                        alt="g-alkuiset sanat tulostettu" title="Tulostetaan g-kirjaimella alkavat sanat">
+                </a>
+                <a href="/images/sssk-04-uusi-sana.png" data-lightbox="sssk"
+                    data-title="Uuden sanan lisääminen sanakirjaan">
+                    <img class="pfl-img" src="/images/sssk-04-uusi-sana.png" alt="Sana lisätty"
+                        title="Uuden sanan lisääminen sanakirjaan">
+                </a>
+            </div>
+        </div>
+
+    </article>
+</section>
+
+<%- include('partials/footer')%>

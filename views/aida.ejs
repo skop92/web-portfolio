@@ -1,0 +1,130 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Tekoäly- ja data-analytiikkaprojekti</h2>
+
+        <p>
+            Projektin toteutus tapahtui 12.9.-9.12.2022.
+        </p>
+        <p>
+            Tämä viiden hengen ryhmässä tehty projekti on käytännössä JAMK:n
+            projektikurssin tulosta. Tehtävänanto oli joustava antaen ryhmälle
+            mahdollisuuden tutkia dataa ja yrittää löytää liiketoiminnan kannalta
+            hyödyllistä tietoa käyttämällä ohjelmointiin perustuvia
+            data-analytiikan työkaluja.
+        </p>
+        <p>Tehtävänanto oli jaettu seuraaviin vaiheisiin:</p>
+        <ul class="list">
+            <li>Datan visualisointi</li>
+            <li>Datan esikäsittely</li>
+            <li>Koneoppimismallin ajo</li>
+            <li>Tulosten analysointi</li>
+            <li>Mallin kehittäminen</li>
+            <li>Mallin vieminen tuotantoon</li>
+        </ul>
+        <p>
+            Suurin osa projektista tehtiin käytännössä kirjoittamalla Python-koodia. 
+            Jo valmiiksi hyvästä Python-osaamisesta oli siis paljon apua.
+            Tosin itsellekin uutena asiana tutustuin 
+            Python-koodin kirjoittamiseen Jupyter Notebook -muodossa. Sen
+            myötä sain myös alustavan käsityksen siitä, miten AI/DA-projektin tuloksia
+            voi esitellä ja ns. datatarina (data story) on käsitteenä tuttu. 
+            Notebookien käyttöä pääsee katsomaan projektin yhteenvedoksi tehdystä 
+            <a href="/aida/html/docs/70-Jupyter-Book/index.html" target="_blank">
+                Jupyter Bookista<span class="material-icons md-16">open_in_new</span></a>.
+        </p>
+        <h3>Data</h3>
+        <p>
+            Projektissa tutkittu data käsitteli aurinkopaneeliasennuksia. Se sisälsi
+            miljoona riviä ja 78 saraketta, missä yksi rivi edusti yhden asennuksen tietoja. 
+            Asennusten data oli myös hyvin vaihtelevaa eli tietoja esimerkiksi puuttui 
+            osasta asennuksista.
+        </p>
+        <p>
+            Kaikki data löytyi yhdestä csv-tiedostosta, joka on saatavilla 
+            <a href="https://www.kaggle.com/datasets/arnavsharmaas/solar-panel-pv-system-dataset" 
+                target="_blank">
+                Kagglesta<span class="material-icons md-16">open_in_new</span></a>. 
+        </p>
+        <h3>Datan analysointi</h3>
+        <p>
+            Data-analyysissä käytettiin paljon Python-kielisiä kirjastoja, erityisesti
+            pandas, NumPy, Matplotlib ja seaborn -kirjastoja. Pandas ja NumPy osoittautuivat
+            tehokkaiksi välineiksi datan esikäsittelyvaiheessa, kun taas Matplotlib ja
+            seaborn olivat käytössä visualisoinnissa. Kaikki edellä mainitut kirjastot 
+            ovat vähintään kohtuullisen laajoja ja tehokkaita, minkä ansiosta itse 
+            kirjoitettuja koodirivejä kertyi melko vähän. Sen sijaan kirjastojen 
+            dokumentaatiot olivat kovassa käytössä.
+        </p>
+        <h3>Koneoppiminen</h3>
+        <p>
+            Koneoppimisen puolella pääsin hieman tutustumaan scikit-learn -kirjastoon.
+            Ilman aiempaa kokemusta koneoppimismalleista suuri osa koneoppimiseen käytetystä
+            ajasta meni perusteiden opetteluun. Monien kokeilujen myötä tuli myös jonkinlaisia
+            tuloksia. Selvää on kuitenkin se, että opittavaa jäi vielä paljon, mutta projekti
+            antoi kohtalaisen pohjan oppia jatkossa lisää.
+        </p>
+        <h3>Oma osuuteni projektissa</h3>
+        <p>
+            Projektin aikana ehdin tehdä ainakin seuraavia asioita:
+        </p>
+        <ul class="list">
+            <li>projektin koordinointi ja palaverien pitäminen</li>
+            <li>hintojen ja sähkötehojen esikäsittely</li>
+            <li>esikäsittelijämoduulin ja sen testien teko</li>
+            <li>asennusmäärän ennustaminen aikasarjalla</li>
+            <li>asennusten luokittelu akullisekis tai akuttomaksi</li>
+            <li><a href="/aida/html/docs/70-Jupyter-Book/index.html" target="_blank">Jupyter 
+                    Book<span class="material-icons md-16">open_in_new</span></a> 
+                -yhteenveto
+            </li>
+        </ul>
+
+        <h3>Galleria</h3>
+        <p>
+            Alla muutama nosto projektin monista visualisoinneista. 
+            Ensimmäisenä kuva paneeliasennusten 
+            <a href="/aida/html/Tehtava-03/price_trends.html" target="_blank">
+                hintakehityksestä<span class="material-icons md-16">open_in_new</span></a>.
+            Toisena kuva 
+            <a href="/aida/html/Tehtava-05/asennusten_aikasarjaennustus_valikoitu.html" target="_blank">
+                aikasarjaennusteesta<span class="material-icons md-16">open_in_new</span></a>.
+            Viimeisinä kaksi kuvaa usean mallin 
+            <a href="/aida/html/Tehtava-05/battery_classification.html" target="_blank">
+                luokittelusta<span class="material-icons md-16">open_in_new</span></a>.
+        </p>
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+                <a href="/aida/html/_images/price_trends_3_0.png" data-lightbox="aida" data-title="Hintakehitys kotitalouksille (akuton järjestelmä)">
+                    <img class="pfl-img" src="/aida/html/_images/price_trends_3_0.png" alt="Hintakehitys kotitalouksille"
+                        title="Hintakehitys kotitalouksille">
+                </a>
+                <a href="/aida/html/_images/asennusten_aikasarjaennustus_valikoitu_20_0.png" data-lightbox="aida" data-title="Asennusmäärän ennustaminen aikasarjalla">
+                    <img class="pfl-img" src="/aida/html/_images/asennusten_aikasarjaennustus_valikoitu_20_0.png" alt="Asennusmäärän ennustaminen aikasarjalla"
+                        title="Asennusmäärän ennustaminen aikasarjalla">
+                </a>
+                <a href="/aida/html/_images/battery_classification_16_0.png" data-lightbox="aida" data-title="Mallien tarkkuudet">
+                    <img class="pfl-img" src="/aida/html/_images/battery_classification_16_0.png" alt="Mallien tarkkuudet"
+                        title="Mallien tarkkuudet">
+                </a>
+                <a href="/aida/html/_images/battery_classification_21_0.png" data-lightbox="aida" data-title="Mallien vertailua">
+                    <img class="pfl-img" src="/aida/html/_images/battery_classification_21_0.png" alt="Mallien vertailua"
+                        title="Mallien vertailua">
+                </a>
+            </div>
+        </div>
+    </article>
+</section>
+
+<%- include('partials/footer')%>

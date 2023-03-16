@@ -1,0 +1,185 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Keskustelufoorumin kehitys</h2>
+
+        <p>
+            Projektin toteutus tapahtui 13.9.-10.12.2021.
+        </p>
+        <p>
+            Tämän projektin keskeinen tehtävänanto oli kehittää internettiin julkaistavaa 
+            keskustelufoorumia, josta oli jo valmiiksi joten kuten toimiva pohjaratkaisu. 
+            Kehitykseen kuului uusien ominaisuuksien lisääminen, bugien korjaaminen ja 
+            päivitysten vieminen tuotantoon.
+        </p>
+        <p>
+            Ryhmään kuului kuusi jäsentä. Osa ryhmästä keskittyi testaamiseen, osa 
+            sovelluskehitykseen ja projektijohtaja projektin hallintaan.
+        </p>
+        <p>
+            Minulle tämän projektin tekeminen osoitti, että ohjelmistoprojektit ovat 
+            mielenkiintoisia, haastavia ja palkitsevia.
+            Pidin erityisesti projektin toimeksiannosta, jonka mukaan projektiryhmämme toimisi kuten yritys,
+            joka aloittaa keskustelufoorumin jatkokehityksen asiakkaan toiveiden mukaan.
+            Siten projektiin oli suhteellisen helppoa suhtautua kuin kyseessä olisi oikea yritys tekemässä oikeaa
+            laskutettavaa projektia.
+        </p>
+
+        <h3>Oma osuuteni projektissa</h3>
+        <p>
+            Omaan osaani kuului tuotanto- ja testausympäristön hallinta 
+            pilvessä olevilla virtuaalikoneilla lokijärjestelmineen sekä vähän 
+            myös sovelluskehitystä. Keskeisimmät työlistallani olleet 
+            aihealueet on selostettu alla omien pohdintojeni kera. 
+        </p>
+        <h4>Varmuuskopiointi</h4>
+        <p>
+            Aloin selvittää varmuuskopiointia tilanteesta, jossa alustavana 
+            ratkaisuna näin Linuxin perusteiden aikana opitun tavan ajaa 
+            ajoitetusti komentorivikomentoja taustalla. Ominaisuuden 
+            kehityksessä päädyin opiskelemaan shell/bash -skriptien 
+            kirjoittamista, mikä osoittautui alkuun pääsyn jälkeen hyvin 
+            mielenkiintoiseksi itselle.
+        </p>
+        <p>
+            Varmuuskopioinnissa huomioin hyvin sille asetetut vaatimukset 
+            siitä, että varmuuskopiot tuli säilyttää eri palvelimella ja kopio 
+            otettiin vain conduit-tietokannasta MongoDB-kontin kautta. 
+            Implementoinnin aikana tein myös korjauksia ja parannuksia 
+            varmuuskopiointiin ja dokumentoinnit kirjoitin itse.
+        </p>
+        <p>
+            Oma haasteensa oli tehdä skriptit ajettaviksi vain 
+            varmuuskopiopalvelimella, joka vaati komentojen ajamista 
+            etäkoneella ssh-yhdeyden yli skriptien sisällä. Tämä liittyi 
+            etenkin varmuuskopioiden säilyttämisen tietoturvaan.
+        </p>
+        <h4>Käyttäjätilin poisto</h4>
+        <p>
+            Tämä ominaisuus oli merkittävin satsaukseni backend ja frontend 
+            ohjelmistokehityksen kannalta. Ominaisuutena käyttäjätilin poisto 
+            tuntui laaja-alaiselta ja sainkin yrittää sisäistää melkein koko 
+            ohjelman toiminnan hahmottaakseni tarvittavat muutokset. 
+        </p>
+        <p>
+            Sattumalta hyödyin siitä, että olin tehnyt aiemmin projektin 
+            varmuuskopiojärjestelmän, kun omissa testeissäni palautin usein 
+            käyttäjätilin poiston jälkeen kopion testitietokannasta käynnissä 
+            olevaan docker-konttiin.
+        </p>
+        <h4>Reverse proxy</h4>
+        <p>
+            Päätimme valita reverse proxyn ohjelmistoksi HAProxyn. Asennus 
+            tehtiin omalle virtuaalikoneelle sillä ajatuksella, että se olisi 
+            tietoturvallisuuden kannalta parempi vaihtoehto verrattuna proxyn 
+            asennukseen samalle virtuaalikoneelle foorumipalvelun kanssa. 
+            Reverse proxyn käyttämisen päätarkoitus oli kuitenkin vain 
+            https-yhteyden tarjoaminen foorumin käyttäjille.
+        </p>
+        <p>
+            Hieman myöhemmin proxy asennettiin myös testipalvelimelle 
+            docker-konttiin. Https-yhteys tarvittiin mm. twitter-jaon 
+            testausta varten, mutta konttiratkaisuun päädyin lähinnä siksi, 
+            että halusin oppia tekemään asennuksen ja asetukset myös konttiin.
+        </p>
+        <h4>Lokijärjestelmä</h4>
+        <p>
+            Aluksi lähdin tutkimaan ELK stackia, johon kuuluu kolme ohjelmaa: 
+            Elasticsearch, Logstash ja Kibana. Selvitin ohjelmien saatavuuden 
+            docker-kontteihin ja levykuvien löydyttyä docker hubista päätin 
+            kasata lokijärjestelmän konteista.
+        </p>
+        <p>
+            Tarkemman tutustumisen ja ensimmäiset testit tein Logstashin 
+            parissa, mutta jäin hetkeksi jumiin, sillä lokien lukemisessa 
+            ilmeni oikeuksiin liittyviä ongelmia. Ratkaisuna tähän selvitin 
+            Filebeatin mukaan ottamista, jonka seurauksena huomasin, että se 
+            voisi jossain määrin korvata Logstashin. Koska Filebeat 
+            osoittautui riittäväksi, Logstash jäi lopulta pois toteutuksesta. 
+            Vaihdoksen jälkeen aloitin kokeilut Elasticsearchin ja Kibanan 
+            käynnistyksestä docker-composella. Jos Logstash olisi vielä otettu 
+            mukaan, koko järjestelmään olisi riittänyt yksi Logstash-kontti.
+        </p>
+        <p>
+            Kun kontit oli saatu toimimaan keskenään, alkoi Filebeat moduulien 
+            käyttöönotto. Niiden avulla oli mahdollista poimia ja eritellä 
+            lokimerkinnöistä automaattisesti niissä olevia tietoja Kibanalla 
+            visualisoitavaan muotoon. Moduuleja on saatavilla vain joidenkin 
+            usein käytettyjen ohjelmien lokien käsittelyyn, kuten MongoDB:n, 
+            HAProxyn ja Ubuntun järjestelmälokien käsittelyyn.
+        </p>
+        <p>
+            Lokijärjestelmän lisäksi ELK stack soveltuu paljon 
+            monipuolisempaankin tiedonkeruuseen palveluita pyörittävistä 
+            järjestelmistä. Aivan tämän projektin lopuilla ehdin hieman 
+            tutustua myös Metricbeat -ohjelmaan, jolla saadaan kerättyä 
+            järjestelmän suorituskykyä kuvaavaa dataa sen eri osista. Myös 
+            Metricbeatille on saatavilla moduuleja samaan tapaan kuin 
+            Filebeatille.
+        </p>
+        <p>
+            Lokijärjestelmän yhdeksi heikkoudeksi jäi backend-kontin lokien 
+            käsittely, sillä siihen ei ollut olemassa valmista moduulia 
+            ymmärrettävistä syistä. Toisaalta Conduitin backendin jo valmiiksi 
+            kirjoittamiin lokeihin ei tehty muutoksia tai lokien määrää ei 
+            lisätty, vaikka se olisikin ollut mahdollista (ehkä). Lokien 
+            määrää lisäämällä olisi ehkä voitu kerätä joitain lisätietoja 
+            palvelun käyttäjien toiminnasta, mutta sen tarpeellisuutta olisi 
+            muutenkin ollut syytä miettiä erikseen mm. siksi, ettei samaa 
+            tietoa turhaan kerättäisi kahteen kertaan joko Google Analyticsin 
+            tai HAProxy lokin kautta.
+        </p>
+        <p>
+            Lokijärjestelmään liittyen tutustuin myös HAProxyn asetuksiin 
+            tarkemmin. Huomasin mm. joitain eroja lokien ohjauksessa kontissa 
+            ja ”normaalisti” asennetun HAProxyn välillä. Pienenä 
+            lokijärjestelmän tietoja suojaavana ominaisuutena lisäsin 
+            Kibanalle ohjautuvaan porttiin pääsyyn kirjautumisvaatimuksen jopa 
+            niin, että tunnuksen salasana oli proxyn asetuksissa salatussa 
+            muodossa.
+        </p>
+        <h3>Lisää projektista</h3>
+        <ul class="list">
+            <li><a href="https://ff2020s-team2.pages.labranet.jamk.fi/core/" target="_blank">Projektin avoin
+                    dokumentaatio<span class="material-icons md-16">open_in_new</span></a>
+            </li>
+            <li><a href="https://vm3947.kaj.pouta.csc.fi/" target="_blank">Testaa 
+                    tuotosta (keskustelufoorumi)<span class="material-icons md-16">open_in_new</span></a>
+            </li>
+        </ul>
+
+        <h3>Galleria</h3>
+        <p>
+            Ensimmäisessä kuvassa on tekemäni piirros, joka kuvaa karkeasti 
+            pilvessä olevat virtuaalikoneet ja niihin asennetut ohjelmistot. 
+            Toisessa kuvassa on lyhyt näyte skriptistä, joka ottaa 
+            varmuuskopion foorumin tietokannasta, jossa on kaikkien palveluun 
+            rekisteröityneiden käyttäjien tunnukset ja kirjoitetut viestit.
+        </p>
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+                <a href="/images/ff-01-palvelimen-kuvaus.png" data-lightbox="ff" data-title="Virtuaalikoneet palvelimella">
+                    <img class="pfl-img" src="/images/ff-01-palvelimen-kuvaus.png" alt="Virtuaalikoneet palvelimella"
+                        title="Virtuaalikoneet palvelimella">
+                </a>
+                <a href="/images/ff-02-back-up-script.png" data-lightbox="ff" data-title="Näyte varmuuskopiointiskriptistä">
+                    <img class="pfl-img" src="/images/ff-02-back-up-script.png"
+                        alt="Näyte varmuuskopiointiskriptistä" title="Näyte varmuuskopiointiskriptistä">
+                </a>
+            </div>
+        </div>
+    </article> 
+</section>
+
+<%- include('partials/footer')%>
