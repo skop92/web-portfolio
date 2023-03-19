@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Kuinka pitkään paneelivalmistajat ja asennusfirmat ovat toimineet alalla? &#8212; Solar panel data project</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutkitaan ja esikäsitellään total_installed_price" href="esik_total_installed_price.html" />
+    <link rel="prev" title="Solar panel data project" href="../docs/70-Jupyter-Book/index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Solar panel data project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../docs/70-Jupyter-Book/index.html">
+                    Solar panel data project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data-analyysi
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Valmistajat ja asentajat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esik_total_installed_price.html">
+   Hintojen tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="price_trends.html">
+   Hintakehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esik_system_size_DC.html">
+   Sähkötehon tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="system_size_trend.html">
+   Sähkötehon kehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/kartat.html">
+   Karttalinkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="solar_panel_technologies.html">
+   Aurinkopaneeleiden teknologiat
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Esikäsittelijä
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html">
+   Esikäsittelijän dokumentaatio
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/esikasittelijan_testit.html">
+   Esikäsittelijän testit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/self_defined_cols_test.html">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/price_preprocessor_test.html">
+     Asennuksen hinta
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/size_preprocessor_test.html">
+     Järjestelmän sähköteho
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Koneoppiminen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/akkuluokittelu.html">
+   Akkuluokittelu
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-04/naive_bayes_batteries.html">
+     Naive Bayes -luokittelua akkujärjestelmille
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/battery_classification.html">
+     Usean mallin luokittelua akkujärjestelmille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Tehtava-05/rfc_model.html">
+   Random Forest Classifier
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/ML_analyysi.html">
+     Aurinkopaneli pisteytys koneoppimisen haasteet.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-05/klusteroinnin_analysointia.html">
+   Asennusten maantieteellinen klusterointi
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/aikasarja.html">
+   Asennusmäärän ennustaminen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/50-Koneoppiminen/asennusten_aikasarjaennustus_final.html">
+     Asennusmäärän ennustaminen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/asennusten_aikasarjaennustus_valikoitu.html">
+     Asennusmäärän ennustaminen vertaamalla vuoden takaiseen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Malli tuotantoon
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-06/mallit_tuotantoon.html">
+   Mallit tuotantoon
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/mercury_src.html">
+   Mercury lähdekoodit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_clustering.html">
+     Mercury clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_RFC_SPC.html">
+     ML test GUI for Random Forest Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Tehtava-03/paneelivalmistaja_asentaja_visualisointi.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Tehtava-03/paneelivalmistaja_asentaja_visualisointi.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Kuinka pitkään paneelivalmistajat ja asennusfirmat ovat toimineet alalla?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="kuinka-pitkaan-paneelivalmistajat-ja-asennusfirmat-ovat-toimineet-alalla">
+<h1>Kuinka pitkään paneelivalmistajat ja asennusfirmat ovat toimineet alalla?<a class="headerlink" href="#kuinka-pitkaan-paneelivalmistajat-ja-asennusfirmat-ovat-toimineet-alalla" title="Permalink to this headline">#</a></h1>
+<p>Paneelin valmistajan ja asentajan ensimmäisen tehtävän päivämäärä.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+
+<span class="c1"># Ladataan data tiedostosta ja muutetaan &#39;-9999&#39; NaN:eiksi</span>
+<span class="n">url_src</span> <span class="o">=</span> <span class="s2">&quot;d:/aidaprojekti\LBNL_file.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_src</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_values</span> <span class="o">=</span> <span class="s1">&#39;-9999&#39;</span><span class="p">)</span>
+
+<span class="c1"># Muutetaan päivämäärät ja järjestetään sen mukaan</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># Muutetaan nimet/kirjaimet isoiksi</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;installer_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;installer_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+
+<span class="c1"># Otetaan jokainen tarvittava sarake ja päivämäärä</span>
+<span class="n">mod1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_1&#39;</span><span class="p">]]</span>
+<span class="n">mod2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_2&#39;</span><span class="p">]]</span>
+<span class="n">mod3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_3&#39;</span><span class="p">]]</span>
+<span class="n">inst</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;installer_name&#39;</span><span class="p">]]</span>
+
+
+<span class="c1"># NaN:it pois</span>
+<span class="n">mod11</span> <span class="o">=</span> <span class="n">mod1</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">mod12</span> <span class="o">=</span> <span class="n">mod2</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">mod13</span> <span class="o">=</span> <span class="n">mod3</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">inst1</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+
+<span class="c1"># paneelin tekijän ja asentajan duplikaatit pois ja aikaisin päivämäärä mukaan</span>
+<span class="n">mod11</span> <span class="o">=</span> <span class="n">mod11</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_1&#39;</span><span class="p">])</span>
+<span class="n">mod12</span> <span class="o">=</span> <span class="n">mod12</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_2&#39;</span><span class="p">])</span>
+<span class="n">mod13</span> <span class="o">=</span> <span class="n">mod13</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;module_manufacturer_3&#39;</span><span class="p">])</span>
+<span class="n">inst1</span> <span class="o">=</span> <span class="n">inst1</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;installer_name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan ‘module_manufacturer_1’ päivämäärän mukaan, josta poistettu dublikaatit.</p>
+<p>Paneeli valmistajien määrä on 317.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mod11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       installation_date                  module_manufacturer_1
+978707        1998-05-19                          KYOCERA SOLAR
+200567        2001-12-12                             SOLARWORLD
+865015        2002-03-31                           SCHOTT SOLAR
+81090         2002-05-19                              EPV SOLAR
+418549        2002-11-03                        ATLANTIS ENERGY
+...                  ...                                    ...
+126054        2019-08-15               NEXT ENERGY ALLIANCE LLC
+63977         2019-09-03               MISSION SOLAR ENERGY LLC
+110722        2019-09-20  SERAPHIM SOLAR USA MANUFACTURING INC.
+224609        2019-11-01                   MUNDRA SOLAR PV LTD.
+163           2019-12-23         MERLIN SOLAR TECHNOLOGIES, INC
+
+[317 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan ‘module_manufacturer_2’ päivämäärän mukaan, josta poistettu dublikaatit.</p>
+<p>Paneeli valmistajien määrä on 154.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mod12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       installation_date        module_manufacturer_2
+979692        2003-06-05                        SHARP
+231645        2003-07-20                KYOCERA SOLAR
+755054        2003-11-20                     BP SOLAR
+113200        2004-02-11                 SCHOTT SOLAR
+817459        2006-03-05          UNITED SOLAR OVONIC
+...                  ...                          ...
+594042        2019-05-07    MISSION SOLAR ENERGY LLC.
+212519        2019-05-08       ONYX SOLAR ENERGY S.L.
+128476        2019-11-13            SILFAB SOLAR INC.
+234632        2019-11-19    HANSOL TECHNICS CO., LTD.
+8969          2019-12-16  INTEGRATED SOLAR TECHNOLOGY
+
+[154 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan ‘module_manufacturer_3’ päivämäärän mukaan, josta poistettu dublikaatit.</p>
+<p>Paneeli valmistajien määrä on 72.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mod13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       installation_date                    module_manufacturer_3
+817459        2006-03-05                                 SUNPOWER
+136291        2007-04-19                                PANASONIC
+53548         2007-06-02                                    SHARP
+383717        2007-11-29                      UNITED SOLAR OVONIC
+220819        2008-03-27                             SCHOTT SOLAR
+...                  ...                                      ...
+851459        2019-02-19                                   SILFAB
+271200        2019-04-24                       WESTINGHOUSE SOLAR
+50991         2019-08-29                                  MIASOLE
+463409        2019-11-14  LONGI GREEN ENERGY TECHNOLOGY CO., LTD.
+8302          2019-12-02                            SUNPREME INC.
+
+[72 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan ‘installer_name’ päivämäärän mukaan, josta poistettu dublikaatit.</p>
+<p>Paneelienasentajien määrä on 4741.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">inst1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       installation_date        installer_name
+154819        1998-04-10                  SELF
+978707        1998-05-19          TESLA ENERGY
+432587        1998-08-14   SUN LIGHT AND POWER
+804389        1998-09-26  SIERRA SOLAR SYSTEMS
+136542        1998-11-14     REAL GOODS SOLAR 
+...                  ...                   ...
+8485          2019-12-26   TARABINI MECHANICAL
+847955        2019-12-26           HEATSPOTTER
+10629         2019-12-26        CYRUSNTRACTORS
+1788          2019-12-27     CHAMBERS ELECTRIC
+7517          2019-12-30     SOMIS INVESTMENTS
+
+[4741 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Muutetaan paneelien valmistajat (sarakkeet 1,2,3) samaan sarakkeeseen ‘module’.
+Poistetaan dublikaatit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muutetaan module_manufacturer sarakkeiden nimet module:ksi</span>
+<span class="n">mod11</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mod11</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_1&#39;</span><span class="p">]]</span>
+<span class="n">mod12</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mod12</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_2&#39;</span><span class="p">]]</span>
+<span class="n">mod13</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mod13</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module_manufacturer_3&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Yhdistetään</span>
+<span class="n">modul1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">mod11</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]],</span> <span class="n">mod12</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]],</span> <span class="n">mod13</span><span class="p">[[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span><span class="s1">&#39;module&#39;</span><span class="p">]]],</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Päivämäärän mukaan sortattu</span>
+<span class="n">module</span> <span class="o">=</span> <span class="n">modul1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># poistetaan duplikaatit</span>
+<span class="n">modulee</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;module&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan yhdistetty paneeli valmistajat päivämäärän mukaan.</p>
+<p>Paneeli valmistajien määrä on kaiken kaikkiaan 321.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;modulee::&quot;</span><span class="p">,</span><span class="n">modulee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>modulee::     installation_date                                 module
+0          1998-05-19                          KYOCERA SOLAR
+1          2001-12-12                             SOLARWORLD
+2          2002-03-31                           SCHOTT SOLAR
+3          2002-05-19                              EPV SOLAR
+4          2002-11-03                        ATLANTIS ENERGY
+..                ...                                    ...
+312        2019-08-15               NEXT ENERGY ALLIANCE LLC
+313        2019-09-03               MISSION SOLAR ENERGY LLC
+314        2019-09-20  SERAPHIM SOLAR USA MANUFACTURING INC.
+315        2019-11-01                   MUNDRA SOLAR PV LTD.
+316        2019-12-23         MERLIN SOLAR TECHNOLOGIES, INC
+
+[321 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printataan paneeli valmistajien mukaan järjestetty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># paneelivalmistajan mukaan sortattu vain printtauksen takia</span>
+<span class="n">module1</span> <span class="o">=</span> <span class="n">modulee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;module&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;moduleee: &quot;</span><span class="p">,</span><span class="n">module1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>moduleee:      installation_date                                             module
+71         2010-09-12                                           1SOLTECH
+248        2016-06-27                                A10GREEN TECHNOLOGY
+273        2017-08-17                                        AAVID SOLAR
+348        2010-01-19                                       ABOUND SOLAR
+232        2015-09-22                                    ACCUSOLAR POWER
+..                ...                                                ...
+131        2012-01-13            ZHEJIANG GLOBAL PHOTOVOLTAIC TECHNOLOGY
+182        2013-05-10                         ZHEJIANG JIUTAI NEW ENERGY
+145        2012-04-03              ZHEJIANG KINGDOM SOLAR ENERGY TECHNIC
+50         2010-02-03  ZHEJIANG SUNFLOWER LIGHT ENERGY SCIENCE &amp; TECH...
+430        2015-01-25                          ZNSHINE PV-TECH CO., LTD.
+
+[321 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualisointi ‘uusia Paneeli valmistajia / vuosi’.</p>
+<p>Kuvaajasta näkee miten uusia paneelien valmistajia on tullut markkinoille.
+1998 - 2008 on ollut vain muutama uusi tullut vuodessa.
+Sen jälkeen on valmistajien määrä noussut moninkertaiseksi per vuosi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># VISUAALISOINTI </span>
+<span class="c1"># paneelivalmistaja: muutetaan vuosiksi ja sen mukaan sortattu</span>
+<span class="n">module1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">module1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y %H:%M:%S&#39;</span><span class="p">)</span> 
+<span class="n">module1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">module1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">module1</span> <span class="o">=</span> <span class="n">module1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;valmistaja: &quot;</span><span class="p">,</span><span class="n">module1</span><span class="p">)</span>
+
+
+<span class="c1"># Visualisointi paneelivalmistajat</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">module1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Uusia Paneelivalmistajia / vuosi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;vuosi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;lukumäärä&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valmistaja:       installation_date                                 module
+0                 1998                          KYOCERA SOLAR
+1                 2001                             SOLARWORLD
+2                 2002                           SCHOTT SOLAR
+3                 2002                              EPV SOLAR
+4                 2002                        ATLANTIS ENERGY
+..                 ...                                    ...
+308               2019       CHINT SOLAR (ZHEJIANG) CO., LTD.
+305               2019              MISSION SOLAR ENERGY LLC.
+316               2019         MERLIN SOLAR TECHNOLOGIES, INC
+314               2019  SERAPHIM SOLAR USA MANUFACTURING INC.
+313               2019               MISSION SOLAR ENERGY LLC
+
+[321 rows x 2 columns]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Tehoton\anaconda3\lib\site-packages\seaborn\_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../_images/paneelivalmistaja_asentaja_visualisointi_18_2.png" src="../_images/paneelivalmistaja_asentaja_visualisointi_18_2.png" />
+</div>
+</div>
+<p>Visualisointi ‘uusia Paneeli asentajia / vuosi’.</p>
+<p>Kuvaajasta näkee miten uusia paneelien asentajia on tullut markkinoille.
+Asentajien määrä on noussut huomattavasti vasta 2015 aikana.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># paneeliasentajat: muutetaan vuosiksi ja sen mukaan sortattu</span>
+<span class="n">inst1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">inst1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y %H:%M:%S&#39;</span><span class="p">)</span> 
+<span class="n">inst1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inst1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">inst1</span> <span class="o">=</span> <span class="n">inst1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;asentajat: &quot;</span><span class="p">,</span><span class="n">inst1</span><span class="p">)</span>
+
+
+<span class="c1"># Visualisointi paneeliasentajat</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">inst1</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Uusia Paneeliasentajat / vuosi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;vuosi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;lukumäärä&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>asentajat:          installation_date              installer_name
+154819               1998                        SELF
+978707               1998                TESLA ENERGY
+432587               1998         SUN LIGHT AND POWER
+804389               1998        SIERRA SOLAR SYSTEMS
+136542               1998           REAL GOODS SOLAR 
+...                   ...                         ...
+77288                2019               JNBNSTRUCTION
+162303               2019            PACE ENGINEERING
+36015                2019  HASKIN MECHANICAL SERVICES
+86382                2019      PATRIOTNSTRUCTION PROS
+7517                 2019           SOMIS INVESTMENTS
+
+[4741 rows x 2 columns]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Tehoton\anaconda3\lib\site-packages\seaborn\_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../_images/paneelivalmistaja_asentaja_visualisointi_20_2.png" src="../_images/paneelivalmistaja_asentaja_visualisointi_20_2.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tehtava-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../docs/70-Jupyter-Book/index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Solar panel data project</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="esik_total_installed_price.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutkitaan ja esikäsitellään total_installed_price</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By TE-team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

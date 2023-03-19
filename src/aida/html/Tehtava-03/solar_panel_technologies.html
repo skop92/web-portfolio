@@ -1,0 +1,3367 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Aurinkopaneeleiden teknologiat &#8212; Solar panel data project</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Esikäsittelijän dokumentaatio" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html" />
+    <link rel="prev" title="Karttalinkit" href="../docs/70-Jupyter-Book/kartat.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Solar panel data project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../docs/70-Jupyter-Book/index.html">
+                    Solar panel data project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data-analyysi
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="paneelivalmistaja_asentaja_visualisointi.html">
+   Valmistajat ja asentajat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esik_total_installed_price.html">
+   Hintojen tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="price_trends.html">
+   Hintakehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esik_system_size_DC.html">
+   Sähkötehon tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="system_size_trend.html">
+   Sähkötehon kehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/kartat.html">
+   Karttalinkit
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Aurinkopaneeleiden teknologiat
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Esikäsittelijä
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html">
+   Esikäsittelijän dokumentaatio
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/esikasittelijan_testit.html">
+   Esikäsittelijän testit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/self_defined_cols_test.html">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/price_preprocessor_test.html">
+     Asennuksen hinta
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/size_preprocessor_test.html">
+     Järjestelmän sähköteho
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Koneoppiminen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/akkuluokittelu.html">
+   Akkuluokittelu
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-04/naive_bayes_batteries.html">
+     Naive Bayes -luokittelua akkujärjestelmille
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/battery_classification.html">
+     Usean mallin luokittelua akkujärjestelmille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Tehtava-05/rfc_model.html">
+   Random Forest Classifier
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/ML_analyysi.html">
+     Aurinkopaneli pisteytys koneoppimisen haasteet.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-05/klusteroinnin_analysointia.html">
+   Asennusten maantieteellinen klusterointi
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/aikasarja.html">
+   Asennusmäärän ennustaminen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/50-Koneoppiminen/asennusten_aikasarjaennustus_final.html">
+     Asennusmäärän ennustaminen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/asennusten_aikasarjaennustus_valikoitu.html">
+     Asennusmäärän ennustaminen vertaamalla vuoden takaiseen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Malli tuotantoon
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-06/mallit_tuotantoon.html">
+   Mallit tuotantoon
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/mercury_src.html">
+   Mercury lähdekoodit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_clustering.html">
+     Mercury clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_RFC_SPC.html">
+     ML test GUI for Random Forest Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Tehtava-03/solar_panel_technologies.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Tehtava-03/solar_panel_technologies.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-maarat-ennen-esikasittelya">
+   Paneeliteknologioiden määrät ennen esikäsittelyä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-maarat-esikasittelyn-jalkeen">
+   Paneeliteknologioiden määrät esikäsittelyn jälkeen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vuosittaista-dataa-teknologia-sarakkeista">
+   Vuosittaista dataa teknologia-sarakkeista
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datan-kasittelya-ennen-kuvaajien-piirtamista">
+   Datan käsittelyä ennen kuvaajien piirtämistä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-asennusmaarat-vuosittain">
+   Paneeliteknologioiden asennusmäärät vuosittain
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-hyotysuhteen-kehitys">
+   Paneeliteknologioiden hyötysuhteen kehitys
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-hintatehosuhteen-kehitys">
+   Paneeliteknologioiden hintatehosuhteen kehitys
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-keskimaarainen-nimellisteho-w">
+   Paneeliteknologioiden keskimääräinen nimellisteho (W)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-keskimaarainen-paneelien-maara-asennuksessa">
+   Paneeliteknologioiden keskimääräinen paneelien määrä asennuksessa
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aurinkopaneeleiden teknologiat</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-maarat-ennen-esikasittelya">
+   Paneeliteknologioiden määrät ennen esikäsittelyä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-maarat-esikasittelyn-jalkeen">
+   Paneeliteknologioiden määrät esikäsittelyn jälkeen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vuosittaista-dataa-teknologia-sarakkeista">
+   Vuosittaista dataa teknologia-sarakkeista
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datan-kasittelya-ennen-kuvaajien-piirtamista">
+   Datan käsittelyä ennen kuvaajien piirtämistä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-asennusmaarat-vuosittain">
+   Paneeliteknologioiden asennusmäärät vuosittain
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-hyotysuhteen-kehitys">
+   Paneeliteknologioiden hyötysuhteen kehitys
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-hintatehosuhteen-kehitys">
+   Paneeliteknologioiden hintatehosuhteen kehitys
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-keskimaarainen-nimellisteho-w">
+   Paneeliteknologioiden keskimääräinen nimellisteho (W)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paneeliteknologioiden-keskimaarainen-paneelien-maara-asennuksessa">
+   Paneeliteknologioiden keskimääräinen paneelien määrä asennuksessa
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="aurinkopaneeleiden-teknologiat">
+<h1>Aurinkopaneeleiden teknologiat<a class="headerlink" href="#aurinkopaneeleiden-teknologiat" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">importlib.util</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">preprocessor</span> <span class="k">as</span> <span class="nn">esik</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+  <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;preprocessor.py&quot;</span><span class="p">;</span> <span class="n">module_name</span> <span class="o">=</span> <span class="s2">&quot;preprocessor&quot;</span><span class="p">;</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+  <span class="n">esik</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">esik</span><span class="p">;</span> <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">esik</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">columns_file</span> <span class="k">as</span> <span class="nn">cf</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+  <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;columns_file.py&quot;</span><span class="p">;</span> <span class="n">module_name</span> <span class="o">=</span> <span class="s2">&quot;columns_file&quot;</span><span class="p">;</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+  <span class="n">cf</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cf</span><span class="p">;</span> <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;total_installed_price&#39;</span><span class="p">,</span> <span class="s1">&#39;system_size_DC&#39;</span><span class="p">,</span> <span class="s1">&#39;price_per_kW&#39;</span><span class="p">,</span> <span class="s1">&#39;customer_segment&#39;</span><span class="p">]</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">)</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">efficiency_module</span><span class="p">)</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">module_quantity</span><span class="p">)</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">nameplate_capacity_module</span><span class="p">)</span>
+<span class="c1">#cols = cf.all_orig()</span>
+
+<span class="c1"># esikäsittelijän ajaminen aluksi vain minimal</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">esik</span><span class="o">.</span><span class="n">esik</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="s1">&#39;minimal&#39;</span><span class="p">)</span>
+
+<span class="c1"># FormatterFunc</span>
+<span class="k">def</span> <span class="nf">no_mult</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The two arguments are the value and tick position.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:1.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">kilo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The two arguments are the value and tick position.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:1.1f}</span><span class="s1">k&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="c1"># Käytetään kaikissa kuvaajissa samoja värejä</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;technology_module_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># uniikit arvot määrien mukaan lajiteltuna (myös NaN) listaan</span>
+<span class="n">values</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;muut&#39;</span><span class="p">,</span> <span class="s1">&#39;arvo puuttuu&#39;</span><span class="p">]</span> <span class="c1"># lisätään vielä muut-arvo</span>
+<span class="n">color_palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_palette</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span> <span class="c1"># määritetään jokaiselle arvolle oma väri</span>
+
+<span class="c1"># Erilaisia funktiolistoja</span>
+<span class="n">agg_default</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]</span>
+<span class="n">agg_extended</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]</span>
+<span class="n">agg_means</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">]</span>
+<span class="n">agg_counts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="paneeliteknologioiden-maarat-ennen-esikasittelya">
+<h2>Paneeliteknologioiden määrät ennen esikäsittelyä<a class="headerlink" href="#paneeliteknologioiden-maarat-ennen-esikasittelya" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">modules</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span>
+<span class="n">df</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;arvo puuttuu&#39;</span><span class="p">)</span> <span class="c1"># näyeteään kuvioissa NaN-arvojen tilalla tämä teksti</span>
+
+<span class="k">def</span> <span class="nf">pctFormat</span><span class="p">(</span><span class="n">pct</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pct</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;%&#39;</span> <span class="k">if</span> <span class="n">pct</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="c1"># formatoi kuvaajien prosenttilukuja</span>
+
+<span class="c1"># Kootaan kuvaajien data</span>
+<span class="n">pies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:[],</span> <span class="s1">&#39;labels&#39;</span><span class="p">:[],</span> <span class="s1">&#39;colors&#39;</span><span class="p">:[],</span> <span class="s1">&#39;titles&#39;</span><span class="p">:[]})</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+    <span class="n">tm</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">module</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">tm</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.02</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tm</span> <span class="o">&gt;=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;muut&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="c1"># ryhmitellään pienet määrät muut-kategoriaan</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">pies</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s1"> kpl&#39;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># luodaan labelit, joissa kpl-määrät näkyvissä</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># haetaan värit kuvaajaan </span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">tm</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">cut</span><span class="p">):</span> <span class="c1"># jos tarvitaan muut-kuvaajaa, luodaan sille data</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tm</span> <span class="o">&lt;</span> <span class="n">cut</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;pois&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;pois&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># jätetään vain muut näkyviin</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">pies</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s1"> kpl&#39;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># luodaan labelit, joissa kpl-määrät näkyvissä</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># haetaan värit kuvaajaan </span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">module</span><span class="o">+</span><span class="s1">&#39;: muut&#39;</span><span class="p">)</span>
+        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Piirretään kuvaajat</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">autopct</span> <span class="o">=</span> <span class="n">pctFormat</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">pctdistance</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">wedgeprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mf">.3</span> <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">},</span> <span class="n">labels</span><span class="o">=</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">1.68</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Paneeliteknologioiden määrät ennen esikäsittelyä&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontweight</span> <span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_3_0.png" src="../_images/solar_panel_technologies_3_0.png" />
+</div>
+</div>
+</section>
+<section id="paneeliteknologioiden-maarat-esikasittelyn-jalkeen">
+<h2>Paneeliteknologioiden määrät esikäsittelyn jälkeen<a class="headerlink" href="#paneeliteknologioiden-maarat-esikasittelyn-jalkeen" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Poly ja multi-c-Si tarkoitetaan samaa Polychrystalline -teknologiaa -&gt; yhdistetään Poly:ksi</p></li>
+<li><p>a-Si, CIGS js CdTe ovat Thin Film -paneelien alaluokkia ja näitä on hyvin pieniä määriä -&gt; yhdistetään nämä Thin Film alle</p></li>
+<li><p>muutetaan &lt; undefined &gt; -arvot NaN-arvoiksi</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Tietoa paneeliteknologioista: https://aurorasolar.com/blog/solar-panel-types-guide/</span>
+
+<span class="c1"># esikäsittelyjä, jotka lisätty myös esikäsittelijään (prepsocessor.py)</span>
+<span class="n">df</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Multi-c-Si&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">)</span> <span class="c1"># Poly ja multi-c-Si sama asia</span>
+<span class="n">df</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;a-Si&#39;</span><span class="p">,</span> <span class="s1">&#39;CIGS&#39;</span><span class="p">,</span> <span class="s1">&#39;CdTe&#39;</span><span class="p">],</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">)</span> <span class="c1"># Thin Film -paneelien alaluokkia, yhdistetään</span>
+<span class="n">df</span><span class="p">[</span><span class="n">modules</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;undefined&gt;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="c1"># &lt;undefined&gt; -arvo pois</span>
+
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">df</span> <span class="c1"># päivitetään muutokset myös alussa ladattuun dataan</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_palette</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;technology_module_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())}</span> <span class="c1"># päivitetään värit</span>
+
+<span class="n">modules</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># kolmatta tyhjää saraketta ei tarvita</span>
+
+<span class="k">def</span> <span class="nf">pctFormat</span><span class="p">(</span><span class="n">pct</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pct</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;%&#39;</span> <span class="k">if</span> <span class="n">pct</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="c1"># formatoi kuvaajien prosenttilukuja</span>
+
+<span class="c1"># Kootaan kuvaajien data</span>
+<span class="n">pies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:[],</span> <span class="s1">&#39;labels&#39;</span><span class="p">:[],</span> <span class="s1">&#39;colors&#39;</span><span class="p">:[],</span> <span class="s1">&#39;titles&#39;</span><span class="p">:[]})</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+    <span class="n">tm</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">module</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">tm</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mi">0</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tm</span> <span class="o">&gt;=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;muut&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="c1"># ryhmitellään pienet määrät muut-kategoriaan</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">pies</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s1"> kpl&#39;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># luodaan labelit, joissa kpl-määrät näkyvissä</span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># haetaan värit kuvaajaan </span>
+    <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">tm</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">cut</span><span class="p">):</span> <span class="c1"># jos tarvitaan muut-kuvaajaa, luodaan sille data</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tm</span> <span class="o">&lt;</span> <span class="n">cut</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;pois&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;pois&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># jätetään vain muut näkyviin</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">pies</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s1"> kpl&#39;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># luodaan labelit, joissa kpl-määrät näkyvissä</span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># haetaan värit kuvaajaan </span>
+        <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">module</span><span class="o">+</span><span class="s1">&#39;: muut&#39;</span><span class="p">)</span>
+        <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Kootaan data myös Yhteensä-kuvaan</span>
+<span class="n">tm</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;technology_module_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;technology_module_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tm</span> <span class="o">&gt;=</span> <span class="n">cut</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;muut&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="c1"># ryhmitellään pienet määrät muut-kategoriaan</span>
+<span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">pies</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s1"> kpl&#39;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># luodaan labelit, joissa kpl-määrät näkyvissä</span>
+<span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span> <span class="c1"># haetaan värit kuvaajaan </span>
+<span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Yhteensä&#39;</span><span class="p">)</span>
+
+<span class="c1"># Piirretään kuvaajat</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">pies</span><span class="p">[</span><span class="s1">&#39;colors&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">autopct</span> <span class="o">=</span> <span class="n">pctFormat</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">pctdistance</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">wedgeprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">.3</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;titles&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">},</span> <span class="n">labels</span><span class="o">=</span><span class="n">pies</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">1.50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Paneeliteknologioiden määrät esikäsittelyn jälkeen&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontweight</span> <span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_5_0.png" src="../_images/solar_panel_technologies_5_0.png" />
+</div>
+</div>
+</section>
+<section id="vuosittaista-dataa-teknologia-sarakkeista">
+<h2>Vuosittaista dataa teknologia-sarakkeista<a class="headerlink" href="#vuosittaista-dataa-teknologia-sarakkeista" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tm1</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module_1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;efficiency_module_1&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span> <span class="s1">&#39;system_size_DC&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;price_per_kW&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;module_quantity_1&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;nameplate_capacity_module_1&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tm1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="6" halign="left">efficiency_module_1</th>
+      <th colspan="2" halign="left">system_size_DC</th>
+      <th colspan="2" halign="left">price_per_kW</th>
+      <th colspan="2" halign="left">module_quantity_1</th>
+      <th colspan="2" halign="left">nameplate_capacity_module_1</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th>technology_module_1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">1998</th>
+      <th>Mono</th>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.33</td>
+      <td>2.33</td>
+      <td>13270.29</td>
+      <td>13270.29</td>
+      <td>24.00</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>14.76</td>
+      <td>14.76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>72.00</td>
+      <td>72.0</td>
+      <td>205.00</td>
+      <td>205.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2001</th>
+      <th>Mono</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>11.49</td>
+      <td>11.49</td>
+      <td>9881.42</td>
+      <td>9881.42</td>
+      <td>20.00</td>
+      <td>20.0</td>
+      <td>265.00</td>
+      <td>265.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>10</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.30</td>
+      <td>2.88</td>
+      <td>9046.46</td>
+      <td>8800.99</td>
+      <td>32.00</td>
+      <td>30.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.54</td>
+      <td>1.54</td>
+      <td>11288.41</td>
+      <td>11288.41</td>
+      <td>24.00</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2002</th>
+      <th>Mono</th>
+      <td>56</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.95</td>
+      <td>4.52</td>
+      <td>7968.68</td>
+      <td>7795.25</td>
+      <td>30.82</td>
+      <td>28.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>716</td>
+      <td>54</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>5.52</td>
+      <td>3.00</td>
+      <td>8873.66</td>
+      <td>8534.72</td>
+      <td>44.99</td>
+      <td>24.0</td>
+      <td>187.50</td>
+      <td>165.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>25</td>
+      <td>10</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>6.25</td>
+      <td>2.56</td>
+      <td>7342.15</td>
+      <td>7423.95</td>
+      <td>47.96</td>
+      <td>40.0</td>
+      <td>47.60</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2003</th>
+      <th>Mono</th>
+      <td>425</td>
+      <td>2</td>
+      <td>0.16</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>5.10</td>
+      <td>3.30</td>
+      <td>7678.73</td>
+      <td>7662.93</td>
+      <td>29.95</td>
+      <td>22.0</td>
+      <td>237.50</td>
+      <td>237.5</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>1601</td>
+      <td>178</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>6.37</td>
+      <td>3.30</td>
+      <td>8050.70</td>
+      <td>7837.92</td>
+      <td>35.89</td>
+      <td>24.0</td>
+      <td>169.32</td>
+      <td>165.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>59</td>
+      <td>7</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>33.70</td>
+      <td>3.31</td>
+      <td>7781.56</td>
+      <td>8154.88</td>
+      <td>46.62</td>
+      <td>40.0</td>
+      <td>72.57</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2004</th>
+      <th>Mono</th>
+      <td>1110</td>
+      <td>65</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>6.71</td>
+      <td>3.88</td>
+      <td>7564.27</td>
+      <td>7437.46</td>
+      <td>35.18</td>
+      <td>21.0</td>
+      <td>175.23</td>
+      <td>175.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>2566</td>
+      <td>775</td>
+      <td>0.09</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>7.80</td>
+      <td>4.01</td>
+      <td>7491.58</td>
+      <td>7417.77</td>
+      <td>38.55</td>
+      <td>24.0</td>
+      <td>163.45</td>
+      <td>167.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>71</td>
+      <td>8</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>22.78</td>
+      <td>4.35</td>
+      <td>8556.38</td>
+      <td>8354.46</td>
+      <td>57.91</td>
+      <td>40.0</td>
+      <td>78.00</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2005</th>
+      <th>Mono</th>
+      <td>1238</td>
+      <td>450</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.13</td>
+      <td>0.20</td>
+      <td>7.36</td>
+      <td>4.12</td>
+      <td>7380.75</td>
+      <td>7297.30</td>
+      <td>34.13</td>
+      <td>24.0</td>
+      <td>177.80</td>
+      <td>175.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>1922</td>
+      <td>899</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>7.27</td>
+      <td>4.12</td>
+      <td>7230.93</td>
+      <td>7200.33</td>
+      <td>32.32</td>
+      <td>24.0</td>
+      <td>162.78</td>
+      <td>167.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>132</td>
+      <td>4</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>13.71</td>
+      <td>4.10</td>
+      <td>7904.77</td>
+      <td>7930.07</td>
+      <td>49.59</td>
+      <td>36.0</td>
+      <td>102.00</td>
+      <td>116.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2006</th>
+      <th>Mono</th>
+      <td>2034</td>
+      <td>953</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>0.14</td>
+      <td>0.18</td>
+      <td>6.97</td>
+      <td>4.68</td>
+      <td>7805.36</td>
+      <td>7738.94</td>
+      <td>31.45</td>
+      <td>24.0</td>
+      <td>179.89</td>
+      <td>175.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>3078</td>
+      <td>2094</td>
+      <td>0.11</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>8.06</td>
+      <td>4.50</td>
+      <td>7606.06</td>
+      <td>7481.97</td>
+      <td>34.70</td>
+      <td>24.0</td>
+      <td>175.22</td>
+      <td>170.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>311</td>
+      <td>9</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>9.01</td>
+      <td>2.64</td>
+      <td>7526.17</td>
+      <td>7514.60</td>
+      <td>39.53</td>
+      <td>48.0</td>
+      <td>91.89</td>
+      <td>68.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2007</th>
+      <th>Mono</th>
+      <td>4280</td>
+      <td>1717</td>
+      <td>0.12</td>
+      <td>0.16</td>
+      <td>0.17</td>
+      <td>0.19</td>
+      <td>8.49</td>
+      <td>4.40</td>
+      <td>8283.65</td>
+      <td>8204.46</td>
+      <td>44.79</td>
+      <td>27.0</td>
+      <td>152.02</td>
+      <td>175.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>4545</td>
+      <td>3938</td>
+      <td>0.06</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>10.36</td>
+      <td>4.59</td>
+      <td>7889.53</td>
+      <td>7714.29</td>
+      <td>49.14</td>
+      <td>26.0</td>
+      <td>178.81</td>
+      <td>175.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>98</td>
+      <td>23</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>53.21</td>
+      <td>2.98</td>
+      <td>7761.99</td>
+      <td>7563.48</td>
+      <td>341.03</td>
+      <td>48.0</td>
+      <td>92.96</td>
+      <td>62.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2008</th>
+      <th>Mono</th>
+      <td>4562</td>
+      <td>3451</td>
+      <td>0.12</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.19</td>
+      <td>11.07</td>
+      <td>4.05</td>
+      <td>8698.01</td>
+      <td>8181.69</td>
+      <td>60.78</td>
+      <td>27.0</td>
+      <td>176.30</td>
+      <td>200.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>5069</td>
+      <td>4842</td>
+      <td>0.06</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>15.22</td>
+      <td>4.56</td>
+      <td>7873.71</td>
+      <td>7669.39</td>
+      <td>77.44</td>
+      <td>24.0</td>
+      <td>188.09</td>
+      <td>190.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>42</td>
+      <td>32</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.10</td>
+      <td>44.70</td>
+      <td>6.30</td>
+      <td>7902.12</td>
+      <td>8093.53</td>
+      <td>166.38</td>
+      <td>51.0</td>
+      <td>116.39</td>
+      <td>136.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2009</th>
+      <th>Mono</th>
+      <td>7637</td>
+      <td>6707</td>
+      <td>0.12</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>9.39</td>
+      <td>4.23</td>
+      <td>8054.67</td>
+      <td>7869.90</td>
+      <td>49.50</td>
+      <td>24.0</td>
+      <td>192.60</td>
+      <td>210.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>6566</td>
+      <td>6229</td>
+      <td>0.06</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>10.43</td>
+      <td>4.73</td>
+      <td>7885.03</td>
+      <td>7368.60</td>
+      <td>48.84</td>
+      <td>24.0</td>
+      <td>200.26</td>
+      <td>205.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>338</td>
+      <td>326</td>
+      <td>0.06</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>0.11</td>
+      <td>9.92</td>
+      <td>4.50</td>
+      <td>9126.30</td>
+      <td>8358.89</td>
+      <td>111.15</td>
+      <td>56.0</td>
+      <td>82.58</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2010</th>
+      <th>Mono</th>
+      <td>10031</td>
+      <td>9248</td>
+      <td>0.12</td>
+      <td>0.16</td>
+      <td>0.14</td>
+      <td>0.20</td>
+      <td>7.86</td>
+      <td>5.04</td>
+      <td>7211.28</td>
+      <td>6865.25</td>
+      <td>37.06</td>
+      <td>24.0</td>
+      <td>209.36</td>
+      <td>225.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>7362</td>
+      <td>7124</td>
+      <td>0.06</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.16</td>
+      <td>12.68</td>
+      <td>5.04</td>
+      <td>7051.04</td>
+      <td>6500.00</td>
+      <td>58.57</td>
+      <td>24.0</td>
+      <td>210.64</td>
+      <td>215.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>143</td>
+      <td>143</td>
+      <td>0.05</td>
+      <td>0.09</td>
+      <td>0.10</td>
+      <td>0.11</td>
+      <td>33.57</td>
+      <td>4.50</td>
+      <td>7895.12</td>
+      <td>8380.00</td>
+      <td>379.36</td>
+      <td>60.0</td>
+      <td>84.32</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2011</th>
+      <th>Mono</th>
+      <td>13266</td>
+      <td>12562</td>
+      <td>0.12</td>
+      <td>0.16</td>
+      <td>0.15</td>
+      <td>0.21</td>
+      <td>8.75</td>
+      <td>4.50</td>
+      <td>6725.35</td>
+      <td>6500.00</td>
+      <td>39.37</td>
+      <td>22.0</td>
+      <td>214.84</td>
+      <td>225.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>11211</td>
+      <td>11094</td>
+      <td>0.06</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.16</td>
+      <td>16.67</td>
+      <td>5.06</td>
+      <td>6791.25</td>
+      <td>6500.00</td>
+      <td>71.16</td>
+      <td>22.0</td>
+      <td>223.62</td>
+      <td>230.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>108</td>
+      <td>104</td>
+      <td>0.05</td>
+      <td>0.08</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>67.82</td>
+      <td>4.20</td>
+      <td>6063.64</td>
+      <td>6198.07</td>
+      <td>634.54</td>
+      <td>44.0</td>
+      <td>101.32</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2012</th>
+      <th>Mono</th>
+      <td>17909</td>
+      <td>17305</td>
+      <td>0.11</td>
+      <td>0.17</td>
+      <td>0.16</td>
+      <td>0.21</td>
+      <td>9.84</td>
+      <td>5.10</td>
+      <td>5869.45</td>
+      <td>5700.09</td>
+      <td>36.71</td>
+      <td>21.0</td>
+      <td>245.26</td>
+      <td>240.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>16345</td>
+      <td>16311</td>
+      <td>0.09</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.16</td>
+      <td>14.41</td>
+      <td>4.84</td>
+      <td>5574.90</td>
+      <td>5176.09</td>
+      <td>56.94</td>
+      <td>20.0</td>
+      <td>233.65</td>
+      <td>235.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>67</td>
+      <td>64</td>
+      <td>0.05</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.12</td>
+      <td>43.85</td>
+      <td>6.19</td>
+      <td>5066.37</td>
+      <td>4441.77</td>
+      <td>283.67</td>
+      <td>54.0</td>
+      <td>124.83</td>
+      <td>126.5</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2013</th>
+      <th>Mono</th>
+      <td>22370</td>
+      <td>20069</td>
+      <td>0.11</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>0.21</td>
+      <td>9.04</td>
+      <td>5.52</td>
+      <td>5067.79</td>
+      <td>5006.55</td>
+      <td>30.82</td>
+      <td>20.0</td>
+      <td>275.15</td>
+      <td>260.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>37852</td>
+      <td>37799</td>
+      <td>0.06</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.20</td>
+      <td>9.01</td>
+      <td>5.28</td>
+      <td>4920.09</td>
+      <td>4975.00</td>
+      <td>34.59</td>
+      <td>22.0</td>
+      <td>244.74</td>
+      <td>245.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>91</td>
+      <td>87</td>
+      <td>0.06</td>
+      <td>0.11</td>
+      <td>0.11</td>
+      <td>0.16</td>
+      <td>28.72</td>
+      <td>5.02</td>
+      <td>4942.09</td>
+      <td>3864.41</td>
+      <td>196.90</td>
+      <td>48.0</td>
+      <td>115.65</td>
+      <td>120.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2014</th>
+      <th>Mono</th>
+      <td>27924</td>
+      <td>25705</td>
+      <td>0.10</td>
+      <td>0.18</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>8.02</td>
+      <td>5.50</td>
+      <td>4524.47</td>
+      <td>4516.62</td>
+      <td>27.74</td>
+      <td>20.0</td>
+      <td>283.37</td>
+      <td>270.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>49193</td>
+      <td>49110</td>
+      <td>0.10</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>8.36</td>
+      <td>5.50</td>
+      <td>4631.94</td>
+      <td>4800.00</td>
+      <td>31.62</td>
+      <td>22.0</td>
+      <td>251.54</td>
+      <td>250.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>192</td>
+      <td>188</td>
+      <td>0.05</td>
+      <td>0.14</td>
+      <td>0.13</td>
+      <td>0.18</td>
+      <td>13.05</td>
+      <td>5.44</td>
+      <td>4251.56</td>
+      <td>4610.12</td>
+      <td>97.19</td>
+      <td>32.0</td>
+      <td>190.44</td>
+      <td>145.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2015</th>
+      <th>Mono</th>
+      <td>48552</td>
+      <td>46992</td>
+      <td>0.10</td>
+      <td>0.18</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>8.06</td>
+      <td>5.70</td>
+      <td>4127.43</td>
+      <td>4149.00</td>
+      <td>26.08</td>
+      <td>18.0</td>
+      <td>291.12</td>
+      <td>280.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>80335</td>
+      <td>80256</td>
+      <td>0.10</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>8.05</td>
+      <td>5.46</td>
+      <td>4442.75</td>
+      <td>4914.53</td>
+      <td>28.29</td>
+      <td>20.0</td>
+      <td>258.92</td>
+      <td>260.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>531</td>
+      <td>528</td>
+      <td>0.05</td>
+      <td>0.15</td>
+      <td>0.14</td>
+      <td>0.19</td>
+      <td>9.83</td>
+      <td>5.76</td>
+      <td>4473.86</td>
+      <td>4192.02</td>
+      <td>72.48</td>
+      <td>30.0</td>
+      <td>210.83</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2016</th>
+      <th>Mono</th>
+      <td>69729</td>
+      <td>67691</td>
+      <td>0.10</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>0.22</td>
+      <td>9.01</td>
+      <td>5.89</td>
+      <td>4066.06</td>
+      <td>4021.16</td>
+      <td>27.14</td>
+      <td>18.0</td>
+      <td>298.64</td>
+      <td>290.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>84219</td>
+      <td>84175</td>
+      <td>0.11</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>9.01</td>
+      <td>5.46</td>
+      <td>4383.73</td>
+      <td>4580.00</td>
+      <td>29.88</td>
+      <td>18.0</td>
+      <td>263.50</td>
+      <td>260.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>416</td>
+      <td>410</td>
+      <td>0.08</td>
+      <td>0.15</td>
+      <td>0.14</td>
+      <td>0.19</td>
+      <td>15.48</td>
+      <td>6.00</td>
+      <td>4986.34</td>
+      <td>4480.05</td>
+      <td>106.85</td>
+      <td>34.0</td>
+      <td>199.32</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2017</th>
+      <th>Mono</th>
+      <td>85537</td>
+      <td>81833</td>
+      <td>0.09</td>
+      <td>0.19</td>
+      <td>0.18</td>
+      <td>0.23</td>
+      <td>9.53</td>
+      <td>5.94</td>
+      <td>3913.85</td>
+      <td>3985.51</td>
+      <td>27.35</td>
+      <td>18.0</td>
+      <td>305.35</td>
+      <td>300.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>33984</td>
+      <td>33927</td>
+      <td>0.10</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.20</td>
+      <td>13.46</td>
+      <td>5.72</td>
+      <td>4036.28</td>
+      <td>4150.00</td>
+      <td>42.57</td>
+      <td>18.0</td>
+      <td>282.07</td>
+      <td>280.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>190</td>
+      <td>190</td>
+      <td>0.06</td>
+      <td>0.16</td>
+      <td>0.14</td>
+      <td>0.19</td>
+      <td>69.90</td>
+      <td>6.72</td>
+      <td>4516.19</td>
+      <td>4035.02</td>
+      <td>609.64</td>
+      <td>28.0</td>
+      <td>230.29</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2018</th>
+      <th>Mono</th>
+      <td>106980</td>
+      <td>102310</td>
+      <td>0.11</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.23</td>
+      <td>8.79</td>
+      <td>5.80</td>
+      <td>3922.00</td>
+      <td>3966.71</td>
+      <td>24.96</td>
+      <td>17.0</td>
+      <td>314.83</td>
+      <td>310.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>23106</td>
+      <td>23030</td>
+      <td>0.10</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>0.20</td>
+      <td>14.50</td>
+      <td>5.85</td>
+      <td>4244.56</td>
+      <td>4398.76</td>
+      <td>44.96</td>
+      <td>18.0</td>
+      <td>303.81</td>
+      <td>305.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>94</td>
+      <td>85</td>
+      <td>0.09</td>
+      <td>0.17</td>
+      <td>0.18</td>
+      <td>0.20</td>
+      <td>36.87</td>
+      <td>6.56</td>
+      <td>4608.11</td>
+      <td>4167.66</td>
+      <td>263.83</td>
+      <td>18.0</td>
+      <td>269.45</td>
+      <td>310.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2019</th>
+      <th>Mono</th>
+      <td>128215</td>
+      <td>125313</td>
+      <td>0.11</td>
+      <td>0.20</td>
+      <td>0.20</td>
+      <td>0.23</td>
+      <td>8.08</td>
+      <td>5.76</td>
+      <td>4044.55</td>
+      <td>3974.92</td>
+      <td>22.79</td>
+      <td>17.0</td>
+      <td>324.56</td>
+      <td>320.0</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>19268</td>
+      <td>19225</td>
+      <td>0.10</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>12.28</td>
+      <td>5.80</td>
+      <td>4017.51</td>
+      <td>3940.89</td>
+      <td>39.68</td>
+      <td>19.0</td>
+      <td>296.30</td>
+      <td>290.0</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>44</td>
+      <td>35</td>
+      <td>0.09</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.20</td>
+      <td>12.96</td>
+      <td>7.83</td>
+      <td>4548.69</td>
+      <td>3785.14</td>
+      <td>69.27</td>
+      <td>20.5</td>
+      <td>277.93</td>
+      <td>310.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tm2</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module_2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;efficiency_module_2&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span> <span class="s1">&#39;system_size_DC&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;price_per_kW&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;module_quantity_2&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">,</span> <span class="s1">&#39;nameplate_capacity_module_2&#39;</span><span class="p">:</span> <span class="n">agg_means</span><span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tm2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="6" halign="left">efficiency_module_2</th>
+      <th colspan="2" halign="left">system_size_DC</th>
+      <th colspan="2" halign="left">price_per_kW</th>
+      <th colspan="2" halign="left">module_quantity_2</th>
+      <th colspan="2" halign="left">nameplate_capacity_module_2</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>median</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th>technology_module_2</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2002</th>
+      <th>Poly</th>
+      <td>3</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.42</td>
+      <td>3.60</td>
+      <td>9972.43</td>
+      <td>7867.22</td>
+      <td>27.33</td>
+      <td>22.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2003</th>
+      <th>Mono</th>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.25</td>
+      <td>4.25</td>
+      <td>7267.93</td>
+      <td>7267.93</td>
+      <td>17.50</td>
+      <td>17.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>8</td>
+      <td>3</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.15</td>
+      <td>6.54</td>
+      <td>4.92</td>
+      <td>9081.64</td>
+      <td>9665.31</td>
+      <td>31.75</td>
+      <td>16.0</td>
+      <td>170.67</td>
+      <td>187.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>5</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.55</td>
+      <td>3.15</td>
+      <td>9018.42</td>
+      <td>8639.09</td>
+      <td>15.80</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2004</th>
+      <th>Mono</th>
+      <td>77</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.11</td>
+      <td>1.28</td>
+      <td>7605.39</td>
+      <td>8438.01</td>
+      <td>9.87</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>14</td>
+      <td>5</td>
+      <td>0.10</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>4.66</td>
+      <td>4.36</td>
+      <td>7119.00</td>
+      <td>7646.21</td>
+      <td>15.36</td>
+      <td>13.0</td>
+      <td>207.00</td>
+      <td>165.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>5</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.93</td>
+      <td>3.92</td>
+      <td>10695.33</td>
+      <td>11082.64</td>
+      <td>56.40</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2005</th>
+      <th>Mono</th>
+      <td>86</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.93</td>
+      <td>2.44</td>
+      <td>7630.89</td>
+      <td>7713.92</td>
+      <td>11.66</td>
+      <td>11.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>17</td>
+      <td>5</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>4.07</td>
+      <td>3.40</td>
+      <td>7968.86</td>
+      <td>6914.44</td>
+      <td>18.00</td>
+      <td>18.0</td>
+      <td>184.50</td>
+      <td>166.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.33</td>
+      <td>5.33</td>
+      <td>11621.96</td>
+      <td>11621.96</td>
+      <td>21.00</td>
+      <td>21.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2006</th>
+      <th>Mono</th>
+      <td>41</td>
+      <td>4</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.16</td>
+      <td>11.70</td>
+      <td>4.54</td>
+      <td>8225.62</td>
+      <td>7954.71</td>
+      <td>43.56</td>
+      <td>17.0</td>
+      <td>178.75</td>
+      <td>175.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>22</td>
+      <td>15</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>9.25</td>
+      <td>6.06</td>
+      <td>7111.90</td>
+      <td>7284.96</td>
+      <td>30.32</td>
+      <td>19.0</td>
+      <td>185.87</td>
+      <td>187.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>4</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>7.79</td>
+      <td>5.49</td>
+      <td>8678.88</td>
+      <td>8678.88</td>
+      <td>23.75</td>
+      <td>13.5</td>
+      <td>109.33</td>
+      <td>124.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2007</th>
+      <th>Mono</th>
+      <td>71</td>
+      <td>26</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.21</td>
+      <td>34.47</td>
+      <td>6.52</td>
+      <td>8080.46</td>
+      <td>8024.30</td>
+      <td>37.15</td>
+      <td>16.0</td>
+      <td>198.35</td>
+      <td>195.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>99</td>
+      <td>81</td>
+      <td>0.06</td>
+      <td>0.11</td>
+      <td>0.12</td>
+      <td>0.16</td>
+      <td>32.43</td>
+      <td>4.56</td>
+      <td>7781.64</td>
+      <td>7420.31</td>
+      <td>88.58</td>
+      <td>15.0</td>
+      <td>145.32</td>
+      <td>142.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>6</td>
+      <td>5</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>54.01</td>
+      <td>23.36</td>
+      <td>8469.98</td>
+      <td>8555.86</td>
+      <td>419.50</td>
+      <td>132.0</td>
+      <td>78.80</td>
+      <td>68.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2008</th>
+      <th>Mono</th>
+      <td>100</td>
+      <td>75</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.17</td>
+      <td>0.20</td>
+      <td>13.81</td>
+      <td>6.26</td>
+      <td>8328.03</td>
+      <td>8159.72</td>
+      <td>35.32</td>
+      <td>14.0</td>
+      <td>195.70</td>
+      <td>200.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>149</td>
+      <td>131</td>
+      <td>0.06</td>
+      <td>0.11</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>46.37</td>
+      <td>5.58</td>
+      <td>7340.57</td>
+      <td>7379.68</td>
+      <td>103.26</td>
+      <td>14.0</td>
+      <td>145.13</td>
+      <td>165.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>5</td>
+      <td>4</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>34.13</td>
+      <td>4.91</td>
+      <td>8305.64</td>
+      <td>9011.42</td>
+      <td>132.20</td>
+      <td>32.0</td>
+      <td>100.00</td>
+      <td>102.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2009</th>
+      <th>Mono</th>
+      <td>122</td>
+      <td>104</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>16.84</td>
+      <td>6.82</td>
+      <td>7828.52</td>
+      <td>7651.11</td>
+      <td>42.84</td>
+      <td>18.0</td>
+      <td>202.96</td>
+      <td>205.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>150</td>
+      <td>138</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>74.73</td>
+      <td>5.71</td>
+      <td>8122.41</td>
+      <td>7292.98</td>
+      <td>114.49</td>
+      <td>16.0</td>
+      <td>174.70</td>
+      <td>195.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>8</td>
+      <td>6</td>
+      <td>0.06</td>
+      <td>0.07</td>
+      <td>0.06</td>
+      <td>0.09</td>
+      <td>52.74</td>
+      <td>14.96</td>
+      <td>9443.81</td>
+      <td>8838.38</td>
+      <td>187.50</td>
+      <td>23.0</td>
+      <td>335.50</td>
+      <td>146.50</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2010</th>
+      <th>Mono</th>
+      <td>158</td>
+      <td>138</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.19</td>
+      <td>12.39</td>
+      <td>5.72</td>
+      <td>7108.98</td>
+      <td>7022.75</td>
+      <td>32.51</td>
+      <td>16.0</td>
+      <td>214.93</td>
+      <td>222.50</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>195</td>
+      <td>175</td>
+      <td>0.06</td>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.16</td>
+      <td>33.39</td>
+      <td>6.01</td>
+      <td>6890.39</td>
+      <td>6500.00</td>
+      <td>84.88</td>
+      <td>18.0</td>
+      <td>200.74</td>
+      <td>210.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>10</td>
+      <td>10</td>
+      <td>0.06</td>
+      <td>0.07</td>
+      <td>0.06</td>
+      <td>0.11</td>
+      <td>113.45</td>
+      <td>21.93</td>
+      <td>8047.06</td>
+      <td>7230.89</td>
+      <td>409.30</td>
+      <td>66.0</td>
+      <td>169.30</td>
+      <td>130.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2011</th>
+      <th>Mono</th>
+      <td>193</td>
+      <td>166</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.15</td>
+      <td>0.20</td>
+      <td>28.83</td>
+      <td>5.77</td>
+      <td>6546.27</td>
+      <td>6462.62</td>
+      <td>62.36</td>
+      <td>16.0</td>
+      <td>219.05</td>
+      <td>225.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>159</td>
+      <td>144</td>
+      <td>0.06</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.16</td>
+      <td>33.93</td>
+      <td>5.95</td>
+      <td>6456.65</td>
+      <td>6173.73</td>
+      <td>52.11</td>
+      <td>16.0</td>
+      <td>212.24</td>
+      <td>225.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>14</td>
+      <td>13</td>
+      <td>0.06</td>
+      <td>0.09</td>
+      <td>0.10</td>
+      <td>0.11</td>
+      <td>245.70</td>
+      <td>32.18</td>
+      <td>6458.50</td>
+      <td>6602.75</td>
+      <td>1142.29</td>
+      <td>65.5</td>
+      <td>100.23</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2012</th>
+      <th>Mono</th>
+      <td>222</td>
+      <td>207</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>31.85</td>
+      <td>6.43</td>
+      <td>6161.82</td>
+      <td>5960.00</td>
+      <td>56.16</td>
+      <td>14.0</td>
+      <td>237.26</td>
+      <td>235.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>265</td>
+      <td>246</td>
+      <td>0.06</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.17</td>
+      <td>80.71</td>
+      <td>5.88</td>
+      <td>5240.55</td>
+      <td>4975.00</td>
+      <td>153.22</td>
+      <td>14.0</td>
+      <td>228.18</td>
+      <td>235.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>6</td>
+      <td>5</td>
+      <td>0.06</td>
+      <td>0.08</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>193.25</td>
+      <td>34.18</td>
+      <td>7264.19</td>
+      <td>7826.80</td>
+      <td>814.00</td>
+      <td>92.0</td>
+      <td>109.60</td>
+      <td>124.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2013</th>
+      <th>Mono</th>
+      <td>370</td>
+      <td>331</td>
+      <td>0.13</td>
+      <td>0.17</td>
+      <td>0.16</td>
+      <td>0.21</td>
+      <td>38.12</td>
+      <td>6.90</td>
+      <td>5183.23</td>
+      <td>4987.50</td>
+      <td>77.04</td>
+      <td>13.0</td>
+      <td>255.60</td>
+      <td>250.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>450</td>
+      <td>442</td>
+      <td>0.12</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.17</td>
+      <td>36.75</td>
+      <td>6.37</td>
+      <td>4764.32</td>
+      <td>4915.70</td>
+      <td>81.80</td>
+      <td>14.0</td>
+      <td>240.57</td>
+      <td>245.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>5</td>
+      <td>4</td>
+      <td>0.06</td>
+      <td>0.07</td>
+      <td>0.06</td>
+      <td>0.10</td>
+      <td>101.90</td>
+      <td>13.73</td>
+      <td>4595.40</td>
+      <td>4841.84</td>
+      <td>300.20</td>
+      <td>32.0</td>
+      <td>86.75</td>
+      <td>71.50</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2014</th>
+      <th>Mono</th>
+      <td>323</td>
+      <td>275</td>
+      <td>0.13</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>17.64</td>
+      <td>7.56</td>
+      <td>4609.50</td>
+      <td>4544.99</td>
+      <td>27.24</td>
+      <td>14.0</td>
+      <td>267.00</td>
+      <td>265.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>714</td>
+      <td>688</td>
+      <td>0.10</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.20</td>
+      <td>27.04</td>
+      <td>7.52</td>
+      <td>4656.25</td>
+      <td>4822.60</td>
+      <td>46.78</td>
+      <td>14.0</td>
+      <td>246.02</td>
+      <td>250.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>6</td>
+      <td>6</td>
+      <td>0.06</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>0.12</td>
+      <td>108.16</td>
+      <td>96.50</td>
+      <td>3400.96</td>
+      <td>3400.96</td>
+      <td>928.17</td>
+      <td>675.5</td>
+      <td>83.00</td>
+      <td>73.75</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2015</th>
+      <th>Mono</th>
+      <td>305</td>
+      <td>273</td>
+      <td>0.12</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.21</td>
+      <td>35.33</td>
+      <td>6.95</td>
+      <td>3823.17</td>
+      <td>3609.75</td>
+      <td>57.46</td>
+      <td>16.0</td>
+      <td>270.02</td>
+      <td>260.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>582</td>
+      <td>560</td>
+      <td>0.11</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.18</td>
+      <td>19.98</td>
+      <td>5.89</td>
+      <td>5230.82</td>
+      <td>4800.00</td>
+      <td>36.98</td>
+      <td>14.0</td>
+      <td>247.97</td>
+      <td>250.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>10</td>
+      <td>10</td>
+      <td>0.06</td>
+      <td>0.11</td>
+      <td>0.10</td>
+      <td>0.19</td>
+      <td>130.84</td>
+      <td>6.95</td>
+      <td>1436.78</td>
+      <td>1436.78</td>
+      <td>563.33</td>
+      <td>20.0</td>
+      <td>167.30</td>
+      <td>132.50</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2016</th>
+      <th>Mono</th>
+      <td>447</td>
+      <td>305</td>
+      <td>0.13</td>
+      <td>0.18</td>
+      <td>0.17</td>
+      <td>0.22</td>
+      <td>23.79</td>
+      <td>5.52</td>
+      <td>9650.06</td>
+      <td>4392.59</td>
+      <td>56.55</td>
+      <td>14.0</td>
+      <td>288.32</td>
+      <td>285.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>425</td>
+      <td>388</td>
+      <td>0.13</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.18</td>
+      <td>60.18</td>
+      <td>6.30</td>
+      <td>5337.90</td>
+      <td>3745.60</td>
+      <td>153.64</td>
+      <td>16.0</td>
+      <td>254.58</td>
+      <td>255.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>8</td>
+      <td>7</td>
+      <td>0.05</td>
+      <td>0.11</td>
+      <td>0.13</td>
+      <td>0.15</td>
+      <td>25.11</td>
+      <td>7.35</td>
+      <td>3712.24</td>
+      <td>3624.04</td>
+      <td>63.29</td>
+      <td>50.0</td>
+      <td>123.00</td>
+      <td>140.00</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2017</th>
+      <th>Mono</th>
+      <td>264</td>
+      <td>217</td>
+      <td>0.13</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>0.22</td>
+      <td>37.46</td>
+      <td>7.84</td>
+      <td>4075.84</td>
+      <td>3432.54</td>
+      <td>60.22</td>
+      <td>14.0</td>
+      <td>306.67</td>
+      <td>315.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>265</td>
+      <td>213</td>
+      <td>0.11</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>112.85</td>
+      <td>7.41</td>
+      <td>4668.09</td>
+      <td>4069.02</td>
+      <td>329.27</td>
+      <td>14.0</td>
+      <td>266.71</td>
+      <td>260.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>77</td>
+      <td>10</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.18</td>
+      <td>11.98</td>
+      <td>6.77</td>
+      <td>4278.17</td>
+      <td>4239.77</td>
+      <td>18.36</td>
+      <td>1.0</td>
+      <td>186.80</td>
+      <td>147.50</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2018</th>
+      <th>Mono</th>
+      <td>523</td>
+      <td>451</td>
+      <td>0.13</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.23</td>
+      <td>36.75</td>
+      <td>7.58</td>
+      <td>4189.72</td>
+      <td>3389.83</td>
+      <td>87.20</td>
+      <td>15.0</td>
+      <td>304.21</td>
+      <td>300.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>369</td>
+      <td>276</td>
+      <td>0.11</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.20</td>
+      <td>96.35</td>
+      <td>7.92</td>
+      <td>5044.11</td>
+      <td>3417.43</td>
+      <td>206.82</td>
+      <td>14.0</td>
+      <td>268.62</td>
+      <td>265.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>861</td>
+      <td>4</td>
+      <td>0.06</td>
+      <td>0.12</td>
+      <td>0.12</td>
+      <td>0.18</td>
+      <td>8.50</td>
+      <td>7.08</td>
+      <td>4139.55</td>
+      <td>4430.02</td>
+      <td>1.40</td>
+      <td>1.0</td>
+      <td>139.25</td>
+      <td>112.50</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">2019</th>
+      <th>Mono</th>
+      <td>1106</td>
+      <td>1024</td>
+      <td>0.13</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.23</td>
+      <td>16.25</td>
+      <td>4.81</td>
+      <td>4831.76</td>
+      <td>4334.36</td>
+      <td>33.39</td>
+      <td>14.0</td>
+      <td>304.42</td>
+      <td>305.00</td>
+    </tr>
+    <tr>
+      <th>Poly</th>
+      <td>933</td>
+      <td>846</td>
+      <td>0.06</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.19</td>
+      <td>17.16</td>
+      <td>3.94</td>
+      <td>5624.08</td>
+      <td>4891.13</td>
+      <td>24.08</td>
+      <td>14.0</td>
+      <td>253.88</td>
+      <td>255.00</td>
+    </tr>
+    <tr>
+      <th>Thin Film</th>
+      <td>1977</td>
+      <td>9</td>
+      <td>0.05</td>
+      <td>0.11</td>
+      <td>0.10</td>
+      <td>0.19</td>
+      <td>7.59</td>
+      <td>7.02</td>
+      <td>4590.91</td>
+      <td>4792.27</td>
+      <td>1.07</td>
+      <td>1.0</td>
+      <td>203.57</td>
+      <td>290.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="datan-kasittelya-ennen-kuvaajien-piirtamista">
+<h2>Datan käsittelyä ennen kuvaajien piirtämistä<a class="headerlink" href="#datan-kasittelya-ennen-kuvaajien-piirtamista" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+  <span class="s1">&#39;price_per_kW&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span>
+  <span class="s1">&#39;technology_module_1&#39;</span><span class="p">:</span> <span class="n">agg_counts</span><span class="p">,</span> <span class="s1">&#39;technology_module_2&#39;</span><span class="p">:</span> <span class="n">agg_counts</span><span class="p">,</span>
+  <span class="s1">&#39;efficiency_module_1&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span> <span class="s1">&#39;efficiency_module_2&#39;</span><span class="p">:</span> <span class="n">agg_extended</span>
+<span class="p">}))</span>
+
+<span class="c1"># koska mukaan kuvaajiin tulee myös hintatehosuhde, ajetaan esikäsittelijä tässä välissä uudelleen common-moodissa</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">esik</span><span class="o">.</span><span class="n">esik</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="s1">&#39;common&#39;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+  <span class="s1">&#39;price_per_kW&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span>
+  <span class="s1">&#39;technology_module_1&#39;</span><span class="p">:</span> <span class="n">agg_counts</span><span class="p">,</span> <span class="s1">&#39;technology_module_2&#39;</span><span class="p">:</span> <span class="n">agg_counts</span><span class="p">,</span>
+  <span class="s1">&#39;efficiency_module_1&#39;</span><span class="p">:</span> <span class="n">agg_extended</span><span class="p">,</span> <span class="s1">&#39;efficiency_module_2&#39;</span><span class="p">:</span> <span class="n">agg_extended</span>
+<span class="p">}))</span>
+
+<span class="c1"># Luodaan dataframe, jossa 1,2,3 sarakeryhmistä kustakin moduulikohtaiset rivit dataframessa</span>
+<span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="n">sub</span>
+<span class="n">excp</span> <span class="o">=</span> <span class="s1">&#39;(?&lt;!data_provider)(?&lt;!system_ID)&#39;</span> <span class="c1"># sarakkeet, joissa myös numeerinen pääte, mutta joihin ei haluta koskea</span>
+<span class="c1"># Pudotetaan sarakeryhmät 2 ja 3 pois ja nimetään 1 sarakkeet uudelleen poistamalla _1 sarakkeiden lopusta</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;(_2|_3)&#39;</span><span class="p">)))]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">sub</span><span class="p">(</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;_1&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<span class="n">df_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;module_grp&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># säilytetään tieto mikä sarakeryhmä kyseessä</span>
+<span class="n">df_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;inst_id&#39;</span><span class="p">,</span> <span class="n">df_1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># ja asennus id kyseessä</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;(_1|_3)&#39;</span><span class="p">)))]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">sub</span><span class="p">(</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;_2&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<span class="n">df_2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;module_grp&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">df_2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;inst_id&#39;</span><span class="p">,</span> <span class="n">df_2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;(_2|_1)&#39;</span><span class="p">)))]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">sub</span><span class="p">(</span><span class="n">excp</span><span class="o">+</span><span class="s1">&#39;_3&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<span class="n">df_3</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;module_grp&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">df_3</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;inst_id&#39;</span><span class="p">,</span> <span class="n">df_3</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_123</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">,</span> <span class="n">df_3</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1"># yhdistetään dataframet</span>
+<span class="n">df_123</span><span class="p">[</span><span class="s1">&#39;technology_module&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_123</span><span class="p">[</span><span class="s1">&#39;technology_module&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># pudotetaan pois NaN-rivejä</span>
+
+<span class="c1"># tarkistuksia</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_123</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_counts</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cf</span><span class="o">.</span><span class="n">technology_module</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_123</span><span class="p">[[</span><span class="s1">&#39;technology_module&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_counts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price_per_kW</th>
+      <th>technology_module_1</th>
+      <th>technology_module_2</th>
+      <th>efficiency_module_1</th>
+      <th>efficiency_module_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size</th>
+      <td>1000000.000000</td>
+      <td>1000000.0</td>
+      <td>1000000.0</td>
+      <td>1000000.000000</td>
+      <td>1000000.000000</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>814322.000000</td>
+      <td>943759.0</td>
+      <td>12238.0</td>
+      <td>905703.000000</td>
+      <td>8048.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000019</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.051276</td>
+      <td>0.054687</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4572.313062</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.175044</td>
+      <td>0.161406</td>
+    </tr>
+    <tr>
+      <th>median</th>
+      <td>4470.211555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.171411</td>
+      <td>0.160138</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>823842.151675</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.227273</td>
+      <td>0.226994</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price_per_kW</th>
+      <th>technology_module_1</th>
+      <th>technology_module_2</th>
+      <th>efficiency_module_1</th>
+      <th>efficiency_module_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size</th>
+      <td>1000000.000000</td>
+      <td>1000000.0</td>
+      <td>1000000.0</td>
+      <td>1000000.000000</td>
+      <td>1000000.000000</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>640335.000000</td>
+      <td>943759.0</td>
+      <td>12238.0</td>
+      <td>905703.000000</td>
+      <td>8048.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1000.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.051276</td>
+      <td>0.054687</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4626.638018</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.175044</td>
+      <td>0.161406</td>
+    </tr>
+    <tr>
+      <th>median</th>
+      <td>4499.183673</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.171411</td>
+      <td>0.160138</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>823842.151675</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.227273</td>
+      <td>0.226994</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>inst_id</th>
+      <th>module_grp</th>
+      <th>installation_date</th>
+      <th>year</th>
+      <th>total_installed_price</th>
+      <th>system_size_DC</th>
+      <th>price_per_kW</th>
+      <th>customer_segment</th>
+      <th>technology_module</th>
+      <th>efficiency_module</th>
+      <th>module_quantity</th>
+      <th>nameplate_capacity_module</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>technology_module_1</th>
+      <th>technology_module_2</th>
+      <th>technology_module_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size</th>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>943759</td>
+      <td>12238</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>955997
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>technology_module</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size</th>
+      <td>3000000</td>
+    </tr>
+    <tr>
+      <th>count</th>
+      <td>955997</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="paneeliteknologioiden-asennusmaarat-vuosittain">
+<h2>Paneeliteknologioiden asennusmäärät vuosittain<a class="headerlink" href="#paneeliteknologioiden-asennusmaarat-vuosittain" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Mono-teknologian paneeleiden asennusmäärät vuodesta 2014 lähtien jyrkässä nousussa.</p></li>
+<li><p>Poly-teknologian paneeleilla mielenkiintoinen jyrkkä nousu 2012-15 ja jyrkkä lasku 2016-19.</p></li>
+<li><p>Thin Film -paneeleiden asennusmäärät datassa minimaalisia.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_123</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2001-01-01&#39;</span><span class="p">]</span>
+<span class="n">xticks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;technology_module&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Vuosi&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Asennusmäärä&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Paneeliteknologioiden asennusmäärät vuosittain&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">,</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Paneeliteknologia&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_12_0.png" src="../_images/solar_panel_technologies_12_0.png" />
+</div>
+</div>
+</section>
+<section id="paneeliteknologioiden-hyotysuhteen-kehitys">
+<h2>Paneeliteknologioiden hyötysuhteen kehitys<a class="headerlink" href="#paneeliteknologioiden-hyotysuhteen-kehitys" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Mono-teknologialla koko datan aikajaksolla 2013-2019 paras hyötysuhde.</p></li>
+<li><p>Poly-teknologian hyötysuhde nousee tasaisesti 13% -&gt; 18%.</p></li>
+<li><p>Mono ja Thin Film -paneelien osalta hyötysuhde pääasiassa nousee, mutta vuosien 2009-2011 välillä myös laskee. Mikä voisi selittää tämän notkahduksen?</p></li>
+<li><p>Thin Film -paneelien hyötysuhteessa merkittävän jyrkkä kasvu lyhyessä ajassa vuosien 2012-2014 välillä.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_123</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2002-01-01&#39;</span><span class="p">]</span>
+<span class="n">xticks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;efficiency_module&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Vuosi&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Hyötysuhde (%)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Paneeliteknologioiden hyötysuhteen kehitys&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">,</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Paneeliteknologia&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_14_0.png" src="../_images/solar_panel_technologies_14_0.png" />
+</div>
+</div>
+</section>
+<section id="paneeliteknologioiden-hintatehosuhteen-kehitys">
+<h2>Paneeliteknologioiden hintatehosuhteen kehitys<a class="headerlink" href="#paneeliteknologioiden-hintatehosuhteen-kehitys" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Asennuksista löytyy vain kokonaishinta, josta ei ole mahdollista eritellä mahdollisten eri teknologiaa olevien moduuleiden osuuksia erikseen.</p></li>
+<li><p>Kuvaajassa näytetään vain asennukset, joissa käytetty yhtä paneeliteknologiaa.</p></li>
+<li><p>Lisäksi käytetty esikäsittelijä-kirjastoa common-moodissa, jolla tehdään aiemmin sarakkeisiin määriteltyjä esikäsittelyjä automaattisesti.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># pudotetaan pois asennukset, joissa käytetty samassa useampia eri teknologioita</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;technology_module_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;technology_module_3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2004-01-01&#39;</span><span class="p">]</span>
+<span class="n">xticks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module_1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;price_per_kW&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Vuosi&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Hintatehosuhde ($/kW)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Paneeliteknologioiden hintatehosuhteen ($/kW) kehitys&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">,</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Paneeliteknologia&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_16_0.png" src="../_images/solar_panel_technologies_16_0.png" />
+</div>
+</div>
+</section>
+<section id="paneeliteknologioiden-keskimaarainen-nimellisteho-w">
+<h2>Paneeliteknologioiden keskimääräinen nimellisteho (W)<a class="headerlink" href="#paneeliteknologioiden-keskimaarainen-nimellisteho-w" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Mono-teknologian paneelien keskimääräinen nimellisteho kaksinkertaisutunut 2007-2019 välillä ~150W -&gt; 300W.</p></li>
+<li><p>Myös Poly-teknologian paneeleilla nimellisteho noussut tasaisesti.</p></li>
+<li><p>Thin Film-paneelien keskimääräinen nimellisteho 2003-2013 pieni ~100W, jonka jälkeen arvo 2.5 kertaistuu 2013-2019 välillä.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_123</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2002-01-01&#39;</span><span class="p">]</span>
+<span class="n">xticks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;nameplate_capacity_module&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Vuosi&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Nimellisteho (W)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Paneeliteknologioiden keskimääräinen nimellisteho (W)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">,</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Paneeliteknologia&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_18_0.png" src="../_images/solar_panel_technologies_18_0.png" />
+</div>
+</div>
+</section>
+<section id="paneeliteknologioiden-keskimaarainen-paneelien-maara-asennuksessa">
+<h2>Paneeliteknologioiden keskimääräinen paneelien määrä asennuksessa<a class="headerlink" href="#paneeliteknologioiden-keskimaarainen-paneelien-maara-asennuksessa" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Mono- ja Poly-paneelien keskimääräiset asennuskohtaiset määrät eivät juuri aikajaksolla muutu.</p></li>
+<li><p>Thin Film-paneelien keskimääräiset asennuskohtaiset määrät heittelevät laajalla skaalalla ja ovat paikoin huomattavan isoja.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_123</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2002-01-01&#39;</span><span class="p">]</span>
+<span class="n">xticks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;technology_module&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;module_quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Vuosi&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Paneelien määrä asennuksessa&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Paneeliteknologioiden keskimääräinen paneelien määrä asennuksessa&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Mono&#39;</span><span class="p">,</span> <span class="s1">&#39;Poly&#39;</span><span class="p">,</span> <span class="s1">&#39;Thin Film&#39;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Paneeliteknologia&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/solar_panel_technologies_20_0.png" src="../_images/solar_panel_technologies_20_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tehtava-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../docs/70-Jupyter-Book/kartat.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Karttalinkit</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Esikäsittelijän dokumentaatio</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By TE-team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
