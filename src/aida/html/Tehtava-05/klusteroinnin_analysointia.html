@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Klusteroinnin analysointia &#8212; Solar panel data project</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Asennusmäärän ennustaminen" href="../docs/70-Jupyter-Book/aikasarja.html" />
+    <link rel="prev" title="Aurinkopaneli pisteytys koneoppimisen haasteet." href="ML_analyysi.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Solar panel data project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../docs/70-Jupyter-Book/index.html">
+                    Solar panel data project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data-analyysi
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/paneelivalmistaja_asentaja_visualisointi.html">
+   Valmistajat ja asentajat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/esik_total_installed_price.html">
+   Hintojen tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/price_trends.html">
+   Hintakehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/esik_system_size_DC.html">
+   Sähkötehon tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/system_size_trend.html">
+   Sähkötehon kehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/kartat.html">
+   Karttalinkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-03/solar_panel_technologies.html">
+   Aurinkopaneeleiden teknologiat
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Esikäsittelijä
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html">
+   Esikäsittelijän dokumentaatio
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/esikasittelijan_testit.html">
+   Esikäsittelijän testit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/self_defined_cols_test.html">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/price_preprocessor_test.html">
+     Asennuksen hinta
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/size_preprocessor_test.html">
+     Järjestelmän sähköteho
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Koneoppiminen
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/akkuluokittelu.html">
+   Akkuluokittelu
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-04/naive_bayes_batteries.html">
+     Naive Bayes -luokittelua akkujärjestelmille
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="battery_classification.html">
+     Usean mallin luokittelua akkujärjestelmille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="rfc_model.html">
+   Random Forest Classifier
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ML_analyysi.html">
+     Aurinkopaneli pisteytys koneoppimisen haasteet.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Asennusten maantieteellinen klusterointi
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/aikasarja.html">
+   Asennusmäärän ennustaminen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/50-Koneoppiminen/asennusten_aikasarjaennustus_final.html">
+     Asennusmäärän ennustaminen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="asennusten_aikasarjaennustus_valikoitu.html">
+     Asennusmäärän ennustaminen vertaamalla vuoden takaiseen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Malli tuotantoon
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-06/mallit_tuotantoon.html">
+   Mallit tuotantoon
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/mercury_src.html">
+   Mercury lähdekoodit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_clustering.html">
+     Mercury clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_RFC_SPC.html">
+     ML test GUI for Random Forest Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Tehtava-05/klusteroinnin_analysointia.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lahtotavoite">
+   Lähtötavoite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valittu-menetelma">
+   Valittu menetelmä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vaihtoehtoiset-menetelmat">
+   Vaihtoehtoiset menetelmät
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuotantoon-soveltaminen">
+   Tuotantoon soveltaminen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jatkokehitys-ja-muita-huomioita">
+   Jatkokehitys ja muita huomioita
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Klusteroinnin analysointia</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lahtotavoite">
+   Lähtötavoite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valittu-menetelma">
+   Valittu menetelmä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vaihtoehtoiset-menetelmat">
+   Vaihtoehtoiset menetelmät
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuotantoon-soveltaminen">
+   Tuotantoon soveltaminen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jatkokehitys-ja-muita-huomioita">
+   Jatkokehitys ja muita huomioita
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="klusteroinnin-analysointia">
+<h1>Klusteroinnin analysointia<a class="headerlink" href="#klusteroinnin-analysointia" title="Permalink to this headline">#</a></h1>
+<p>Linkki edellisen tehtävän notebookiin: <a class="reference external" href="/aida/html/Tehtava-04/maantieteellista_klusterointia.html">maantieteellista_klusterointia.ipynb</a></p>
+<section id="lahtotavoite">
+<h2>Lähtötavoite<a class="headerlink" href="#lahtotavoite" title="Permalink to this headline">#</a></h2>
+<p>Projektissa toteutetun klusteroinnin tavoitteena on ollut muodostaa asennusten postinumeroille erillisestä csv-tiedostosta haettujen koordinaattien perusteella maantieteellisiä “kuumia pisteitä”, joissa aurinkopaneeleita on asennettu eniten.</p>
+<p>Klusteroitua dataa on pyritty tämän jälkeen visualisoimaan erilaisilla karttakuvaajilla. Näihin on mahdollista sisällyttää erilaista hyödyllistä tietoa asennuksista, kuten esimerkiksi asennusten keskimääräinen hinta tai asennettujen järjestelmien keskimääräinen teho.</p>
+<p>Projektin datan kohdalla on kuitenkin mietittävä, tuoko klusterointi mitään käytännön lisäarvoa verrattuna siihen, että näytettäisiin kartalla suoraan isoimmat kaupungit tai postinumeroalueet asennusten määrittäin.</p>
+<p>Klusterointi sopiikin paremmin tapauksiin, jossa sijaintidata on satunnaisempaa, eikä pohjaluokittelua (kaupungit/postinumerot) ole olemassa. Eli silloin, kun datasta ei ole mahdollista ilman klusterointia saada selkeää maantieteellistä kuvaa.</p>
+</section>
+<section id="valittu-menetelma">
+<h2>Valittu menetelmä<a class="headerlink" href="#valittu-menetelma" title="Permalink to this headline">#</a></h2>
+<p>Lähtökohtana menetelmän valitsemiselle oli, että kaikkia pisteitä ei haluta sisällyttää mukaan klustereihin ja, että klustereiden määrää ei tarvitse etukäteen määrittää. Myös menetelmän ajamiseen vaadittava aika oli merkittävä kriteeri valinnassa.</p>
+<p>Klusteroinnin menetelmäksi valittu DBSCAN- soveltuukin erittäin hyvin isoihin datamääriin. Menetelmä on nopea käyttää pääasiassa, koska eps-parametri eli säde, jolta alueelta kullekin datapisteelle etsitään muita saman klusterin pisteteitä, rajoittaa eri haettavien vaihtoehtojen määrää runsaasti.</p>
+<p>Tämä tekee samalla myös parametrien asettamisesta haastavaa ja vaatii datan tuntemusta. Liian pienellä eps-arvolla klustereista tulee pieniä ja liian suurella muodostuu maantieteellisesti turhan isoja klustereita.</p>
+<p>Toinen DBSCAN:in tärkeä määritettävä parametri on min_samples, jonka perusteella menetelmä arvioi onko klusterin alueella riittävästi pisteitä klusterin muodostamiseen. Datassa on paljon samoja pisteitä, joita normaalisti koneoppimisessa haluttaisiin karsia. Tässä tapauksessa nämä ovat kuitenkin olennaista tietoa, koska tavoitteena on nimenomaan löytää määrällisesti merkittävät sijainnit.</p>
+<p>Parametrien haastavan määrittämisen lisäksi DBSCAN:nin miinuspuolena on, ettei tämä palauta klustereille keskipisteitä automaattisesti. Vaikka näiden laskeminen onkin melko yksinkertaista toteuttaa esimerkiksi Shapely-kirjastosta löytyvällä valmiilla funktiolla, hidastaa tämä huomattavasti koodin ajamista.</p>
+</section>
+<section id="vaihtoehtoiset-menetelmat">
+<h2>Vaihtoehtoiset menetelmät<a class="headerlink" href="#vaihtoehtoiset-menetelmat" title="Permalink to this headline">#</a></h2>
+<p>Ensimmäisenä klusteroinnin menetelmänä kokeilin ehkä kaikkein yleisimmin käytettyä K-Means-klusterointia. Tämä karsiutui kuitenkin jo hetialkumetreillä pois, koska menetelmässä klustereiden määrä on määritettävä etukäteen eikä mitään pisteitä suodateta pois.</p>
+<p>Lähimpänä DBSCAN:ia vastaavia klusteroinnin menetelmiä löysin kaksi: OPTICS ja HDBSCAN, jotka kummatkin on kehitetty alun perin DBSCAN:in pohjalta ja mukana on ollut samoja kehittäjiä. Kumpikin näistä saattaisi pienemmillä datamäärillä soveltua DBSCAN:ia hieman paremmin tuotantokäyttöön.</p>
+<p>Etukäteen vaadittavia pakollisia ja tarkasti määritettäviä parametreja, kuten eps (säde), ei juurikaan ole, joten automatisointikin olisi todennäköisesti yksinkertaisempaa.</p>
+<p>Merkittävä miinuspuoli näissä on kuitenkin mallin ajamiseen kuluva aika, koska laskettavien vaihtoehtojen määrä on ilman rajoituksia myös huomattavasti suurempi. Aikaa kului isolla datamäärällä usein monin kymmenkertaisesta siihen, että Jupyter kaatui muistin loppuessa kesken.</p>
+<p>Myöskään varsinaiset tulokset näiden joidenkin kymmenien ajokokeilujen perusteella eivät visuaalisella tarkastelulla niin paljon poikenneet DBSCAN:ista, että tämän projektin puitteissa nämä olisivat olleet parempia vaihtoehtoja.</p>
+</section>
+<section id="tuotantoon-soveltaminen">
+<h2>Tuotantoon soveltaminen<a class="headerlink" href="#tuotantoon-soveltaminen" title="Permalink to this headline">#</a></h2>
+<p>Jotta DBSCAN:ista pystyisi järkevästi soveltamaan tuotantoon, vaatisi tämä todennäköisesti optimaalisten parametrien löytämiseksi jotain automatisointia. Yritin projektin aikana miettiä olisiko parametrien löytämiseksi mahdollista toteuttaa tähän tarkoitukseen jonkinlainen algoritmi.</p>
+<p>Eps-parametri riippuu postinumeroiden etäisyyksistä, joten periaatteessa laskemalla datan pisteille keskiarvoinen etäisyys ja soveltamalla tämän arvon pohjalta jonkinlainen algoritmi, tämä voisi olla mahdollista. Käytännössä näin isossa datamäärässä tämä olisi melko raskas operaatio ajaa jokaiselle datapisteelle erikseen, vaikka duplikaatit voisikin tässä laskennassa poistaa ensin turhina.</p>
+<p>Min_samples-parametrin osalta koitin laskea datasta asennusten määristä eri kvartaalin arvoja ja säätää tätä hieman erilaisilla kertoimilla. Käytännössä tämä ei kuitenkaan oikein onnistunut.</p>
+</section>
+<section id="jatkokehitys-ja-muita-huomioita">
+<h2>Jatkokehitys ja muita huomioita<a class="headerlink" href="#jatkokehitys-ja-muita-huomioita" title="Permalink to this headline">#</a></h2>
+<p>Myös projektin datan ulkopuolisista lähteistä olisi mahdollista eri rajapintojen avulla liittää postinumeroihin, kaupunkien nimiin tai koordinaatteihin tietoa väestöpohjasta tai esimerkiksi alueen varallisuudesta. Tämä mahdollistaisi useita väyliä laajentaa projektia ja voisi olla hyödyllistä jonkinlaista liiketoimintaakin ajatellen.</p>
+<p>Projektin aikana pohdinnoissa nousi esille myös koneoppimisvaiheessa yhtenä toisena mallina toteutetun asennusten määrien ennustuksen liittäminen klusteroinnin visualisoinnin jatkoksi vuosittaiseen asennusten määrien animaatioon.</p>
+<p>Toinen ajatuksena kiinnostava esiin noussut vaihtoehto oli eräänlaisen markkinasaturaation perustuva liiketoimintamahdollisuuksien “metsästäminen” eli pyrkiä koneoppimisen menetelmin ennustamaan potentiaalisia sijainteja, joissa tulevaisuudessa asennuksille olisi eniten kysyntää ja nouseva trendi.</p>
+<p>Nämä jäivät kuitenkin tämän projektin puitteissa ideatasolle ja oli tärkeämpää keskittyä koneoppimisessa olennaisempaan.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tehtava-05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ML_analyysi.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aurinkopaneli pisteytys koneoppimisen haasteet.</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../docs/70-Jupyter-Book/aikasarja.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Asennusmäärän ennustaminen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By TE-team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

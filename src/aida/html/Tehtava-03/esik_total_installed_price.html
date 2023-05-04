@@ -1,0 +1,1831 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutkitaan ja esikäsitellään total_installed_price &#8212; Solar panel data project</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hintakehitys" href="price_trends.html" />
+    <link rel="prev" title="Kuinka pitkään paneelivalmistajat ja asennusfirmat ovat toimineet alalla?" href="paneelivalmistaja_asentaja_visualisointi.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Solar panel data project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../docs/70-Jupyter-Book/index.html">
+                    Solar panel data project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data-analyysi
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="paneelivalmistaja_asentaja_visualisointi.html">
+   Valmistajat ja asentajat
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hintojen tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="price_trends.html">
+   Hintakehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esik_system_size_DC.html">
+   Sähkötehon tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="system_size_trend.html">
+   Sähkötehon kehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/kartat.html">
+   Karttalinkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="solar_panel_technologies.html">
+   Aurinkopaneeleiden teknologiat
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Esikäsittelijä
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/40-Datan-kuvaus-ja-esik%C3%A4sittely/preprocessor_dokumentointi.html">
+   Esikäsittelijän dokumentaatio
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/esikasittelijan_testit.html">
+   Esikäsittelijän testit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/self_defined_cols_test.html">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/price_preprocessor_test.html">
+     Asennuksen hinta
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tests/size_preprocessor_test.html">
+     Järjestelmän sähköteho
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Koneoppiminen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/akkuluokittelu.html">
+   Akkuluokittelu
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-04/naive_bayes_batteries.html">
+     Naive Bayes -luokittelua akkujärjestelmille
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/battery_classification.html">
+     Usean mallin luokittelua akkujärjestelmille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Tehtava-05/rfc_model.html">
+   Random Forest Classifier
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/ML_analyysi.html">
+     Aurinkopaneli pisteytys koneoppimisen haasteet.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-05/klusteroinnin_analysointia.html">
+   Asennusten maantieteellinen klusterointi
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/aikasarja.html">
+   Asennusmäärän ennustaminen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/50-Koneoppiminen/asennusten_aikasarjaennustus_final.html">
+     Asennusmäärän ennustaminen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-05/asennusten_aikasarjaennustus_valikoitu.html">
+     Asennusmäärän ennustaminen vertaamalla vuoden takaiseen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Malli tuotantoon
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Tehtava-06/mallit_tuotantoon.html">
+   Mallit tuotantoon
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/70-Jupyter-Book/mercury_src.html">
+   Mercury lähdekoodit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_clustering.html">
+     Mercury clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tehtava-06/Mercury_RFC_SPC.html">
+     ML test GUI for Random Forest Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Tehtava-03/esik_total_installed_price.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Tehtava-03/esik_total_installed_price.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tehdaan-lohkoihin-pohjalle-dataframe">
+   Tehdään lohkoihin pohjalle DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eras-loydos">
+   Eräs löydös
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#toinen-loydos">
+   Toinen löydös
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tunnuslukuja-price-per-kw-n-rajauksella">
+   Tunnuslukuja ‘price_per_kW’:n rajauksella
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piirretaan-kuvaaja-jonka-avulla-voi-arvioida-eparealistisen-hintatehosuhteen-alarajaa">
+   Piirretään kuvaaja, jonka avulla voi arvioida epärealistisen hintatehosuhteen alarajaa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piirretaan-kuvaaja-ja-kaytetaan-enemman-datan-suodatusta">
+   Piirretään kuvaaja ja käytetään enemmän datan suodatusta
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#muutamia-jakauskuvaajia-joissa-jokin-maaratty-ehto-tayttyy">
+     Muutamia jakauskuvaajia joissa jokin määrätty ehto täyttyy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#myos-akut-suodatettu-pois">
+   Myös akut suodatettu pois
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#luodaan-alustava-esikasittelija">
+   Luodaan alustava esikäsittelijä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#yksinkertaisempi-esikasittelylohko">
+   Yksinkertaisempi esikäsittelylohko
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tutkitaan ja esikäsitellään total_installed_price</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tehdaan-lohkoihin-pohjalle-dataframe">
+   Tehdään lohkoihin pohjalle DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eras-loydos">
+   Eräs löydös
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#toinen-loydos">
+   Toinen löydös
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tunnuslukuja-price-per-kw-n-rajauksella">
+   Tunnuslukuja ‘price_per_kW’:n rajauksella
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piirretaan-kuvaaja-jonka-avulla-voi-arvioida-eparealistisen-hintatehosuhteen-alarajaa">
+   Piirretään kuvaaja, jonka avulla voi arvioida epärealistisen hintatehosuhteen alarajaa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#piirretaan-kuvaaja-ja-kaytetaan-enemman-datan-suodatusta">
+   Piirretään kuvaaja ja käytetään enemmän datan suodatusta
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#muutamia-jakauskuvaajia-joissa-jokin-maaratty-ehto-tayttyy">
+     Muutamia jakauskuvaajia joissa jokin määrätty ehto täyttyy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#myos-akut-suodatettu-pois">
+   Myös akut suodatettu pois
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#luodaan-alustava-esikasittelija">
+   Luodaan alustava esikäsittelijä
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#yksinkertaisempi-esikasittelylohko">
+   Yksinkertaisempi esikäsittelylohko
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tutkitaan-ja-esikasitellaan-total-installed-price">
+<h1>Tutkitaan ja esikäsitellään total_installed_price<a class="headerlink" href="#tutkitaan-ja-esikasitellaan-total-installed-price" title="Permalink to this headline">#</a></h1>
+<p>Tämän työvaiheen alussa käytetään esikäsittelemätöntä dataa. Työvaiheeseen sisältyy datan tutkimista, joten monipuolisen tutkimisen helpottamiseksi luodaan koko datasta yksi DataFrame, josta voidaan ottaa kopio aina uuden koodilohkon alussa. Lopussa on hahmoteltu esikäsittelymoduuliin tulevaa esikäsittelyä.</p>
+<p>Osa kokeellisemmasta tutkimuksesta on karsittu lukukokemuksen parantamiseksi.</p>
+<section id="tehdaan-lohkoihin-pohjalle-dataframe">
+<h2>Tehdään lohkoihin pohjalle DataFrame<a class="headerlink" href="#tehdaan-lohkoihin-pohjalle-dataframe" title="Permalink to this headline">#</a></h2>
+<p>Tässä lohkossa tehdään myös muutama usein käytetty esikäsittely. Päiväys muutetaan parempaa tietotyyppiin ja määritetään kaksi uutta saraketta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">url</span> <span class="o">=</span><span class="s2">&quot;../data/LBNL_file.csv&quot;</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_values</span> <span class="o">=</span> <span class="s1">&#39;-9999&#39;</span><span class="p">)</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y %H:%M:%S&#39;</span><span class="p">)</span> 
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_all</span><span class="p">[</span><span class="s1">&#39;system_size_DC&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eras-loydos">
+<h2>Eräs löydös<a class="headerlink" href="#eras-loydos" title="Permalink to this headline">#</a></h2>
+<p>Jossain vaiheessa kokeilujen avulla havaittiin, että sarakkeen ‘new_construction’ arvon ollessa <code class="docutils literal notranslate"><span class="pre">NaN</span></code> ‘total_installed_price’ arvo saattaa olla epäilyttävä. Tälle ei ilmeisesti ole mitään suoraa loogista selitystä, mutta havainnon avulla nähdään realistisempi arvo asennuksen minimihinnalle, vaikka ‘new_construction’ arvoilla <code class="docutils literal notranslate"><span class="pre">0</span></code> ja <code class="docutils literal notranslate"><span class="pre">1</span></code> otokset jäävätkin huomattavan pieniksi verrattuna <code class="docutils literal notranslate"><span class="pre">NaN</span></code> arvon otokseen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_construction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_construction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">#df[&#39;new_construction&#39;] = df[&#39;new_construction&#39;].replace(0, np.nan)</span>
+<span class="c1">#df[&#39;new_construction&#39;] = df[&#39;new_construction&#39;].replace(1, np.nan)</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2014</span><span class="p">)]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;new_construction&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="s1">&#39;price_per_kw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="6" halign="left">total_installed_price</th>
+      <th colspan="2" halign="left">price_per_kw</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>new_construction</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.0</th>
+      <td>1981</td>
+      <td>1981</td>
+      <td>5977.80</td>
+      <td>26660.00</td>
+      <td>33284.108667</td>
+      <td>823101.40</td>
+      <td>1327.201183</td>
+      <td>8197.255575</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>36904</td>
+      <td>36904</td>
+      <td>3726.00</td>
+      <td>9691.68</td>
+      <td>13197.468451</td>
+      <td>1458758.00</td>
+      <td>966.670455</td>
+      <td>385914.814815</td>
+    </tr>
+    <tr>
+      <th>2.0</th>
+      <td>664621</td>
+      <td>598669</td>
+      <td>0.01</td>
+      <td>23552.00</td>
+      <td>33085.708996</td>
+      <td>61507191.42</td>
+      <td>0.000019</td>
+      <td>189393.939394</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="toinen-loydos">
+<h2>Toinen löydös<a class="headerlink" href="#toinen-loydos" title="Permalink to this headline">#</a></h2>
+<p>Vähän parempi kuin edellinen löydös. Huomataan myös, että <code class="docutils literal notranslate"><span class="pre">total_installed_price</span></code> tunnusluvut ovat samat, kun <code class="docutils literal notranslate"><span class="pre">new_construction</span> <span class="pre">==</span> <span class="pre">1</span></code> tai <code class="docutils literal notranslate"><span class="pre">data_provider_2</span> <span class="pre">==</span> <span class="pre">&quot;California</span> <span class="pre">Energy</span> <span class="pre">Commission&quot;</span></code>.</p>
+<p>Tämä on ehkä vähän loogisempi, sillä datan toimittaja tai kerääjä saattaa vaikuttaa siihen, miten dataa on kerätty, kirjattu ja validoitu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;data_provider_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data_provider_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2014</span><span class="p">)]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;data_provider_2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="s1">&#39;price_per_kw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="6" halign="left">total_installed_price</th>
+      <th colspan="2" halign="left">price_per_kw</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>data_provider_2</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>659323</td>
+      <td>593371</td>
+      <td>0.01</td>
+      <td>23664.00</td>
+      <td>31892.897448</td>
+      <td>20000000.00</td>
+      <td>0.000019</td>
+      <td>189393.939394</td>
+    </tr>
+    <tr>
+      <th>California Energy Commission</th>
+      <td>36904</td>
+      <td>36904</td>
+      <td>3726.00</td>
+      <td>9691.68</td>
+      <td>13197.468451</td>
+      <td>1458758.00</td>
+      <td>966.670455</td>
+      <td>385914.814815</td>
+    </tr>
+    <tr>
+      <th>California Public Utilities Commission</th>
+      <td>7279</td>
+      <td>7279</td>
+      <td>5157.72</td>
+      <td>18582.77</td>
+      <td>130375.558000</td>
+      <td>61507191.42</td>
+      <td>818.594988</td>
+      <td>126355.214717</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="tunnuslukuja-price-per-kw-n-rajauksella">
+<h2>Tunnuslukuja ‘price_per_kW’:n rajauksella<a class="headerlink" href="#tunnuslukuja-price-per-kw-n-rajauksella" title="Permalink to this headline">#</a></h2>
+<p>Siirrytään tutkimaan asiaa hintatehosuhteen avulla. Jos asennuksen hinta on epämääräisen pieni, silloin todennäköisesti myös hintatehosuhde on pieni. Luku huomioi myös asennetun voimalan tehon, joten samalla löytyvät tehoon nähden liian halvat asennukset. Alla olevasta taulukosta nähdään, että lähempänä pienen asennuksen realistista hintaa olevat asennukset jäävät puolestaan hintatehosuhteeltaan epärealistisen pieniksi. Tästä johtuen lienee tarpeellista tutkia tarkemmin sitä, miten hintatehosuhteen arvot jakautuvat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2014</span><span class="p">)]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;installation_date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;total_installed_price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;system_size_DC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;price_per_kw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>installation_date</th>
+      <th colspan="6" halign="left">total_installed_price</th>
+      <th colspan="6" halign="left">system_size_DC</th>
+      <th colspan="2" halign="left">price_per_kw</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>size</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015</th>
+      <td>2080</td>
+      <td>2080</td>
+      <td>2080</td>
+      <td>0.01</td>
+      <td>1.0</td>
+      <td>23.757846</td>
+      <td>16564.80</td>
+      <td>2080</td>
+      <td>2080</td>
+      <td>1.530</td>
+      <td>6.171429</td>
+      <td>7.733608</td>
+      <td>829.6000</td>
+      <td>0.001205</td>
+      <td>78.937813</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>2428</td>
+      <td>2428</td>
+      <td>2428</td>
+      <td>0.01</td>
+      <td>1.0</td>
+      <td>57.652846</td>
+      <td>49400.00</td>
+      <td>2428</td>
+      <td>2428</td>
+      <td>1.287</td>
+      <td>6.355469</td>
+      <td>13.970357</td>
+      <td>1469.0200</td>
+      <td>0.000019</td>
+      <td>79.045093</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>1888</td>
+      <td>1888</td>
+      <td>1888</td>
+      <td>0.01</td>
+      <td>1.0</td>
+      <td>108.561997</td>
+      <td>39600.93</td>
+      <td>1888</td>
+      <td>1888</td>
+      <td>0.550</td>
+      <td>7.287796</td>
+      <td>17.472076</td>
+      <td>1117.3500</td>
+      <td>0.000297</td>
+      <td>78.620690</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>1292</td>
+      <td>1292</td>
+      <td>1292</td>
+      <td>0.01</td>
+      <td>1.0</td>
+      <td>95.466912</td>
+      <td>40324.00</td>
+      <td>1292</td>
+      <td>1292</td>
+      <td>0.300</td>
+      <td>8.120000</td>
+      <td>18.612629</td>
+      <td>2267.0400</td>
+      <td>0.000028</td>
+      <td>77.549558</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>1578</td>
+      <td>1578</td>
+      <td>1578</td>
+      <td>0.01</td>
+      <td>1.0</td>
+      <td>34.588175</td>
+      <td>14432.40</td>
+      <td>1578</td>
+      <td>1578</td>
+      <td>1.300</td>
+      <td>6.662571</td>
+      <td>22.640978</td>
+      <td>7586.5625</td>
+      <td>0.000725</td>
+      <td>70.135747</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="piirretaan-kuvaaja-jonka-avulla-voi-arvioida-eparealistisen-hintatehosuhteen-alarajaa">
+<h2>Piirretään kuvaaja, jonka avulla voi arvioida epärealistisen hintatehosuhteen alarajaa<a class="headerlink" href="#piirretaan-kuvaaja-jonka-avulla-voi-arvioida-eparealistisen-hintatehosuhteen-alarajaa" title="Permalink to this headline">#</a></h2>
+<p>Aluksi otetaan käytännössä ainoaksi rajaukseksi vuodet 2015-2019, koska suurin osa etsinnässä olleista hinnoista sijoittuu kyseisille vuosille.</p>
+<p>Piirretään kuvaaja kahdella eri tavalla. Ensimmäisenä esitetään jakauma palkkeina, joiden korkeus kuvaa asennusten määrää ryhmiteltynä hintatehosuhteen mukaan. Toisen tyyppisessä kuvaajassa jakauma piirretään jatkuvana käyränä, joka ei näytä asennusten määriä. Tässä sen tarkoitus on vain antaa selkeämpi kokonaiskuva jakaumasta samalla, kun ensimmäinen kolmeen asteikkoon jaettu kuvaajan tarkoitus on antaa tarkempi kuva jakauman hännistä.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FormatterFunc</span>
+<span class="k">def</span> <span class="nf">no_mult</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The two arguments are the value and tick position.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:1.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">kilo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The two arguments are the value and tick position.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:1.1f}</span><span class="s1">k&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2014</span><span class="p">)]</span> <span class="c1"># Rajataan tarkasteluväli vuosissa</span>
+
+<span class="c1"># Kun binwidth (histplot() -parametri) on vakio, vertailu kuvien välillä on helpompaa</span>
+<span class="c1"># Sisällytetään myös edellisen kuvan viimeinen palkki 2. ja 3. kuvaan kun rajataan kuvien dataa</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">max_1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># Ensimmäisen kuvan raja hintatehosuhteen arvolle</span>
+<span class="n">max_2</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="n">max_3</span> <span class="o">=</span> <span class="mi">12000</span>
+
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[(</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="n">df_kde</span> <span class="o">=</span> <span class="n">df_3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[(</span><span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+
+<span class="c1"># Piirto</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axs</span><span class="p">)):</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price per kW [$/kW]&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Asennusten määrä&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">kilo</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Hintatehosuhteen arvojen jakauma vuosilta 2015-2019&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># df_kde kopioitu df_3</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_kde</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/esik_total_installed_price_10_0.png" src="../_images/esik_total_installed_price_10_0.png" />
+<img alt="../_images/esik_total_installed_price_10_1.png" src="../_images/esik_total_installed_price_10_1.png" />
+</div>
+</div>
+<p>Vertailun vuoksi piirretään vastaavat kuvaajat vuosille 1998-2014.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">)]</span> <span class="c1"># Rajataan tarkasteluväli vuosissa</span>
+
+<span class="c1"># Kun binwidth (histplot() -parametri) on vakio, vertailu kuvien välillä on helpompaa</span>
+<span class="c1"># Sisällytetään myös edellisen kuvan viimeinen palkki 2. ja 3. kuvaan kun rajataan kuvien dataa</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">max_1</span> <span class="o">=</span> <span class="mi">3000</span> <span class="c1"># Ensimmäisen kuvan raja hintatehosuhteen arvolle</span>
+<span class="n">max_2</span> <span class="o">=</span> <span class="mi">9000</span>
+<span class="n">max_3</span> <span class="o">=</span> <span class="mi">16000</span>
+
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[(</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="n">df_kde</span> <span class="o">=</span> <span class="n">df_3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[(</span><span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1">#Piirto</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">axs</span><span class="p">)):</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price per kW [$/kW]&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Asennusten määrä&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">kilo</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Hintatehosuhteen arvojen jakauma vuosilta 1998-2014&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_kde</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">.08</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/esik_total_installed_price_12_0.png" src="../_images/esik_total_installed_price_12_0.png" />
+<img alt="../_images/esik_total_installed_price_12_1.png" src="../_images/esik_total_installed_price_12_1.png" />
+</div>
+</div>
+</section>
+<section id="piirretaan-kuvaaja-ja-kaytetaan-enemman-datan-suodatusta">
+<h2>Piirretään kuvaaja ja käytetään enemmän datan suodatusta<a class="headerlink" href="#piirretaan-kuvaaja-ja-kaytetaan-enemman-datan-suodatusta" title="Permalink to this headline">#</a></h2>
+<p>Palataan hieman taaksepäin ja otetaan seuraaviin kuvaajiin pohjaksi tämän notebookin ensimmäiset kuvaajat. Suodatetaan sitten hintaan vaikuttavaa dataa pois ja vertaillaan niiden vaikutuksia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1">#df = df[(df[&#39;year&#39;] &gt; 2014)] # Rajataan tarkasteluväli vuosissa</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_installed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;third_party_owned&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+
+<span class="c1"># Kun binwidth (histplot() -parametri) on vakio, vertailu kuvien välillä on helpompaa</span>
+<span class="c1"># Sisällytetään myös edellisen kuvan viimeinen palkki 2. ja 3. kuvaan kun rajataan kuvien dataa</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">max_1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># Ensimmäisen kuvan raja hintatehosuhteen arvolle</span>
+<span class="n">max_2</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">max_3</span> <span class="o">=</span> <span class="mi">16000</span>
+
+<span class="c1"># Ylärivi</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[(</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_1</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="n">df_kde</span> <span class="o">=</span> <span class="n">df_3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[(</span><span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Alarivi</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df_5</span><span class="p">[(</span><span class="n">df_5</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_2</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="c1">#df_kde = df_3.copy()</span>
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[(</span><span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Piirto</span>
+<span class="n">size_mult</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">fig_rows</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fig_cols</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">,</span> <span class="n">fig_cols</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">((</span><span class="n">fig_cols</span><span class="o">*</span><span class="n">size_mult</span><span class="p">),(</span><span class="n">fig_rows</span><span class="o">*</span><span class="n">size_mult</span><span class="p">)))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_5</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_cols</span><span class="p">):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price per kW [$/kW]&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Asennusten määrä&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">kilo</span><span class="p">)</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;Hintatehosuhteen arvojen jakauma vuosilta 1998-2019</span>
+<span class="s1">Ylärivi: suodatettu (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_1</span><span class="p">)</span><span class="si">}</span><span class="s1">)</span>
+<span class="s1">Alarivi: suodattamaton (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_2</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;&#39;&#39;</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># df_kde kopioitu df_3 tai df_6</span>
+<span class="c1">#sns.displot(data=df_kde, x=&#39;price_per_kw&#39;, kind=&quot;kde&quot;, bw_adjust=.1)</span>
+<span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/esik_total_installed_price_14_0.png" src="../_images/esik_total_installed_price_14_0.png" />
+</div>
+</div>
+<p>Tärkeimpänä havaintona näistä kuvaajista voidaan sanoa, että valituilla suodatuksilla ei voida ratkaista epämääräisten hintojen ongelmaa.</p>
+<section id="muutamia-jakauskuvaajia-joissa-jokin-maaratty-ehto-tayttyy">
+<h3>Muutamia jakauskuvaajia joissa jokin määrätty ehto täyttyy<a class="headerlink" href="#muutamia-jakauskuvaajia-joissa-jokin-maaratty-ehto-tayttyy" title="Permalink to this headline">#</a></h3>
+<p>Piirretään mahdollisten havaintojen toivossa kuvaajat näistäkin:</p>
+<ul class="simple">
+<li><p>self_installed == 1</p></li>
+<li><p>third_party_owned == 1</p></li>
+<li><p>Systeemissä on akku</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_installed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Kun binwidth (histplot() -parametri) on vakio, vertailu kuvien välillä on helpompaa</span>
+<span class="c1"># Sisällytetään myös edellisen kuvan viimeinen palkki 2. ja 3. kuvaan kun rajataan kuvien dataa</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">max_1</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># Ensimmäisen kuvan raja hintatehosuhteen arvolle</span>
+<span class="n">max_2</span> <span class="o">=</span> <span class="mi">7000</span>
+<span class="n">max_3</span> <span class="o">=</span> <span class="mi">14000</span>
+
+<span class="c1"># Ylärivi</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[(</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_1</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="n">df_kde</span> <span class="o">=</span> <span class="n">df_3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[(</span><span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Keskirivi</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;third_party_owned&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df_5</span><span class="p">[(</span><span class="n">df_5</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_2</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="c1">#df_kde = df_3.copy()</span>
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[(</span><span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Alarivi</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_bat_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_bat_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df_bat_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df_bat_4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df_bat_5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_bat_1</span><span class="p">,</span> <span class="n">df_bat_2</span><span class="p">,</span> <span class="n">df_bat_3</span><span class="p">,</span> <span class="n">df_bat_4</span><span class="p">,</span> <span class="n">df_bat_5</span><span class="p">])</span>
+<span class="n">df_i</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;index_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_i</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_col&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_7</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_8</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_8</span> <span class="o">=</span> <span class="n">df_8</span><span class="p">[(</span><span class="n">df_8</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_9</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_3</span> <span class="o">=</span> <span class="n">df_9</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="c1">#df_kde = df_3.copy()</span>
+<span class="n">df_9</span> <span class="o">=</span> <span class="n">df_9</span><span class="p">[(</span><span class="n">df_9</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Piirto</span>
+<span class="n">size_mult</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">fig_rows</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fig_cols</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">,</span> <span class="n">fig_cols</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">((</span><span class="n">fig_cols</span><span class="o">*</span><span class="n">size_mult</span><span class="p">),(</span><span class="n">fig_rows</span><span class="o">*</span><span class="n">size_mult</span><span class="p">)))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_5</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_7</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_9</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_cols</span><span class="p">):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price per kW [$/kW]&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Asennusten määrä&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">kilo</span><span class="p">)</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;Hintatehosuhteen arvojen jakauma vuosilta 1998-2019</span>
+<span class="s1">Ylärivi: itse asennetut (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_1</span><span class="p">)</span><span class="si">}</span><span class="s1">)</span>
+<span class="s1">Keskirivi: ulkopuolisen omistamat (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_2</span><span class="p">)</span><span class="si">}</span><span class="s1">)</span>
+<span class="s1">Alarivi: akku on (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_3</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;&#39;&#39;</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># df_kde kopioitu df_3 tai df_6</span>
+<span class="c1">#sns.displot(data=df_kde, x=&#39;price_per_kw&#39;, kind=&quot;kde&quot;, bw_adjust=.1)</span>
+<span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/esik_total_installed_price_17_0.png" src="../_images/esik_total_installed_price_17_0.png" />
+</div>
+</div>
+<p>Todetaan, että asennuksen tekeminen itse todella alentaa kuluja. Ulkopuolisen omistamissa voimaloissa on selvä piikki, mikä saattaa viitata tilastoinnin epämääräisyyteen.</p>
+</section>
+</section>
+<section id="myos-akut-suodatettu-pois">
+<h2>Myös akut suodatettu pois<a class="headerlink" href="#myos-akut-suodatettu-pois" title="Permalink to this headline">#</a></h2>
+<p>Piirretään hintajakauma järjestelmille, joista on suodatettu TPO, self_installed ja akut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ready</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Akkusuodatus (kuten vikassa lohkossa)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1"># Muut</span>
+<span class="n">df_ready</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;self_installed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df_ready</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;third_party_owned&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+
+<span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;system_size_DC&#39;</span><span class="p">]</span>
+
+<span class="c1"># Säästetään muokkausta, koska koodi copy-pastettu</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_ready</span>
+
+<span class="c1"># Kun binwidth (histplot() -parametri) on vakio, vertailu kuvien välillä on helpompaa</span>
+<span class="c1"># Sisällytetään myös edellisen kuvan viimeinen palkki 2. ja 3. kuvaan kun rajataan kuvien dataa</span>
+<span class="n">binwidth</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">max_1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># Ensimmäisen kuvan raja hintatehosuhteen arvolle</span>
+<span class="n">max_2</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">max_3</span> <span class="o">=</span> <span class="mi">16000</span>
+
+<span class="c1"># Ylärivi</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="p">[(</span><span class="n">df_2</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_1</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="c1">#df_kde = df_3.copy()</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">df_3</span><span class="p">[(</span><span class="n">df_3</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Alarivi</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Datan rajaus eri kuviin</span>
+<span class="n">df_4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_1</span><span class="p">)]</span>
+
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_2</span><span class="p">)]</span>
+<span class="n">df_5</span> <span class="o">=</span> <span class="n">df_5</span><span class="p">[(</span><span class="n">df_5</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_1</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_3</span><span class="p">)]</span>
+<span class="n">count_2</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Erillinen kde displot</span>
+<span class="c1">#df_kde = df_3.copy()</span>
+<span class="n">df_6</span> <span class="o">=</span> <span class="n">df_6</span><span class="p">[(</span><span class="n">df_6</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">max_2</span> <span class="o">-</span> <span class="n">binwidth</span><span class="p">))]</span>
+
+<span class="c1"># Piirto</span>
+<span class="n">size_mult</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">fig_rows</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fig_cols</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">,</span> <span class="n">fig_cols</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">((</span><span class="n">fig_cols</span><span class="o">*</span><span class="n">size_mult</span><span class="p">),(</span><span class="n">fig_rows</span><span class="o">*</span><span class="n">size_mult</span><span class="p">)))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_5</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_6</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">binwidth</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_rows</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fig_cols</span><span class="p">):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price per kW [$/kW]&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Asennusten määrä&#39;</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">no_mult</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">kilo</span><span class="p">)</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;Hintatehosuhteen arvojen jakauma vuosilta 1998-2019</span>
+<span class="s1">Ylärivi: suodatettu (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_1</span><span class="p">)</span><span class="si">}</span><span class="s1">)</span>
+<span class="s1">Alarivi: suodattamaton (n = </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">count_2</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;&#39;&#39;</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># df_kde kopioitu df_3 tai df_6</span>
+<span class="c1">#sns.displot(data=df_kde, x=&#39;price_per_kw&#39;, kind=&quot;kde&quot;, bw_adjust=.1)</span>
+<span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/esik_total_installed_price_20_0.png" src="../_images/esik_total_installed_price_20_0.png" />
+</div>
+</div>
+</section>
+<section id="luodaan-alustava-esikasittelija">
+<h2>Luodaan alustava esikäsittelijä<a class="headerlink" href="#luodaan-alustava-esikasittelija" title="Permalink to this headline">#</a></h2>
+<p>Yritetään kirjoittaa hinnan esikäsittelijä, joka korvaa määrätyt hinnat arvolla <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df edustaa muokattavaa DataFrame, jota ei tarvita esikäsittelyn jälkeen</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alku:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="c1"># df_ready tulee sisältämään esikäsitellyn version</span>
+<span class="n">df_ready</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Suodatus nro 1</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poiston määrä, price_per_kw:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="c1"># Laitetaan nolla, koska df.update() ei päivitä nan-arvoja</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="c1"># Suodatus nro 2</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;third_party_owned&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poiston määrä, third_party_owned:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="c1"># Suodatus nro 3</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_installed&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poiston määrä, self_installed:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="c1"># Suodatus nro 4</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">count_hyb</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">count_hyb</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">count_hyb</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poiston määrä, storage_inverter:&quot;</span><span class="p">,</span> <span class="n">count_hyb</span><span class="p">)</span>
+
+<span class="c1"># Suodatus nro 5</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">count_bat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">count_bat</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poiston määrä, battery:&quot;</span><span class="p">,</span> <span class="n">count_bat</span><span class="p">)</span>
+
+<span class="c1"># Lopuksi poistetaan nollat, korvaus np.nan</span>
+<span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nan korvauksen jälkeen:&quot;</span><span class="p">,</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Käsitellyn df:n rivien määrä:&quot;</span> <span class="p">,</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;installation_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+
+<span class="c1"># Tämä tulisi sisällyttää vain, jos sarake valitaan mukaan</span>
+<span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;system_size_DC&#39;</span><span class="p">]</span>
+
+
+<span class="n">df_ready</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;self_installed&#39;</span><span class="p">,</span> <span class="s1">&#39;third_party_owned&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+  <span class="s1">&#39;total_installed_price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;system_size_DC&#39;</span><span class="p">:</span>        <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;price_per_kw&#39;</span><span class="p">:</span>          <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alku: 814364
+Poiston määrä, price_per_kw: 17772
+Poiston määrä, third_party_owned: 317878
+Poiston määrä, self_installed: 41379
+Poiston määrä, storage_inverter: 3487
+Poiston määrä, battery: 22461
+nan korvauksen jälkeen: 449000
+Käsitellyn df:n rivien määrä: 1000000
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="5" halign="left">total_installed_price</th>
+      <th colspan="5" halign="left">system_size_DC</th>
+      <th colspan="5" halign="left">price_per_kw</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>count</th>
+      <th>min</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>self_installed</th>
+      <th>third_party_owned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">0.0</th>
+      <th>0.0</th>
+      <td>449000</td>
+      <td>900.0</td>
+      <td>25000.0</td>
+      <td>40830.98263</td>
+      <td>20000000.0</td>
+      <td>538413</td>
+      <td>0.005500</td>
+      <td>5.720</td>
+      <td>10.268770</td>
+      <td>13305.6100</td>
+      <td>448971</td>
+      <td>1000.0</td>
+      <td>4250.0</td>
+      <td>4717.659286</td>
+      <td>823842.151675</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>336203</td>
+      <td>0.005500</td>
+      <td>5.355</td>
+      <td>8.412134</td>
+      <td>7586.5625</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1.0</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>18188</td>
+      <td>0.019837</td>
+      <td>5.060</td>
+      <td>7.273876</td>
+      <td>1176.0000</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4361</td>
+      <td>0.064900</td>
+      <td>3.850</td>
+      <td>6.358810</td>
+      <td>2097.2280</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="yksinkertaisempi-esikasittelylohko">
+<h2>Yksinkertaisempi esikäsittelylohko<a class="headerlink" href="#yksinkertaisempi-esikasittelylohko" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_ready</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;system_size_DC&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price_per_kw&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;third_party_owned&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_installed&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;solar_storage_hybrid_inverter_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kW&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;battery_rated_capacity_kWh&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df_ready</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">])</span>
+
+<span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1"># Tarkastuksessa tulostaa arvot </span>
+<span class="c1"># 449000</span>
+<span class="c1"># 900.0</span>
+<span class="c1"># 25000.0</span>
+<span class="c1"># 40830.98262973724</span>
+<span class="c1"># 20000000.0</span>
+<span class="c1"># jos karsinnan ehdot ovat [</span>
+<span class="c1"># &#39;price_per_kw&#39; &lt; 1000 &amp;&amp; </span>
+<span class="c1"># &#39;third_party_owned&#39; != 0 &amp;&amp; </span>
+<span class="c1"># &#39;self_installed&#39; != 0 &amp;&amp; </span>
+<span class="c1"># &#39;solar_storage_hybrid_inverter&#39; == 1 &amp;&amp; </span>
+<span class="c1"># &#39;battery_rated_capacity_kW&#39; == True &amp;&amp; </span>
+<span class="c1"># &#39;battery_rated_capacity_kWh&#39; == True]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_ready</span><span class="p">[</span><span class="s1">&#39;total_installed_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>449000
+900.0
+25000.0
+40830.98262973724
+20000000.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tehtava-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="paneelivalmistaja_asentaja_visualisointi.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Kuinka pitkään paneelivalmistajat ja asennusfirmat ovat toimineet alalla?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="price_trends.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hintakehitys</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By TE-team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

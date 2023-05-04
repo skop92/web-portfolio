@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Esikäsittelijän dokumentaatio &#8212; Solar panel data project</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Esikäsittelijän testit" href="../70-Jupyter-Book/esikasittelijan_testit.html" />
+    <link rel="prev" title="Aurinkopaneeleiden teknologiat" href="../../Tehtava-03/solar_panel_technologies.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Solar panel data project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../70-Jupyter-Book/index.html">
+                    Solar panel data project
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data-analyysi
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/paneelivalmistaja_asentaja_visualisointi.html">
+   Valmistajat ja asentajat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/esik_total_installed_price.html">
+   Hintojen tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/price_trends.html">
+   Hintakehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/esik_system_size_DC.html">
+   Sähkötehon tutkiminen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/system_size_trend.html">
+   Sähkötehon kehitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../70-Jupyter-Book/kartat.html">
+   Karttalinkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-03/solar_panel_technologies.html">
+   Aurinkopaneeleiden teknologiat
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Esikäsittelijä
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Esikäsittelijän dokumentaatio
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../70-Jupyter-Book/esikasittelijan_testit.html">
+   Esikäsittelijän testit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tests/self_defined_cols_test.html">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tests/price_preprocessor_test.html">
+     Asennuksen hinta
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tests/size_preprocessor_test.html">
+     Järjestelmän sähköteho
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Koneoppiminen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../70-Jupyter-Book/akkuluokittelu.html">
+   Akkuluokittelu
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-04/naive_bayes_batteries.html">
+     Naive Bayes -luokittelua akkujärjestelmille
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-05/battery_classification.html">
+     Usean mallin luokittelua akkujärjestelmille
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Tehtava-05/rfc_model.html">
+   Random Forest Classifier
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-05/ML_analyysi.html">
+     Aurinkopaneli pisteytys koneoppimisen haasteet.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-05/klusteroinnin_analysointia.html">
+   Asennusten maantieteellinen klusterointi
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../70-Jupyter-Book/aikasarja.html">
+   Asennusmäärän ennustaminen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../50-Koneoppiminen/asennusten_aikasarjaennustus_final.html">
+     Asennusmäärän ennustaminen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-05/asennusten_aikasarjaennustus_valikoitu.html">
+     Asennusmäärän ennustaminen vertaamalla vuoden takaiseen
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Malli tuotantoon
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tehtava-06/mallit_tuotantoon.html">
+   Mallit tuotantoon
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../70-Jupyter-Book/mercury_src.html">
+   Mercury lähdekoodit
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-06/Mercury_clustering.html">
+     Mercury clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Tehtava-06/Mercury_RFC_SPC.html">
+     ML test GUI for Random Forest Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/40-Datan-kuvaus-ja-esikäsittely/preprocessor_dokumentointi.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kuvaus">
+   Kuvaus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kayttoonotto">
+     Käyttöönotto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#esikasittelijan-tapa-kasitella-sarakkeita">
+     Esikäsittelijän tapa käsitellä sarakkeita
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#itse-maaritellyt-sarakkeet">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virheiden-korjaus">
+     Virheiden korjaus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oletusarvot">
+     Oletusarvot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaytto">
+   Käyttö
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametrit">
+     Parametrit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paluuarvo">
+     Paluuarvo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Esikäsittelijän dokumentaatio</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kuvaus">
+   Kuvaus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kayttoonotto">
+     Käyttöönotto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#esikasittelijan-tapa-kasitella-sarakkeita">
+     Esikäsittelijän tapa käsitellä sarakkeita
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#itse-maaritellyt-sarakkeet">
+     Itse määritellyt sarakkeet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virheiden-korjaus">
+     Virheiden korjaus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oletusarvot">
+     Oletusarvot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaytto">
+   Käyttö
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametrit">
+     Parametrit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paluuarvo">
+     Paluuarvo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="esikasittelijan-dokumentaatio">
+<h1>Esikäsittelijän dokumentaatio<a class="headerlink" href="#esikasittelijan-dokumentaatio" title="Permalink to this headline">#</a></h1>
+<p>Esikäsittelijä tekee lähdedatan esikäsittelyn pyrkien virheellisen datan poistoihin ja usein käytettyjen itse määriteltyjen sarakkeiden yhdenmukaiseen käsittelyyn.</p>
+<section id="kuvaus">
+<h2>Kuvaus<a class="headerlink" href="#kuvaus" title="Permalink to this headline">#</a></h2>
+<section id="kayttoonotto">
+<h3>Käyttöönotto<a class="headerlink" href="#kayttoonotto" title="Permalink to this headline">#</a></h3>
+<p>Esikäsittelijä sijaitsee yhdessä tiedostossa, <code class="docutils literal notranslate"><span class="pre">preprocessor.py</span></code>. Esikäsittelijää on tarkoitus kutsua kyseisen tiedoston funktiolla, jonka nimi on <code class="docutils literal notranslate"><span class="pre">esik()</span></code>. Funktion käyttö on selitetty alla. Esikäsittelijä on otettava käyttöön <code class="docutils literal notranslate"><span class="pre">import</span></code> lauseella tai sitä vastaavalla tavalla. Jos esikäsittelijä sijaitsee eri kansiossa kuin kutsuva ohjelma, on kutsuvalle ohjelmalle itse kerrottava mistä esikäsittelijä löytyy.</p>
+<p>Esimerkki <code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib.util</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">import</span> <span class="nn">preprocessor</span> <span class="k">as</span> <span class="nn">esik</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+  <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;../Tehtava-03/preprocessor.py&quot;</span><span class="p">;</span> <span class="n">module_name</span> <span class="o">=</span> <span class="s2">&quot;preprocessor&quot;</span><span class="p">;</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+  <span class="n">esik</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">esik</span><span class="p">;</span> <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">esik</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lyhyemmin</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib.util</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;../Tehtava-03/preprocessor.py&quot;</span><span class="p">;</span> <span class="n">module_name</span> <span class="o">=</span> <span class="s2">&quot;preprocessor&quot;</span><span class="p">;</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+<span class="n">esik</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">);</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">esik</span><span class="p">;</span> <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">esik</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Esimerkissä <code class="docutils literal notranslate"><span class="pre">file_path</span></code>-muuttuja ilmaisee esikäsittelijän polun. Moduulille annetaan kutsuvassa ohjelmassa nimi ‘esik’, eli moduulin muuttujia ja funktioita kutsuttaessa koodissa niille on annettava etuliite <code class="docutils literal notranslate"><span class="pre">esik</span></code>, jolloin esikäsittelijän kutsu on tyypillisesti muotoa <code class="docutils literal notranslate"><span class="pre">esik.esik(cols)</span></code>.</p>
+</section>
+<section id="esikasittelijan-tapa-kasitella-sarakkeita">
+<h3>Esikäsittelijän tapa käsitellä sarakkeita<a class="headerlink" href="#esikasittelijan-tapa-kasitella-sarakkeita" title="Permalink to this headline">#</a></h3>
+<p>Esikäsittelijän kutsufunktiolle on annettava ensimmäisenä parametrina lista ladattavista sarakkeista (<code class="docutils literal notranslate"><span class="pre">cols</span></code>). Listassa on oltava sarakkeiden nimet ja niiden tulee täsmätä joko lähdedatan sarakkeisiin tai itse määriteltyihin sarakkeisiin, jotka on ohjelmoitu esikäsittelijään. Aluksi esikäsittelijä käy listan läpi ja muodostaa uuden listan (<code class="docutils literal notranslate"><span class="pre">cols_extended</span></code>), johon se lisää listalla olevien sarakkeiden esikäsittelyyn vaadittavat muut sarakkeet. Seuraavaksi laajennetusta listasta muodostetaan oma lista (<code class="docutils literal notranslate"><span class="pre">extra_cols</span></code>) sen sisältämistä itse määritellyistä sarakkeista. Viimeisenä muodostetaan lista, jossa on vain lähdedatasta haettavien sarakkeiden nimet (<code class="docutils literal notranslate"><span class="pre">usecols</span></code>).</p>
+<p>Palautuksessa käytetään vain kutsun sarakkeita (alkuperäinen <code class="docutils literal notranslate"><span class="pre">cols</span></code>).</p>
+<p>Tällä hetkellä esikäsittelijään ei ole erikseen listattu itse määriteltyjä sarakkeita, jotka se osaa käsitellä. Täten esikäsittelijä ei anna selvää ilmoitusta siitä, jos käyttäjä yrittää ladata jonkin sarakkeen, jolle ei ole ohjelmoitu esikäsittelyä. Sen sijaan virheilmoitus indeksivirheestä on todennäköinen lopputulos.</p>
+</section>
+<section id="itse-maaritellyt-sarakkeet">
+<h3>Itse määritellyt sarakkeet<a class="headerlink" href="#itse-maaritellyt-sarakkeet" title="Permalink to this headline">#</a></h3>
+<p>Esikäsittelijältä voi halutessaan pyytää seuraavia sarakkeita, joita ei ole lähdedatassa.</p>
+<ul>
+<li><p>‘battery_storage’<br />
+Bool-arvo (0 tai 1), järjestelmässä on akku tai ei. Akun kuuluminen järjestelmään on päätelty siitä, jos vähintään yksi seuraavista ehdoista toteutuu:</p>
+<ul class="simple">
+<li><p>akun teho on ilmoitettu (‘battery_rated_capacity_kW’)</p></li>
+<li><p>akun kapasiteetti on ilmoitettu (‘battery_rated_capacity_kWh’)</p></li>
+<li><p>järjestelmässä on sopiva invertteri (‘solar_storage_hybrid_inverter’) (tämäkään ei ole varma merkki akusta)</p></li>
+</ul>
+<p>Lisäksi Teslan asentamat järjestelmät voidaan lukea akullisiksi asettamalla parametrin <code class="docutils literal notranslate"><span class="pre">tesla_battery</span></code> arvoksi ‘all’. Tämän on päätelty olevan mahdollista hinnoittelun perusteella.</p>
+</li>
+<li><p>‘customer_segment_2’
+Alkuperäinen ‘customer_segment’ sarake on jaettu kahteen ryhmään:</p>
+<ul class="simple">
+<li><p>RES, joka pysyy ennallaan</p></li>
+<li><p>NON-RES, johon on yhdistetty muut ryhmät (COM, GOV, SCHOOL, NON-PROFIT, NON-RES)</p></li>
+</ul>
+</li>
+<li><p>‘customer_segment_3’
+Jatkettuna edellisestä NON-RES on jaettu kahteen ryhmään ‘system_size_DC’:n perusteella. <code class="docutils literal notranslate"><span class="pre">large_limit</span></code> on oletuksena 100 kW.</p>
+<ul class="simple">
+<li><p>SMALL NON-RES, ‘system_size_DC’ &lt;= <code class="docutils literal notranslate"><span class="pre">large_limit</span></code></p></li>
+<li><p>LARGE NON-RES, ‘system_size_DC’ &gt; <code class="docutils literal notranslate"><span class="pre">large_limit</span></code></p></li>
+</ul>
+</li>
+<li><p>‘price_per_kW’
+Laskettu yksinkertaisesti hinnan suhde tehoon. Ei lasketa, jos hintaa tai tehoa ei ole ilmoitettu tai se poistetaan esikäsittelyssä.</p></li>
+<li><p>‘price_per_W’
+Muutettu vain yksikkö sarakkeesta ‘price_per_kW’.</p></li>
+<li><p>‘year’
+Asennuspäivästä erotettu asennusvuosi.</p></li>
+</ul>
+</section>
+<section id="virheiden-korjaus">
+<h3>Virheiden korjaus<a class="headerlink" href="#virheiden-korjaus" title="Permalink to this headline">#</a></h3>
+<p>Virheiden korjausta tehdään ‘common’ modessa. Se koskee suoraan sarakkeita</p>
+<ul class="simple">
+<li><p>‘system_size_DC’
+Virheiden korjauksen perusteena on laskenta, jossa järjestelmän koko lasketaan yhden paneelin tehon ja paneelinen lukumäärän tulona, joka ei saa poiketa määriteltyä virhemarginaalia (<code class="docutils literal notranslate"><span class="pre">error_margin</span></code>) enempää alkuperäisestä ‘system_size_DC’:n arvosta.</p></li>
+<li><p>‘total_installed_price’
+Hintatietoja korjataan poistamalla epärealistisia hintoja, joita etsitään ‘price_per_kW’ arvojen avulla. Esikäsittelijä poistaa automaattisesti myös itse asennettujen asennusten hinnat (‘self_installed’ != 0), jotta hintojen vertailukelpoisuus paranee. Lisäksi on mahdollista poistaa ulkopuolisten omistamien asennusten hinnat parametrilla <code class="docutils literal notranslate"><span class="pre">no_tpo_prices</span></code>, sillä kyseiset hinnat eivät välttämättä ole suoraan verrattavissa muihin hintoihin.</p></li>
+</ul>
+<p>Ja välillisesti</p>
+<ul class="simple">
+<li><p>‘price_per_kW’</p></li>
+<li><p>‘price_per_W’</p></li>
+</ul>
+</section>
+<section id="oletusarvot">
+<h3>Oletusarvot<a class="headerlink" href="#oletusarvot" title="Permalink to this headline">#</a></h3>
+<p>Esikäsittelijälle on asetettu muutamia mitoittavia oletusarvoja, jotka vaikuttavat joidenkin sarakkeiden esikäsittelyyn. Nämä oletusarvot tai osa niistä on mahdollista korvata funktiokutsussa, jos niiden arvon muutoksia halutaan tutkia jatkossa. Oletusarvot on listattu kohdassa “Parametrit”.</p>
+<p>Oletusarvojen valintoja on perusteltu (vaihtelevasti) erillisissä esikäsittelyn tutkimuksissa.</p>
+</section>
+</section>
+<section id="kaytto">
+<h2>Käyttö<a class="headerlink" href="#kaytto" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">esik.esik(cols,</span> <span class="pre">mode='common',</span> <span class="pre">price_per_kW_limit=1000,</span> <span class="pre">error_margin=0.15,</span> <span class="pre">large_limit=100,</span> <span class="pre">no_tpo_prices=False,</span> <span class="pre">unchecked_sizes=False,</span> <span class="pre">tesla_battery='neutral',</span> <span class="pre">sshi_with_battery=False)</span></code></p>
+<section id="parametrit">
+<h3>Parametrit<a class="headerlink" href="#parametrit" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>cols</strong> : <em>list</em><br />
+Lista sarakkeista, jotka halutaan ladata esikäsittelijällä. Voi sisältää lähdedatan sarakkeita, esikäsittelijän tuntemia itse määriteltyjä sarakkeita tai molempia. Ei oletusarvoa. Pakollinen.</p></li>
+<li><p><strong>mode</strong> : <em>str, oletus ‘common’</em><br />
+Määrää esikäsittelyn määrän.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> estää kaiken esikäsittelyn paitsi -9999 arvojen korvaamisen NaN-arvoilla. Myös mahdolliset itse määritellyt sarakkeet jätetään lataamatta.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimal</span></code> tukee itse määriteltyjen sarakkeiden lataamista. Ei korjaa datan virheitä.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">common</span></code> käsittelee kaikki vaaditut sarakkeet ja korjaa virheitä datasta. On oletusarvo.</p></li>
+</ul>
+</li>
+<li><p><strong>price_per_kW_limit</strong> : <em>int or float, oletus 1000</em><br />
+Pienin hyväksytty hinta/teho arvo yksikössä [$/kW]. Vaikuttaa poistamalla kyseisten rivien hintatiedon. Vaikuttaa ‘total_installed_price’, ‘price_per_kW’ ja ‘price_per_W’ laskentaan.</p></li>
+<li><p><strong>error_margin</strong> : <em>int or float, oletus 0.15</em><br />
+Marginaali määrittää kuinka paljon laskettu järjestelmän koko voi suhteellisesti poiketa ilmoitetusta ‘system_size_DC’:n arvosta, jotta esikäsittelijä hyväksyy sen alkuperäisen arvon. Ei saa olla negatiivinen.</p></li>
+<li><p><strong>large_limit</strong> : <em>int or float, oletus 100</em><br />
+Asettaa rajan ‘SMALL NON-RES’ ja ‘LARGE NON-RES’ luokittelulle yksikössä [kW]. Raja-arvo ja sen alle jäävät luokitellaan pieniksi ja ylittävät suuriksi. Vaikuttaa vain ‘customer_segment_3’:n luokitteluun.</p></li>
+<li><p><strong>no_tpo_prices</strong> : <em>bool, oletus False</em><br />
+Määrää ulkopuolisten omistamien (‘third_party_owned’) asennusten hintojen poiston datasta.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> poistaa hinnat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> ei poista hintoja. On oletusarvo.</p></li>
+</ul>
+</li>
+<li><p><strong>unchecked_sizes</strong> : <em>bool, oletus False</em><br />
+‘system_size_DC’ esikäsittelijä poistaa vain sellaiset arvot, jotka poikkeavat sallittua virhemarginaalia enemmän alkuperäisestä arvosta. Toisin sanoen arvot, joita ei voi laskemalla tarkistaa, otetaan mukaan.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> ottaa tarkistamattomat koot mukaan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> tarkistamattomat arvot poistetaan. On oletusarvo.</p></li>
+</ul>
+</li>
+<li><p><strong>tesla_battery</strong> : <em>str, oletus neutral</em><br />
+Antaa vaihtoehtoja määrittää, mitkä Tesla Energyn asennukset sisältävät akun. Vaikuttaa vain ‘battery_storage’ sarakkeen määritykseen.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> määrää, että missään Tesla Energyn asennuksessa ei oleteta olevan akkua, mikä varmasti lisää virhettä.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neutral</span></code> ei tee erityistä käsittelyä, joten akut tunnistetaan muiden kriteetien perusteella. On oletusarvo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code> määrää, että kaikissa Tesla Energyn asennuksissa oletetaan olevan akku.</p></li>
+</ul>
+</li>
+<li><p><strong>sshi_with_battery</strong> : <em>bool, oletus False</em><br />
+Tulkitaanko ‘solar_storage_hybrid_inverter’ merkiksi akusta. Vaikuttaa sarakkeen ‘battery_storage’ määritykseen.</p></li>
+</ul>
+</section>
+<section id="paluuarvo">
+<h3>Paluuarvo<a class="headerlink" href="#paluuarvo" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>DataFrame</strong><br />
+Kutsufunktion paluuarvo on <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, jossa on mukana sarakkeet <code class="docutils literal notranslate"><span class="pre">cols</span></code>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs\40-Datan-kuvaus-ja-esikäsittely"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../Tehtava-03/solar_panel_technologies.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aurinkopaneeleiden teknologiat</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../70-Jupyter-Book/esikasittelijan_testit.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Esikäsittelijän testit</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By TE-team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
