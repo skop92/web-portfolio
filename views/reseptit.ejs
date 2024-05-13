@@ -1,0 +1,88 @@
+<%- include('partials/head')%> <%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+  <%- include('partials/sidenav')%>
+
+  <article class="portfolio-article">
+    <h2>Reseptit</h2>
+
+    <p>Projektin toteutus tapahtui 10.3.-25.4.2024.</p>
+    <p>
+      Projektin tuotos:
+      <a href="/html/home.html" target="_blank"
+        >Reseptit<span class="material-icons md-16">open_in_new</span></a
+      >
+    </p>
+
+    <h3>Intro</h3>
+
+    <p>
+      Reseptit-projekti on tehty harjoitustyönä osana Web-visualisoinnin
+      opintojaksoa. Tehtävänannossa pääasiana oli käyttää CSS-kirjastoa tai
+      sovelluskehystä web-sivuston toteutuksessa. Sivuston sisällön tai
+      aihepiirin sai itse valita. Oma valintani oli tehdä omaan käyttöön sopiva
+      reseptikirja, jota voisi käyttää helposti myös puhelimella.
+    </p>
+    <p>
+      Koska kyseessä on omaan käyttöön suunnattu sivusto, siitä on jätetty
+      kirjautuminen ja käyttäjätilin luominen pois. Toki muutenkin sivusto
+      käyttää vain valmiiksi tehtyjä HTML-sivuja, eli reseptejä ei voi lisätä
+      sitä varten suunnitellulla lomakkeella. Dynaamista dataa ei voi lainkaan
+      käyttää palvelinpuolen (backend) ja tietokannan puuttuessa, mutta ne
+      toisaalta olivatkin kokonaan harjoitustyön aiheen ulkopuolelle jääneitä
+      asioita.
+    </p>
+    <p>
+      Hieman tiivistetysti voisinkin todeta, että nykyisellään harjoitustyö
+      olisi hyvä pohja tai frontend-proto lähteä toteuttamaan sovellusta
+      laajemmin käyttäen esim.
+      <span class="italic">MERN stack</span> -teknologioita.
+    </p>
+
+    <h3>CSS-kirjaston valinta - Bulma</h3>
+
+    <p>
+      Kyseessä oli melko lyhyt harjoitustyö, joten suunnitelmissakin jätin sen
+      tarkkaan rajatuksi ja pieneksi. Rajauksen ansiosta päädyin melko nopeasti
+      valitsemaan CSS-kirjastoksi <span class="italic">Bulma</span>n, sillä
+      tiesin jo valintavaiheessa melko tarkkaan kaikki tarvittavat komponentit.
+      Valinnan tekemistä auttoi aikaisempi tietämys
+      <span class="italic">Bootsrap</span>ista, sillä oman kokemukseni mukaan
+      niiden käyttö noudattaa osin samoja periaatteita.
+    </p>
+    <p>
+      Valitsin <span class="italic">Bulma</span>n toisaalta siksi, että en ole
+      käytännössä aikaisemmin käyttänyt sitä ja halusin hieman tutustua siihen.
+      Vertailussa <span class="italic">Bootsrap</span>iin kävi hyvin nopeasti
+      ilmi, että komponentteja on vähemmän ja joidenkin komponenttien käytölle
+      tarpeellinen JavaScript puuttuu kirjastosta kokonaan. Komponenttien,
+      elementtien ja tyylien käyttö tuntui pääosin samankaltaiselta. Sen sijaan
+      sivujen asettelujen (layout) toteuttamisessa tuntui olevan jo merkittäviä
+      eroja, vaikka molemmat soveltuvatkin kätevästi vähintään perustyyliseen
+      sivustojen visualisointiin. Yhtenä <span class="italic">Bulma</span>n
+      valintakriteerinä oli myös mahdollisuus käyttää
+      <span class="italic">SASS</span>-esiprosessoria muuttujien määrityksessä
+      ja modulaarisessa käytössä.
+    </p>
+
+    <h3>Animointi</h3>
+
+    <p>
+      Lomake kuvaa tapaa, jolla reseptien lisäys on tarkoitus tehdä. Alussa
+      lomakkeella on kentät vain yhtä ainesosaa ja ohjeen vaihetta varten.
+      Kenttiä voi lisätä aina tarpeen mukaan siihen tarkoitetulla painikkeella.
+      Lisäys tapahtuu animoituna.
+    </p>
+    <p>
+      Kenttien animoitu lisäys on toteutettu itse kirjoitetulla CSS- ja
+      JavaScript-koodilla. Toteutustapa valikoitui lähinnä oman taustan vuoksi.
+      Animointeja ei ole nimittäin juuri tullut tehtyä, joten tämä
+      lähestymistapa ratkaista jokin käytännön ongelma tuntui sopivan
+      perusteelliselta tai perusteisiin nojaavalta aiheeseen tutustumisen
+      kannalta. Animointi myös onnistui pientä kauneusvirhettä lukuun ottamatta
+      kuten pitikin, responsiivisuus huomioiden.
+    </p>
+  </article>
+</section>
+
+<%- include('partials/footer')%>

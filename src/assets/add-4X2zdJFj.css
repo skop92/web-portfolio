@@ -1,0 +1,1 @@
+@keyframes addFieldFrames{0%{height:0;opacity:0}60%{opacity:0}to{opacity:1}}.grow-i,.grow-s{animation:addFieldFrames .45s ease-in-out 0s 1}.animation-ended{height:unset}
