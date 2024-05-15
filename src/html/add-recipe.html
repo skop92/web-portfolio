@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fi-FI">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reseptit</title>
+    <script type="module" crossorigin src="/assets/add-D9VJg4Sh.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-wuC9KvkX.js">
+    <link rel="modulepreload" crossorigin href="/assets/js-CWPXpkFr.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BPabXFcQ.css">
+    <link rel="stylesheet" crossorigin href="/assets/add-4X2zdJFj.css">
+  </head>
+
+  <body class="has-navbar-fixed-top">
+    <nav
+      class="navbar is-primary is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="mx-2" href="./home.html">
+          <img
+            src="/assets/reseptit-text-15-CaRsrKGX.svg"
+            width="100"
+            height="50"
+          />
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="myNavbarId"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="myNavbarId" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="./home.html" class="navbar-item"> Etusivu </a>
+          <a href="./recipes.html" class="navbar-item"> Kaikki reseptit </a>
+          <a href="./add-recipe.html" class="navbar-item is-tab is-active">
+            Lisää resepti
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-small is-info has-text-centered">
+      <div class="hero-body">
+        <p class="title is-size-2">Lisää resepti</p>
+      </div>
+    </section>
+
+    <div class="my-6 px-4 container is-max-desktop">
+      <form>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Reseptin nimi</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  name="name"
+                  placeholder="Soppa A"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Kuvaus</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  name="description"
+                  placeholder="Kirjoita kuvaus tähän"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2 title is-size-3 has-text-centered">Ainekset</div>
+
+        <section id="ingredients">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">1. ainesosa</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    name="qty1"
+                    placeholder="Määrä"
+                  />
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    name="ingredient1"
+                    placeholder="Ainesosa"
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="my-2 field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <button
+                  id="addi"
+                  type="button"
+                  class="button is-info is-rounded"
+                >
+                  Lisää ainesosa
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2 title is-size-3 has-text-centered">Ohjeet</div>
+
+        <section id="steps">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">1. askel</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea
+                    class="textarea"
+                    name="step1"
+                    placeholder="Kirjoita ohje tähän"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="my-2 field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <button
+                  id="adds"
+                  type="button"
+                  class="button is-info is-rounded"
+                >
+                  Lisää seuraava askel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Vinkit ja huomautukset</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  name="tips"
+                  placeholder="Kirjoita vinkit tähän"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2 title is-size-3 has-text-centered">Kuva</div>
+
+        <div id="image-upload" class="file is-info has-name is-centered">
+          <label class="file-label">
+            <input class="file-input" type="file" name="image" />
+            <span class="file-cta">
+              <span class="file-label">Selaa</span>
+            </span>
+            <span class="file-name"> Ei kuvaa... </span>
+          </label>
+        </div>
+
+        <div class="mt-6 field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <button type="submit" class="button is-success">
+                  Tallenna
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
