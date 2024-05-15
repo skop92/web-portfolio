@@ -10,54 +10,53 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(helmet());
 
 const scriptSrcUrls = [
-    "'unsafe-inline'",
+  "'unsafe-inline'",
 ];
 const styleSrcUrls = [
-    "https://fonts.googleapis.com",
-    "'unsafe-inline'",
+  "https://fonts.googleapis.com",
+  "'unsafe-inline'",
 ];
 const connectSrcUrls = [];
 const fontSrcUrls = [
-	"https://fonts.gstatic.com",
+  "https://fonts.gstatic.com",
 ];
 const imgSrcUrls = [
-	'blob:',
-    'data:',
+  'blob:',
+  'data:',
 ];
 app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            connectSrc: ["'self'", ...connectSrcUrls],
-            scriptSrc: ["'self'", ...scriptSrcUrls],
-            styleSrc: ["'self'", ...styleSrcUrls],
-            workerSrc: ["'self'", 'blob:'],
-            childSrc: ['blob:'],
-            objectSrc: [],
-            imgSrc: ["'self'", ...imgSrcUrls],
-            fontSrc: ["'self'", ...fontSrcUrls],
-			//upgradeInsecureRequests: null // To allow http in local network
-        }
-    })
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      scriptSrc: ["'self'", ...scriptSrcUrls],
+      styleSrc: ["'self'", ...styleSrcUrls],
+      workerSrc: ["'self'", 'blob:'],
+      childSrc: ['blob:'],
+      objectSrc: [],
+      imgSrc: ["'self'", ...imgSrcUrls],
+      fontSrc: ["'self'", ...fontSrcUrls],
+      upgradeInsecureRequests: process.env.NODE_ENV === "development" ? null : [] // To allow http in local network
+    }
+  })
 );
 
 /* GET */
 
 app.get('/', (req, res) => {
-	res.render('home', { active: "home" } );
+  res.render('home', { active: "home" } );
 });
 
 app.get('/portfolio', (req, res) => {
-	res.render('portfolio', { active: "portfolio" } );
+  res.render('portfolio', { active: "portfolio" } );
 });
 
 app.get('/portfolio-articles/:article', (req, res) => {
-	//console.log(req.params);
-	const { article } = req.params;
-	res.render(article, { active: "article" } );
+  const { article } = req.params;
+  res.render(article, { active: "article" } );
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-	console.log(`LISTENING ON PORT ${port}`);
+  console.log(`LISTENING ON PORT ${port}`);
 });
