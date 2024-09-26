@@ -18,7 +18,7 @@
   "homepage": "https://github.com/skop92/web-portfolio#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "helmet": "^6.2.0"
   }
 }
