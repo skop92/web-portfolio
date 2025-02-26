@@ -1,0 +1,199 @@
+<%- include('partials/head')%>
+
+<%- include('partials/topnav')%>
+
+<section class="portfolio-main">
+
+    <%- include('partials/sidenav')%>
+
+    <article class="portfolio-article">
+
+        <h2>Kirjanpito</h2>
+
+        <p>
+            Ohjelman kirjoitus on ajoittunut vuosille 2024-2025.
+        </p>
+        <p>
+            Tällä kirjanpito-ohjelmalla voi tehdä kahdenkertaista kirjanpitoa ja se on
+            tarkoitettu kevyeen käyttöön, esimerkiksi pienille yhdistyksille tai kotikäyttöön.
+            Kehitystyö on meneillään, sillä osa varsin tarpeellisista ominaisuuksista puuttuu.
+            Ohjelmalla pystyy jo kuitenkin tekemään kirjanpitoa kirjaus kerrallaan.
+            Julkaisua ei ole tehty, eikä se ole vielä suunnitteilla.
+        </p>
+        <p>Tärkeimmät valmiit ominaisuudet:</p>
+        <ul class="list">
+            <li>Tililuetteloiden laatiminen ja muokkaus, myös käyttöönoton jälkeen</li>
+            <li>Tilikauden avaus ja tilien avausten teko, myös edellisen tilikauden pohjalta</li>
+            <li>Maksutapahtumien kirjaus, muokkaus ja poisto</li>
+            <li>Automaattinen pääkirjan, tuloslaskelman ja taseen muodostaminen</li>
+            <li>Kielen valinta: englanti tai suomi</li>
+        </ul>
+        <p>Tärkeimmät tulossa olevat ominaisuudet:</p>
+        <ul class="list">
+            <li>Tililuetteloiden tuonti ja vienti json-tiedostona</li>
+            <li>Asiakirjojen vienti pdf-tiedostona</li>
+            <li>Muun muassa HTTP-pyyntöjen tilaa ilmaiseva tilarivi</li>
+        </ul>
+
+        <h3>Tausta</h3>
+        <p>
+            Projekti lähti liikkeelle omasta kiinnostuksestani kirjanpitoon
+            ja sen avulla tuotettuun tietoon omasta taloudesta.
+            Olin aiemmin tehnyt yhdistyksen tilinpäätöksen kirjanpitoineen
+            vuonna 2019 ilman tarkempaa pohjatietoa kirjanpidosta.
+            Tuolloin käytössä oli
+            <a href="https://www.lahdenniemi.fi/jussi/tappio/" target="_blank">
+              Tappio-kirjanpito-ohjelma<span class="material-icons md-16">open_in_new</span></a>,
+            joka on osaltaan toiminut mallina tälle ohjelmalle.
+            Vieläkään en kovin laajasti ymmärrä mitä kaikkea kirjanpidon tekemiseen kuuluu,
+            jotta voisin lisätä enemmän tarpeellisia ominaisuuksia ohjelmaan.
+            Siten ohjelma voi enemmän asiasta tietävälle tuntua primitiiviseltä
+            ja olla ominaisuuksiltaan selvästi puuttellinen.
+        </p>
+        <p>
+            Koodaus lähti liikkeelle "tyhjästä". Käytännössä voisi sanoa komennoista:
+        </p>
+        <ul class="list">
+            <li><span class="italic">npm init</span> (Node backend)</li>
+            <li><span class="italic">npx create-react-app my-app --template typescript</span> (React frontend)</li>
+        </ul>
+        <p>
+            Projektin pääasiallinen tarkoitus on toki soveltaa aiempaa osaamista
+            React-kirjastojen käytöstä kuin myös API:n koodaamisesta.
+        </p>
+
+        <h3>Toteutus</h3>
+        <p>
+            Toteutuksen kuvausta lyhyesti. Tämä ei kata läheskään koko ohjelmaa ja
+            osa asioista on paremmin ymmärrettävissä, jos osaa hahmottaa MERN Stackin eri osien merkitystä.
+        </p>
+        <p>
+            Ohjelman frontend on kirjoitettu kokonaan TypeScriptillä. Backend puolestaan vain JavaScriptillä.
+            Tietokantaa käytetään <span class="italic">mongoose</span>:lla.
+        </p>
+        <h4>Tietokanta</h4>
+        <p>Mongo-kantaan tallennetaan:</p>
+        <ul class="list">
+            <li>käyttäjätilin luoneet käyttäjät</li>
+            <li>tilikaudet, johon kuuluu myös tilien avaukset</li>
+            <li>tililuettelot</li>
+            <li>tiliryhmät</li>
+            <li>tilit</li>
+            <li>maksutapahtumat</li>
+        </ul>
+        <h4>Tiliryhmät tililuettelossa</h4>
+        <p>
+            Ohjelman ehkä monimutkaisin tietorakenteita koskeva viritys liittyy keskeisesti tiliryhmiin.
+            Tililuettelo sisältää käytännössä kaikki siihen liitetyt tilit ja tiliryhmät,
+            mutta vain kolme tiliryhmää kuuluu suoraan tililuetteloon.
+            Kyseiset tiliryhmät ovat oletuksena vastaavaa, vastattavaa ja tulos.
+            Kaikki muut tiliryhmät täytyy lisätä näihin tiliryhmiin tai muihin käyttäjän lisäämiin tiliryhmiin.
+            Tilejä voi lisätä mihin tahansa tiliryhmiin, muttei suoraan tililuetteloon.
+        </p>
+        <p>
+            Tiliryhmistä muodostuu siis puumaisen luettelorakenteen runko.
+            Valitusta rakenteesta seuraakin se, että tililuettelon muodostaminen
+            vaatii tiliryhmien rekursiivista läpikäyntiä.
+            Rekursio on tuottanut toisaalta päänvaivaa, mutta samalla se on
+            yksinkertaistanut tililuetteloa tietorakenteena
+            rajoittamatta liikaa erilaisia tapoja laatia tililuettelo.
+            Rakenteen vaikutukset näkyvät myös ohjelman muissa osissa.
+        </p>
+        <h4>Maksutapahtumat</h4>
+        <p>
+            Maksutapahtumat kirjataan aina jollekin tilikaudelle käyttäen
+            tilikauteen kuuluvan tililuettelon tilejä.
+            Ohjelma tarkistaa tilin kuuluvan tilikauteen.
+            Debet tai kredit summan syötössä lasketaan aina debet ja kredit puolien olevan tasapainossa,
+            kuten kahdenkertaiseen kirjanpitoon kuuluu.
+            Tarvittaessa tasapainon saavuttamiseksi lisätään uusi rivi ilman tiliä,
+            joka käyttäjän tulisi määrittää ennen tapahtuman lisäämistä kirjanpitoon,
+            ellei tasapainoa muuten korjata. Ilman tiliä lisäys ei onnistu.
+            Näin voidaan olla kohtalaisen varmoja siitä,
+            että ohjelma ei anna syöttää sellaisia tietoja,
+            jotka johtaisivat taseen loppusummassa poikkeamaan.
+        </p>
+        <p>
+            Maksutapahtumat muodostavat tilin avausten ohella pohjan
+            pääkirjan, tuloslaskelman ja taseen laskemiselle.
+            Samalla kun maksutapahtuma tallennetaan tietokantaan,
+            se päivitetään selaimessa ohjelman muistiin, jossa on lista maksutapahtumista.
+            Tätä muistin tilaa ylläpidetään <span class="italic">redux store</span>:lla.
+            Maksutapahtumien listasta voidaan aina tarvittaessa laskea luvut muihin dokumentteihin,
+            eli pääkirjaan, tuloslaskelmaan ja taseeseen.
+            Tiedot koostetaan käytännössä <span class="italic">memoi selector</span>:illa,
+            eli esimerkiksi pääkirjan tiedot lasketaan uudestaan vain,
+            jos sen tietoja tarvitaan jonkin sivun näyttämiseen ja maksutapahtumien listaan on tullut muutoksia.
+            Valittu menettelytapa lienee kohtuullisen tehokas (muttei ehkä optimaalisin)
+            vielä melko pienellä tietomäärällä,
+            mikä todennäköisesti riittää tässä vaiheessa ensisijaisille käyttäjäryhmille.
+            Suuremmalla maksutapahtumien määrällä optimointi voisi tulla tarpeeseen,
+            mikä voisi tarkoittaa suurtakin muutosta ohjelman toimintalogiikkaan.
+        </p>
+        <h4>Kielen valinta</h4>
+        <p>
+            Ratkaisu ongelmaan on yksinkertainen.
+            Yhdessä tiedostossa on kaikki teksti, joka pitää olla saatavilla eri kielillä.
+            Jokaiselle komponentille tai vastaavalle käyttökohteelle on oma objekti,
+            jossa jokaiselle tekstipätkälle on oman avaimen alla objekti,
+            jonka avaimina on ohjelman kielivalikoima ("en" ja "fi") ja niitä vastaavat tekstit.
+            Kielivalinta on muistissa <span class="italic">redux store</span>:ssa.
+            Sitä ei kuitenkaan tallenneta tietokantaan, vaan selaimeen käyttäen
+            <span class="italic">persist store</span>:a.
+            Siten valinta muistetaan jo ennen käyttäjän kirjautumista.
+            Käyttäjäkohtainen oletuskieli olisi pienellä vaivannäöllä lisättävissä.
+        </p>
+
+        <h3>Galleria</h3>
+        <p>
+            Muutamia keksityllä datalla otettuja ruutukaappauksia ohjelman käytöstä.
+            Käyttöliittymästä ehkä näkee, että ohjelma on vielä kehitteillä.
+        </p>
+        <div class="gallery-container">
+            <div class="gallery-heading">
+                Avaa kuvasarja klikkaamalla
+            </div>
+
+            <div class="pfl-img-container">
+                <a href="/images/kirjanpito-01-kirjautumissivu.png" data-lightbox="kirjanpito"
+                    data-title="Ohjelman kirjautumissivu testikäyttäjän tunnuksilla">
+                    <img class="pfl-img" src="/images/kirjanpito-01-kirjautumissivu.png"
+                        alt="Ohjelman kirjautumissivu" title="Ohjelman kirjautumissivu">
+                </a>
+                <a href="/images/kirjanpito-02-tililuettelot.png" data-lightbox="kirjanpito"
+                    data-title="Yksi tililuettelo valittu muokattavaksi">
+                    <img class="pfl-img" src="/images/kirjanpito-02-tililuettelot.png"
+                        alt="Tililuettelosivu valittu" title="Tililuettelosivu valittu">
+                </a>
+                <a href="/images/kirjanpito-03-paivakirja.png" data-lightbox="kirjanpito"
+                    data-title="Päiväkirjassa yksi maksu valittuna">
+                    <img class="pfl-img" src="/images/kirjanpito-03-paivakirja.png"
+                        alt="Päiväkirja" title="Päiväkirja">
+                </a>
+                <a href="/images/kirjanpito-04-paakirja.png" data-lightbox="kirjanpito"
+                    data-title="Pääkirjan alku">
+                    <img class="pfl-img" src="/images/kirjanpito-04-paakirja.png"
+                        alt="Pääkirja" title="Pääkirja">
+                </a>
+                <a href="/images/kirjanpito-05-tulos.png" data-lightbox="kirjanpito"
+                    data-title="Tuloslaskelma">
+                    <img class="pfl-img" src="/images/kirjanpito-05-tulos.png"
+                        alt="Tuloslaskelma" title="Tuloslaskelma">
+                </a>
+                <a href="/images/kirjanpito-06-tase.png" data-lightbox="kirjanpito"
+                    data-title="Tase">
+                    <img class="pfl-img" src="/images/kirjanpito-06-tase.png"
+                        alt="Tase" title="Tase">
+                </a>
+                <a href="/images/kirjanpito-07-luo-tilikausi.png" data-lightbox="kirjanpito"
+                    data-title="Tilikauden avaus edellisen tilikauden tileistä">
+                    <img class="pfl-img" src="/images/kirjanpito-07-luo-tilikausi.png"
+                        alt="Tilikauden avaus" title="Tilikauden avaus">
+                </a>
+            </div>
+        </div>
+
+    </article>
+</section>
+
+<%- include('partials/footer')%>
