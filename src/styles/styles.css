@@ -271,6 +271,12 @@ nav a.active {
   background-color: var(--color-gc);
 }
 
+.pf-idea {
+  color: var(--color-g4);
+  margin: 0 0 1em;
+  padding: 0.5em 0;
+}
+
 .key-word-container {
   display: flex;
   flex-wrap: wrap;
