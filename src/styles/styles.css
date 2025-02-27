@@ -163,9 +163,15 @@ nav a.active {
   background-color: var(--color-gd);
   min-width: 270px;
   display: none;
-  padding: 1em 1.125em;
+  padding: 0 1.125em;
   text-align: left;
   box-shadow: 0.25rem 0 0.25rem var(--color-g9);
+}
+
+.side-nav-content {
+  padding: 1em 0;
+  position: sticky;
+  top: 30px;
 }
 
 .side-nav li,
@@ -263,6 +269,12 @@ nav a.active {
   letter-spacing: 0.0625em;
   padding: 0.375em 1.75em;
   background-color: var(--color-gc);
+}
+
+.pf-idea {
+  color: var(--color-g4);
+  margin: 0 0 1em;
+  padding: 0.5em 0;
 }
 
 .key-word-container {
@@ -485,7 +497,7 @@ a:hover.pf-header {
 /* Extra large */
 @media only screen and (min-width: 1200px) {
   .side-nav {
-    padding: 1em 1.75em;
+    padding: 0 1.75em;
   }
   .img-container img {
     max-width: 6em;
@@ -499,7 +511,7 @@ a:hover.pf-header {
 /* Extra extra large */
 @media only screen and (min-width: 1400px) {
   .side-nav {
-    padding: 1em 2em;
+    padding: 0 2em;
   }
   .pfl-img {
     max-width: 272px;
